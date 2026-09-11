@@ -1,0 +1,11 @@
+﻿table_name,column_name,issue_type,non_missing_count,unique_non_missing_count
+employees,termination_date,ALL_MISSING,0,0
+inventory_daily_snapshot_raw,warehouse_id,CONSTANT_COLUMN,19456,1
+inventory_movements_raw,warehouse_id,CONSTANT_COLUMN,683,1
+inventory_policy_history,effective_to,CONSTANT_COLUMN,6,1
+inventory_policy_history,annual_holding_rate_pct,CONSTANT_COLUMN,38,1
+product_supplier_map_raw,effective_to,ALL_MISSING,0,0
+purchase_orders_raw,buyer_id,CONSTANT_COLUMN,234,1
+shipments_raw,warehouse_id,CONSTANT_COLUMN,348,1
+shipments_raw,shipment_status,CONSTANT_COLUMN,348,1
+supplier_payments_raw,payment_method,CONSTANT_COLUMN,225,1

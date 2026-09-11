@@ -1,0 +1,81 @@
+﻿table_name,key_type,column_name,key_position,references_table,references_column,match_rate_pct,proposal
+after_sales_cases_raw,PRIMARY_KEY,case_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+after_sales_cases_raw,FOREIGN_KEY,sales_order_id,,sales_orders_raw,sales_order_id,100.0,FK candidate based on column meaning + actual value match.
+after_sales_cases_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+business_interventions,PRIMARY_KEY,intervention_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+customers_raw,PRIMARY_KEY,customer_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+departments,PRIMARY_KEY,department_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+employees,PRIMARY_KEY,employee_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+employees,FOREIGN_KEY,department_id,,departments,department_id,100.0,FK candidate based on column meaning + actual value match.
+fx_rates_daily,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+inventory_daily_snapshot_raw,PRIMARY_KEY,snapshot_date,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+inventory_daily_snapshot_raw,PRIMARY_KEY,product_id,2,,,,Proposed from non-missing + uniqueness/grain heuristics.
+inventory_daily_snapshot_raw,FOREIGN_KEY,warehouse_id,,warehouses,warehouse_id,100.0,FK candidate based on column meaning + actual value match.
+inventory_daily_snapshot_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+inventory_movements_raw,PRIMARY_KEY,inventory_move_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+inventory_movements_raw,FOREIGN_KEY,warehouse_id,,warehouses,warehouse_id,100.0,FK candidate based on column meaning + actual value match.
+inventory_movements_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+inventory_policy_history,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+inventory_policy_history,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+invoice_lines_raw,PRIMARY_KEY,invoice_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+invoice_lines_raw,FOREIGN_KEY,invoice_id,,invoices_raw,invoice_id,100.0,FK candidate based on column meaning + actual value match.
+invoice_lines_raw,FOREIGN_KEY,sales_order_line_id,,sales_order_lines_raw,sales_order_line_id,100.0,FK candidate based on column meaning + actual value match.
+invoice_lines_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+invoices_raw,PRIMARY_KEY,invoice_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+invoices_raw,FOREIGN_KEY,sales_order_id,,sales_orders_raw,sales_order_id,100.0,FK candidate based on column meaning + actual value match.
+invoices_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+leads_raw,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+leads_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+leads_raw,FOREIGN_KEY,campaign_id,,marketing_campaigns,campaign_id,100.0,FK candidate based on column meaning + actual value match.
+marketing_campaigns,PRIMARY_KEY,campaign_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+marketing_daily_raw,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+marketing_daily_raw,FOREIGN_KEY,campaign_id,,marketing_campaigns,campaign_id,100.0,FK candidate based on column meaning + actual value match.
+payments_raw,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+payments_raw,FOREIGN_KEY,invoice_id,,invoices_raw,invoice_id,100.0,FK candidate based on column meaning + actual value match.
+payments_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+process_events_raw,PRIMARY_KEY,process_event_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+product_supplier_map_raw,PRIMARY_KEY,map_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+product_supplier_map_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+product_supplier_map_raw,FOREIGN_KEY,supplier_id,,suppliers_raw,supplier_id,100.0,FK candidate based on column meaning + actual value match.
+products_raw,PRIMARY_KEY,product_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+purchase_order_lines_raw,PRIMARY_KEY,purchase_order_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+purchase_order_lines_raw,FOREIGN_KEY,purchase_order_id,,purchase_orders_raw,purchase_order_id,100.0,FK candidate based on column meaning + actual value match.
+purchase_order_lines_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+purchase_orders_raw,PRIMARY_KEY,purchase_order_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+purchase_orders_raw,FOREIGN_KEY,supplier_id,,suppliers_raw,supplier_id,100.0,FK candidate based on column meaning + actual value match.
+purchase_orders_raw,FOREIGN_KEY,buyer_id,,employees,employee_id,100.0,FK candidate based on column meaning + actual value match.
+qa_events_raw,PRIMARY_KEY,purchase_order_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+qa_events_raw,FOREIGN_KEY,purchase_order_id,,purchase_orders_raw,purchase_order_id,100.0,FK candidate based on column meaning + actual value match.
+qa_events_raw,FOREIGN_KEY,purchase_order_line_id,,purchase_order_lines_raw,purchase_order_line_id,100.0,FK candidate based on column meaning + actual value match.
+qa_events_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+qa_events_raw,FOREIGN_KEY,supplier_id,,suppliers_raw,supplier_id,100.0,FK candidate based on column meaning + actual value match.
+quotation_lines_raw,PRIMARY_KEY,quotation_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+quotation_lines_raw,FOREIGN_KEY,quotation_id,,quotations_raw,quotation_id,100.0,FK candidate based on column meaning + actual value match.
+quotation_lines_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+quotations_raw,PRIMARY_KEY,quotation_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+quotations_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+quotations_raw,FOREIGN_KEY,salesperson_id,,employees,employee_id,100.0,FK candidate based on column meaning + actual value match.
+sales_activities_raw,PRIMARY_KEY,,,,,,No safe automatic PK. Review grain/composite key.
+sales_activities_raw,FOREIGN_KEY,employee_id,,employees,employee_id,100.0,FK candidate based on column meaning + actual value match.
+sales_order_lines_raw,PRIMARY_KEY,sales_order_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+sales_order_lines_raw,FOREIGN_KEY,sales_order_id,,sales_orders_raw,sales_order_id,100.0,FK candidate based on column meaning + actual value match.
+sales_order_lines_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+sales_orders_raw,PRIMARY_KEY,sales_order_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+sales_orders_raw,FOREIGN_KEY,quotation_id,,quotations_raw,quotation_id,100.0,FK candidate based on column meaning + actual value match.
+sales_orders_raw,FOREIGN_KEY,customer_id,,customers_raw,customer_id,100.0,FK candidate based on column meaning + actual value match.
+sales_orders_raw,FOREIGN_KEY,salesperson_id,,employees,employee_id,100.0,FK candidate based on column meaning + actual value match.
+shipment_lines_raw,PRIMARY_KEY,shipment_line_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+shipment_lines_raw,FOREIGN_KEY,shipment_id,,shipments_raw,shipment_id,100.0,FK candidate based on column meaning + actual value match.
+shipment_lines_raw,FOREIGN_KEY,sales_order_line_id,,sales_order_lines_raw,sales_order_line_id,100.0,FK candidate based on column meaning + actual value match.
+shipment_lines_raw,FOREIGN_KEY,product_id,,products_raw,product_id,100.0,FK candidate based on column meaning + actual value match.
+shipments_raw,PRIMARY_KEY,shipment_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+shipments_raw,FOREIGN_KEY,sales_order_id,,sales_orders_raw,sales_order_id,100.0,FK candidate based on column meaning + actual value match.
+shipments_raw,FOREIGN_KEY,warehouse_id,,warehouses,warehouse_id,100.0,FK candidate based on column meaning + actual value match.
+supplier_invoices_raw,PRIMARY_KEY,supplier_invoice_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+supplier_invoices_raw,FOREIGN_KEY,purchase_order_id,,purchase_orders_raw,purchase_order_id,100.0,FK candidate based on column meaning + actual value match.
+supplier_invoices_raw,FOREIGN_KEY,supplier_id,,suppliers_raw,supplier_id,100.0,FK candidate based on column meaning + actual value match.
+supplier_payments_raw,PRIMARY_KEY,supplier_payment_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+supplier_payments_raw,FOREIGN_KEY,supplier_invoice_id,,supplier_invoices_raw,supplier_invoice_id,100.0,FK candidate based on column meaning + actual value match.
+supplier_payments_raw,FOREIGN_KEY,supplier_id,,suppliers_raw,supplier_id,100.0,FK candidate based on column meaning + actual value match.
+suppliers_raw,PRIMARY_KEY,supplier_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.
+warehouses,PRIMARY_KEY,warehouse_id,1,,,,Proposed from non-missing + uniqueness/grain heuristics.

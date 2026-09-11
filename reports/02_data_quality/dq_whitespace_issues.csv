@@ -1,0 +1,6 @@
+﻿table_name,column_name,leading_trailing_space_count,repeated_space_count,tab_newline_count,total_whitespace_issue_count
+customers_raw,company_name,10,6,0,10
+leads_raw,company_name_raw,15,15,0,15
+leads_raw,source_channel_raw,5,5,0,5
+products_raw,product_name,1,1,0,1
+suppliers_raw,supplier_name,1,1,0,1
