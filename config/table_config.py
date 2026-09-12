@@ -1,7 +1,7 @@
 # =========================================================
 # DATABASE CONFIG
 # =========================================================
-SERVER = r"DESKTOP-4F2KL18\MSSQLSERVER1"
+SERVER = r"localhost\SQLEXPRESS"
 DATABASE = "SEPRO_Master_Prod"
 
 # =========================================================

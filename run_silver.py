@@ -4,6 +4,7 @@ from urllib.parse import quote_plus
 import pandas as pd
 from sqlalchemy import create_engine, text
 
+
 from config.table_config import (
     BRONZE_TABLES,
     EXPECTED_TABLE_COUNT,
