@@ -16,8 +16,8 @@ from data_quality import (
 # FK NAME ALIASES
 # =========================================================
 #
-# These are only name hints for FK proposal.
-# A relationship is still proposed only when actual values match.
+# Some relationships use different child and parent names. These aliases are
+# naming hints only; actual value matching is still required before an FK is proposed.
 #
 # Business-specific aliases can be added later if the real columns
 # use different names.
@@ -39,6 +39,9 @@ def build_column_proposal(
     df: pd.DataFrame,
 ) -> Dict:
     """
+    Build normalized name, candidate datatype, and nullable metadata for each
+    Bronze column. This creates schema metadata only and does not transform data.
+
     JSON format for columns:
 
     "source_column_name": {
@@ -82,11 +85,8 @@ def build_primary_key_proposal(
     df: pd.DataFrame,
 ) -> List[str]:
     """
-    Return proposed PK columns.
-    Can return:
-        ["customer_id"]
-        ["snapshot_date", "product_id", "warehouse_id"]
-        []
+    Use the shared PK inference rule so schema construction and DQ review agree.
+    The result is a proposal and may require manual confirmation.
     """
     return suggest_primary_key(df)
 
@@ -99,8 +99,8 @@ def _key_values(
     series: pd.Series,
 ) -> pd.Series:
     """
-    Normalize only for FK comparison.
-    Source data is not modified.
+    Normalize key values temporarily for FK comparison so case and whitespace
+    differences do not unnecessarily lower relationship match rates.
     """
     return (
         series.astype("string")
@@ -116,6 +116,7 @@ def _key_values(
 def _expected_parent_key_name(
     source_column: str,
 ) -> str:
+    """Map a child FK-like name to its expected parent key using aliases."""
     clean_name = normalize_column_name(
         source_column
     )
@@ -129,6 +130,7 @@ def _expected_parent_key_name(
 def _is_fk_candidate_column(
     column_name: str,
 ) -> bool:
+    """Keep expensive FK matching focused on ID-like or aliased columns."""
     clean_name = normalize_column_name(
         column_name
     )
@@ -148,6 +150,9 @@ def calculate_fk_match_rate(
     parent_series: pd.Series,
 ) -> Tuple[float, int, int]:
     """
+    Measure how many non-empty child values occur in the candidate parent key;
+    naming similarity alone is not enough to propose a relationship.
+
     Returns:
         match_rate
         matched_count
@@ -211,7 +216,11 @@ def propose_foreign_keys(
     min_match_rate: float = 0.80,
 ) -> Tuple[List[Dict], List[Dict]]:
     """
-    Propose only simple single-column FK relationships.
+    Search for conservative FK candidates using column-name compatibility and
+    actual value matching. Results are candidates for review, not confirmed FKs.
+
+    Automatic matching currently considers only parent tables with a
+    single-column proposed PK.
 
     JSON output keeps only:
         column
@@ -271,6 +280,7 @@ def propose_foreign_keys(
                 parent_df[parent_column],
             )
 
+            # Reject weak matches so naming coincidences do not become FK proposals.
             if match_rate < min_match_rate:
                 continue
 
@@ -297,6 +307,7 @@ def propose_foreign_keys(
         if not candidates:
             continue
 
+        # When several parents qualify, keep the strongest observed match.
         candidates.sort(
             key=lambda item: (
                 item["match_rate"],
@@ -361,6 +372,7 @@ def build_table_proposal_text(
     primary_key: List[str],
     foreign_keys: List[Dict],
 ) -> str:
+    """Summarize inferred PK/FK status for the human review output."""
     if primary_key:
         pk_text = (
             " + ".join(primary_key)
@@ -396,6 +408,7 @@ def build_one_table_proposal(
     all_tables: Dict[str, pd.DataFrame],
     primary_keys: Dict[str, List[str]],
 ) -> Tuple[Dict, List[Dict]]:
+    """Combine column, PK, and FK proposals into one table review structure."""
     primary_key = primary_keys[
         table_name
     ]
@@ -445,6 +458,10 @@ def build_schema_proposal(
     all_tables: Dict[str, pd.DataFrame],
 ) -> Tuple[Dict, pd.DataFrame, pd.DataFrame]:
     """
+    Build proposals for every loaded Bronze table and prepare the master JSON
+    plus flattened CSV reports. PKs are calculated first because FK inference
+    needs the proposed parent keys.
+
     Return:
         master_json
         column_report
@@ -647,6 +664,7 @@ def export_schema_proposal(
     report_dir: Path,
     review_dir: Path,
 ) -> Dict[str, Path]:
+    """Persist proposal CSVs and editable review JSON before Silver implementation."""
 
     proposal_dir = (
         report_dir

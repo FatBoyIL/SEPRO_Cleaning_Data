@@ -1,6 +1,7 @@
 # =========================================================
 # DATABASE CONFIG
 # =========================================================
+# SQL Server instance and database read by the profiling pipeline.
 SERVER = r"localhost\SQLEXPRESS"
 DATABASE = "SEPRO_Master_Prod"
 
@@ -8,9 +9,10 @@ DATABASE = "SEPRO_Master_Prod"
 # BRONZE TABLE CONFIG
 # =========================================================
 
+# Guardrail for detecting an incomplete Bronze inventory before execution.
 EXPECTED_TABLE_COUNT = 32
 
-
+# The source inventory iterated by Phase 1; add or remove tables here intentionally.
 BRONZE_TABLES = [
     "after_sales_cases_raw",
     "business_interventions",

@@ -35,6 +35,9 @@ from schema_proposal import (
 # 1. PROJECT PATH
 # =========================================================
 
+# Keep each Phase 1 output category in its own destination so profiling,
+# Data Quality, schema proposals, and manual review remain easy to locate.
+
 BASE_DIR = Path(
     __file__
 ).resolve().parent
@@ -81,6 +84,9 @@ for folder in (
 # 2. SQL SERVER CONNECTION
 # =========================================================
 
+# A single SQLAlchemy engine gives every Bronze read the same connection
+# configuration and avoids duplicating database setup across the pipeline.
+
 connection_string = quote_plus(
     f"DRIVER={{ODBC Driver 18 for SQL Server}};"
     f"SERVER={SERVER};"
@@ -100,6 +106,10 @@ engine = create_engine(
 # =========================================================
 
 def validate_table_config():
+    """
+    Fail early if the configured Bronze inventory is incomplete or duplicated.
+    The rest of the pipeline assumes this list represents the full source set.
+    """
     actual_count = len(
         BRONZE_TABLES
     )
@@ -136,6 +146,10 @@ def validate_table_config():
 # =========================================================
 
 def test_connection():
+    """
+    Run a minimal query before loading data so connection or configuration
+    problems are found before the more expensive pipeline work begins.
+    """
     with engine.connect() as conn:
         conn.execute(
             text("SELECT 1")
@@ -153,6 +167,12 @@ def test_connection():
 def read_bronze_table(
     table_name,
 ):
+    """
+    Read one Bronze table into a Pandas DataFrame and centralize the database
+    access so downstream Data Quality functions do not need SQL logic.
+    """
+    # Escape closing brackets before inserting a configured name as a SQL
+    # identifier.
     safe_table_name = (
         table_name.replace(
             "]",
@@ -181,7 +201,8 @@ def read_bronze_table(
 
 def read_all_bronze_tables():
     """
-    Load all 32 Bronze tables once.
+    Load every configured Bronze table once and retain the DataFrames in a
+    dictionary so later stages reuse memory instead of querying SQL Server.
 
     Output:
         {
@@ -222,9 +243,9 @@ def run_data_quality_scan(
     all_tables,
 ):
     """
-    IMPORTANT:
-    This phase only checks data.
-    It does NOT clean or overwrite Bronze.
+    Run the independent Data Quality checks for every Bronze table and group
+    their results for reporting. This phase only inspects data; it never cleans
+    or overwrites Bronze.
     """
     results = {
         "table_profile": [],
@@ -253,6 +274,7 @@ def run_data_quality_scan(
             f"{table_name}"
         )
 
+        # Basic shape and missing-value diagnostics.
         results[
             "table_profile"
         ].append(
@@ -262,6 +284,7 @@ def run_data_quality_scan(
             )
         )
 
+        # Key and duplicate diagnostics.
         results[
             "column_profile"
         ].extend(
@@ -271,6 +294,7 @@ def run_data_quality_scan(
             )
         )
 
+        # Text-quality and structural diagnostics.
         results[
             "missing"
         ].extend(
@@ -325,6 +349,7 @@ def run_data_quality_scan(
             )
         )
 
+        # Infer candidate Silver datatypes and capture values that violate them.
         datatype_rows = (
             suggest_datatypes(
                 table_name,
@@ -361,7 +386,8 @@ def save_csv_report(
     columns,
 ):
     """
-    Save report to the correct report subfolder.
+    Write a report with shared CSV settings and route it to the folder for its
+    report type so generated outputs stay organized.
     """
 
     profile_files = {
@@ -373,6 +399,7 @@ def save_csv_report(
         "silver_datatype_suggestions.csv",
     }
 
+    # Keep profile, Data Quality, and proposal files in separate directories.
     if filename in profile_files:
         target_dir = PROFILE_DIR
 
@@ -408,6 +435,11 @@ def save_csv_report(
 def save_data_quality_reports(
     results,
 ):
+    """
+    Convert each Data Quality result group into its corresponding CSV report.
+    Keeping output separate from scanning lets the analysis rules stay focused
+    on inspection rather than file management.
+    """
     report_paths = []
 
     report_paths.append(
@@ -577,22 +609,9 @@ def run_schema_proposal(
     all_tables,
 ):
     """
-    Build:
-    1. Column proposal CSV
-    2. PK/FK proposal CSV
-    3. One editable JSON for all 32 tables
-
-    JSON contains ONLY:
-    Table:
-        name
-        primary_key
-        foreign_keys
-        proposal
-
-    Column:
-        name
-        datatype
-        nullable
+    Bridge Data Quality evidence to the proposed Silver schema outputs. The
+    generated CSV and editable JSON are review material, not the final approved
+    Silver schema.
     """
     (
         master_json,
@@ -621,6 +640,10 @@ def print_output_summary(
     dq_report_paths,
     proposal_paths,
 ):
+    """
+    Show completion status and point the operator to the review artifacts and
+    the manual checkpoint that must happen before any cleaning work.
+    """
     print()
     print("=" * 60)
     print(
@@ -678,6 +701,10 @@ def print_output_summary(
 # =========================================================
 
 def main():
+    """
+    Execute Phase 1 in order: validate configuration, test the database, load
+    Bronze, run Data Quality, save reports, and build the schema proposal.
+    """
     print("=" * 60)
     print(
         "SILVER PHASE 1 - "

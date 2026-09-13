@@ -28,7 +28,11 @@ NULL_MARKERS = {
 
 def normalize_column_name(column_name: str) -> str:
     """
-    Convert a Bronze column name to a simple Silver-style name.
+    Create a consistent Silver-style name from an inconsistent Bronze name.
+    This proposes naming only; it does not rename the source DataFrame.
+
+    The ``_raw`` suffix identifies the Bronze representation, so it is removed
+    from the proposed Silver name.
 
     Example:
         "Order Date Raw" -> "order_date"
@@ -47,8 +51,8 @@ def normalize_column_name(column_name: str) -> str:
 
 def _normalized_string_series(series: pd.Series) -> pd.Series:
     """
-    Normalize text only for comparison.
-    Does NOT modify the source DataFrame.
+    Create a temporary normalized text view for comparisons such as missing
+    markers and text variants without modifying the original source values.
     """
     return (
         series.astype("string")
@@ -60,9 +64,8 @@ def _normalized_string_series(series: pd.Series) -> pd.Series:
 
 def get_missing_masks(series: pd.Series) -> Tuple[pd.Series, pd.Series]:
     """
-    Return:
-        real_null_mask   -> real pandas NULL/NaN
-        marker_null_mask -> text markers such as N/A, Unknown, "-"
+    Separate real NULL values from configured text placeholders because they
+    represent different Data Quality problems and should be reported apart.
     """
     real_null_mask = series.isna()
 
@@ -77,7 +80,8 @@ def get_missing_masks(series: pd.Series) -> Tuple[pd.Series, pd.Series]:
 
 def has_missing(series: pd.Series) -> bool:
     """
-    True if the column contains real NULL or configured NULL markers.
+    Provide one shared nullable check so other modules use the same definition
+    of a missing value, including schema proposal logic.
     """
     real_null_mask, marker_null_mask = get_missing_masks(series)
     return bool((real_null_mask | marker_null_mask).any())
@@ -85,14 +89,15 @@ def has_missing(series: pd.Series) -> bool:
 
 def _effective_non_missing(series: pd.Series) -> pd.Series:
     """
-    Return values after excluding real NULL and marker NULL.
-    Source data is not changed.
+    Exclude real NULLs and configured text markers before uniqueness and type
+    inference so placeholders do not distort profiling evidence.
     """
     real_null_mask, marker_null_mask = get_missing_masks(series)
     return series[~(real_null_mask | marker_null_mask)]
 
 
 def _numeric_ratio(values: pd.Series) -> float:
+    """Measure how much of a column parses as numeric without converting it."""
     if len(values) == 0:
         return 0.0
 
@@ -107,6 +112,7 @@ def _numeric_ratio(values: pd.Series) -> float:
 
 
 def _date_ratio(values: pd.Series) -> float:
+    """Measure parseable date values while filtering out plain numeric IDs."""
     if len(values) == 0:
         return 0.0
 
@@ -137,7 +143,14 @@ def infer_silver_datatype(
     column_name: str,
 ) -> Dict:
     """
-    Suggest a simple Silver datatype.
+    Propose a Silver datatype from the column name and observed values; this
+    function does not convert the source data.
+
+    Identifier-like fields stay strings to preserve meaningful leading zeros.
+    Boolean inference requires both a boolean-like name and values, while date
+    inference combines name hints with parse success to reduce false matches.
+    Numeric inference is deliberately conservative and requires a very high
+    parse ratio.
 
     Output values:
         string
@@ -198,6 +211,7 @@ def infer_silver_datatype(
         or clean_name.endswith("_indicator")
     )
 
+    # Require both name and value evidence before classifying a boolean column.
     if (
         boolean_name_hint
         and unique_values
@@ -220,6 +234,8 @@ def infer_silver_datatype(
         )
     )
 
+    # Column-name hints plus parse success are stronger evidence than values
+    # alone, which can make numeric fields look date-like.
     if date_name_hint and date_ratio >= 0.80:
         contains_time = (
             values.astype("string")
@@ -241,6 +257,7 @@ def infer_silver_datatype(
             "date_ratio": round(date_ratio, 4),
         }
 
+    # Keep automatic datatype proposals conservative when source values vary.
     if numeric_ratio >= 0.98:
         numeric_values = pd.to_numeric(
             values.astype("string")
@@ -297,8 +314,8 @@ def infer_silver_datatype(
 
 def _normalized_key_series(series: pd.Series) -> pd.Series:
     """
-    Normalize key values only for uniqueness comparison.
-    Does not modify source values.
+    Normalize key values only for uniqueness comparison so casing and
+    surrounding spaces do not create false uniqueness; source values are kept.
     """
     return (
         series.astype("string")
@@ -309,16 +326,11 @@ def _normalized_key_series(series: pd.Series) -> pd.Series:
 
 def suggest_primary_key(df: pd.DataFrame) -> List[str]:
     """
-    Suggest a safe PK.
+    Suggest a candidate primary key from current data quality and uniqueness.
+    This is a schema proposal, not confirmation of business truth.
 
-    Priority:
-    1. Unique + non-missing single column, especially *_id
-    2. Unique + non-missing composite key from likely grain columns
-       (up to 3 columns)
-    3. Return [] if no safe proposal is found.
-
-    Important:
-    This is only a proposal. User review remains mandatory.
+    The search first prefers a non-missing unique single column, especially an
+    ``*_id`` field, then tests small combinations of likely grain columns.
     """
     if df.empty or len(df.columns) == 0:
         return []
@@ -382,11 +394,12 @@ def suggest_primary_key(df: pd.DataFrame) -> List[str]:
         ):
             likely_columns.append(column)
 
-    # Keep the search small and Junior-friendly.
+    # Limit the candidate pool to avoid a combinatorial search over every field.
     likely_columns = likely_columns[:8]
 
     from itertools import combinations
 
+    # More complex grains require manual review rather than automatic guessing.
     for size in (2, 3):
         for combo in combinations(
             likely_columns,
@@ -409,6 +422,7 @@ def profile_table(
     table_name: str,
     df: pd.DataFrame,
 ) -> Dict:
+    """Summarize table size, shape, NULL volume, and exact duplicates."""
     return {
         "table_name": table_name,
         "row_count": int(len(df)),
@@ -428,6 +442,7 @@ def profile_columns(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Profile raw datatype, missingness, and effective uniqueness per column."""
     rows = []
 
     for column in df.columns:
@@ -442,6 +457,8 @@ def profile_columns(
             | marker_null_mask
         )
 
+        # Exclude configured markers so placeholder values do not count as
+        # meaningful distinct values in effective uniqueness.
         effective_values = series[~missing_mask]
 
         row_count = len(series)
@@ -494,6 +511,7 @@ def check_missing_values(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Report real NULLs separately from text placeholders with examples."""
     rows = []
 
     for column in df.columns:
@@ -558,6 +576,7 @@ def check_primary_key(
     table_name: str,
     df: pd.DataFrame,
 ) -> Dict:
+    """Validate the proposed PK for missing values and raw/normalized duplicates."""
     pk_columns = suggest_primary_key(df)
 
     if not pk_columns:
@@ -672,6 +691,7 @@ def check_exact_duplicates(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Find fully duplicated rows that can distort counts and key inference."""
     duplicate_mask = df.duplicated(
         keep=False
     )
@@ -708,6 +728,7 @@ def check_text_variants(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Find raw spellings that collapse to the same normalized text value."""
     rows = []
 
     for column in df.columns:
@@ -796,6 +817,7 @@ def check_whitespace_issues(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Measure spaces and hidden tab/newline characters that can break equality."""
     rows = []
 
     for column in df.columns:
@@ -892,6 +914,7 @@ def check_column_structure(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Flag unusable or constant columns as review signals, not deletions."""
     rows = []
 
     for column in df.columns:
@@ -949,6 +972,7 @@ def suggest_datatypes(
     table_name: str,
     df: pd.DataFrame,
 ) -> List[Dict]:
+    """Apply datatype inference consistently and format its evidence for reports."""
     rows = []
 
     for column in df.columns:
@@ -987,6 +1011,7 @@ def check_datatype_issues(
     df: pd.DataFrame,
     datatype_suggestions: List[Dict],
 ) -> List[Dict]:
+    """Find source values that violate a proposed type; this does not clean them."""
     rows = []
 
     suggestion_map = {
