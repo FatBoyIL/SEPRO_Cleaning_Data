@@ -41,24 +41,26 @@ BASE_DIR = Path(
     __file__
 ).resolve().parent
 
+# =========================================================
+# 1. PROJECT PATH
+# =========================================================
+#
+# Review Phase chỉ cần 2 nơi output:
+#
+# reports/
+#   - các report máy tạo tự động
+#
+# review/
+#   - các file Data Analyst cần review/chỉnh sửa
+# =========================================================
+
+BASE_DIR = Path(
+    __file__
+).resolve().parent
+
 REPORT_DIR = (
     BASE_DIR
     / "reports"
-)
-
-PROFILE_DIR = (
-    REPORT_DIR
-    / "01_profile"
-)
-
-DQ_DIR = (
-    REPORT_DIR
-    / "02_data_quality"
-)
-
-PROPOSAL_DIR = (
-    REPORT_DIR
-    / "03_schema_proposal"
 )
 
 REVIEW_DIR = (
@@ -66,11 +68,18 @@ REVIEW_DIR = (
     / "review"
 )
 
+# Tạo folder nếu chưa tồn tại.
 for folder in (
     REPORT_DIR,
-    PROFILE_DIR,
-    DQ_DIR,
-    PROPOSAL_DIR,
+    REVIEW_DIR,
+):
+    folder.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+for folder in (
+    REPORT_DIR,
     REVIEW_DIR,
 ):
     folder.mkdir(
@@ -379,225 +388,530 @@ def run_data_quality_scan(
 # 8. SAVE CSV HELPER
 # =========================================================
 
-def save_csv_report(
-    data,
-    filename,
-    columns,
-):
-    """
-    Write a report with shared CSV settings and route it to the folder for its
-    report type so generated outputs stay organized.
-    """
-
-    profile_files = {
-        "bronze_table_profile.csv",
-        "bronze_column_profile.csv",
-    }
-
-    proposal_files = {
-        "silver_datatype_suggestions.csv",
-    }
-
-    # Keep profile, Data Quality, and proposal files in separate directories.
-    if filename in profile_files:
-        target_dir = PROFILE_DIR
-
-    elif filename in proposal_files:
-        target_dir = PROPOSAL_DIR
-
-    else:
-        target_dir = DQ_DIR
-
-    output_path = (
-        target_dir
-        / filename
-    )
-
-    report_df = pd.DataFrame(
-        data,
-        columns=columns,
-    )
-
-    report_df.to_csv(
-        output_path,
-        index=False,
-        encoding="utf-8-sig",
-    )
-
-    return output_path
-
-
-# =========================================================
-# 9. SAVE DATA QUALITY REPORTS
-# =========================================================
-
-def save_data_quality_reports(
+def build_bronze_profile_report(
     results,
-):
+) -> pd.DataFrame:
     """
-    Convert each Data Quality result group into its corresponding CSV report.
-    Keeping output separate from scanning lets the analysis rules stay focused
-    on inspection rather than file management.
-    """
-    report_paths = []
+    Build a compact table-level overview of the Bronze layer.
 
-    report_paths.append(
-        save_csv_report(
-            results["table_profile"],
-            "bronze_table_profile.csv",
-            [
+    The function reuses table profiling results that were already
+    calculated by run_data_quality_scan(), so Bronze data is not
+    scanned a second time.
+
+    Output contains one row per Bronze table and does not modify data.
+    """
+
+    profile_df = pd.DataFrame(
+        results["table_profile"]
+    ).copy()
+
+    # Return an empty DataFrame with the expected schema if no
+    # profiling results are available.
+    if profile_df.empty:
+        return pd.DataFrame(
+            columns=[
                 "table_name",
                 "row_count",
                 "column_count",
                 "real_null_cells",
-                "exact_duplicate_rows",
-            ],
+                "duplicate_row_count",
+            ]
         )
+
+    # Rename the existing technical metric so the final report
+    # uses the simpler wording agreed for the project.
+    profile_df = profile_df.rename(
+        columns={
+            "exact_duplicate_rows":
+                "duplicate_row_count"
+        }
     )
 
-    report_paths.append(
-        save_csv_report(
-            results["column_profile"],
-            "bronze_column_profile.csv",
-            [
-                "table_name",
-                "column_name",
-                "pandas_dtype",
-                "row_count",
-                "real_null_count",
-                "marker_null_count",
+    return profile_df[
+        [
+            "table_name",
+            "row_count",
+            "column_count",
+            "real_null_cells",
+            "duplicate_row_count",
+        ]
+    ]
+def safe_int(value, default=0) -> int:
+    """
+    Safely convert report metadata to integer.
+
+    Empty strings, None, pandas missing values, or invalid numeric
+    values are converted to the supplied default instead of causing
+    the Review pipeline to fail.
+    """
+
+    if value is None:
+        return default
+
+    if isinstance(value, str) and value.strip() == "":
+        return default
+
+    try:
+        if pd.isna(value):
+            return default
+    except (TypeError, ValueError):
+        pass
+
+    try:
+        return int(value)
+    except (TypeError, ValueError):
+        return default
+    
+def build_data_quality_report(
+    results,
+) -> pd.DataFrame:
+    """
+    Combine detailed Data Quality checks into one concise issue report.
+
+    Only detected issues are included. Datatype suggestions themselves
+    are excluded because they are schema proposals rather than errors.
+
+    The function only restructures existing profiling results and does
+    not modify Bronze data.
+    """
+
+    issue_rows = []
+
+    # -----------------------------------------------------
+    # Create a row-count lookup for table-level issues.
+    # -----------------------------------------------------
+    table_row_counts = {
+        row["table_name"]: row["row_count"]
+        for row in results["table_profile"]
+    }
+
+    # -----------------------------------------------------
+    # 1. Missing values
+    # -----------------------------------------------------
+    for row in results["missing"]:
+
+        issue_count = int(
+            row.get(
                 "missing_count",
-                "missing_pct",
-                "unique_count",
-                "effective_unique_count",
-            ],
+                0,
+            )
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["missing"],
-            "dq_missing_values.csv",
-            [
-                "table_name",
-                "column_name",
-                "row_count",
-                "real_null_count",
-                "marker_null_count",
-                "missing_count",
-                "missing_pct",
-                "marker_examples",
-            ],
+        if issue_count == 0:
+            continue
+
+        issue_rows.append(
+            {
+                "table_name":
+                    row["table_name"],
+
+                "column_name":
+                    row["column_name"],
+
+                "issue_type":
+                    "MISSING_VALUE",
+
+                "issue_count":
+                    issue_count,
+
+                "example":
+                    row.get(
+                        "marker_examples",
+                        "",
+                    ),
+            }
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["primary_key"],
-            "dq_primary_key.csv",
-            [
-                "table_name",
-                "pk_column",
-                "row_count",
-                "missing_pk_count",
-                "duplicate_pk_groups",
-                "duplicate_pk_rows",
-                "normalized_duplicate_pk_groups",
-                "status",
-            ],
+    # -----------------------------------------------------
+    # 2. Primary-key issues
+    # -----------------------------------------------------
+    for row in results["primary_key"]:
+
+        table_name = row.get(
+            "table_name",
+            "",
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["exact_duplicates"],
-            "dq_exact_duplicates.csv",
-            [
-                "table_name",
-                "duplicate_group_count",
+        pk_column = row.get(
+            "pk_column",
+            "",
+        )
+
+    missing_pk_count = safe_int(
+    row.get(
+        "missing_pk_count",
+        0,
+    )
+)
+
+    duplicate_pk_rows = safe_int(
+    row.get(
+        "duplicate_pk_rows",
+        0,
+    )
+)
+
+    if missing_pk_count > 0:
+            issue_rows.append(
+                {
+                    "table_name":
+                        table_name,
+
+                    "column_name":
+                        pk_column,
+
+                    "issue_type":
+                        "PK_MISSING",
+
+                    "issue_count":
+                        missing_pk_count,
+
+                    "example":
+                        "",
+                }
+            )
+
+    if duplicate_pk_rows > 0:
+            issue_rows.append(
+                {
+                    "table_name":
+                        table_name,
+
+                    "column_name":
+                        pk_column,
+
+                    "issue_type":
+                        "PK_DUPLICATE",
+
+                    "issue_count":
+                        duplicate_pk_rows,
+
+                    "example":
+                        "",
+                }
+            )
+
+    # -----------------------------------------------------
+    # 3. Exact duplicate rows
+    # -----------------------------------------------------
+    for row in results["exact_duplicates"]:
+
+        affected_rows = int(
+            row.get(
                 "affected_rows",
-            ],
+                0,
+            )
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["text_variants"],
-            "dq_text_variants.csv",
-            [
-                "table_name",
-                "column_name",
-                "issue_type",
-                "comparison_key",
-                "variant_count",
+        if affected_rows == 0:
+            continue
+
+        duplicate_groups = row.get(
+            "duplicate_group_count",
+            0,
+        )
+
+        issue_rows.append(
+            {
+                "table_name":
+                    row["table_name"],
+
+                "column_name":
+                    "",
+
+                "issue_type":
+                    "EXACT_DUPLICATE",
+
+                "issue_count":
+                    affected_rows,
+
+                "example":
+                    (
+                        f"duplicate_groups="
+                        f"{duplicate_groups}"
+                    ),
+            }
+        )
+
+    # -----------------------------------------------------
+    # 4. Text variants
+    # -----------------------------------------------------
+    for row in results["text_variants"]:
+
+        affected_rows = int(
+            row.get(
                 "affected_rows",
-                "variants",
-            ],
+                0,
+            )
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["whitespace"],
-            "dq_whitespace_issues.csv",
-            [
-                "table_name",
-                "column_name",
-                "leading_trailing_space_count",
-                "repeated_space_count",
-                "tab_newline_count",
+        if affected_rows == 0:
+            continue
+
+        issue_rows.append(
+            {
+                "table_name":
+                    row["table_name"],
+
+                "column_name":
+                    row["column_name"],
+
+                "issue_type":
+                    row.get(
+                        "issue_type",
+                        "TEXT_VARIANT",
+                    ),
+
+                "issue_count":
+                    affected_rows,
+
+                "example":
+                    row.get(
+                        "variants",
+                        "",
+                    ),
+            }
+        )
+
+    # -----------------------------------------------------
+    # 5. Whitespace issues
+    # -----------------------------------------------------
+    for row in results["whitespace"]:
+
+        issue_count = int(
+            row.get(
                 "total_whitespace_issue_count",
-            ],
+                0,
+            )
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results[
-                "column_structure"
-            ],
-            "dq_column_structure.csv",
-            [
-                "table_name",
-                "column_name",
-                "issue_type",
-                "non_missing_count",
-                "unique_non_missing_count",
-            ],
+        if issue_count == 0:
+            continue
+
+        leading_trailing = row.get(
+            "leading_trailing_space_count",
+            0,
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results["datatype"],
-            "silver_datatype_suggestions.csv",
-            [
-                "table_name",
-                "column_name",
-                "suggested_silver_type",
-                "numeric_ratio",
-                "date_ratio",
-            ],
+        repeated_space = row.get(
+            "repeated_space_count",
+            0,
         )
-    )
 
-    report_paths.append(
-        save_csv_report(
-            results[
-                "datatype_issues"
-            ],
-            "dq_datatype_issues.csv",
-            [
-                "table_name",
-                "column_name",
-                "suggested_silver_type",
+        tab_newline = row.get(
+            "tab_newline_count",
+            0,
+        )
+
+        issue_rows.append(
+            {
+                "table_name":
+                    row["table_name"],
+
+                "column_name":
+                    row["column_name"],
+
+                "issue_type":
+                    "WHITESPACE",
+
+                "issue_count":
+                    issue_count,
+
+                "example":
+                    (
+                        f"trim={leading_trailing}; "
+                        f"repeated_space={repeated_space}; "
+                        f"tab_newline={tab_newline}"
+                    ),
+            }
+        )
+
+    # -----------------------------------------------------
+    # 6. Column structure
+    # -----------------------------------------------------
+    for row in results["column_structure"]:
+
+        issue_type = row.get(
+            "issue_type",
+            "",
+        )
+
+        table_name = row[
+            "table_name"
+        ]
+
+        # ALL_MISSING affects every row in the table.
+        if issue_type == "ALL_MISSING":
+
+            issue_count = int(
+                table_row_counts.get(
+                    table_name,
+                    0,
+                )
+            )
+
+        # A constant column contains one repeated business value.
+        elif issue_type == "CONSTANT_COLUMN":
+
+            issue_count = int(
+                row.get(
+                    "non_missing_count",
+                    0,
+                )
+            )
+
+        else:
+            issue_count = 0
+
+        issue_rows.append(
+            {
+                "table_name":
+                    table_name,
+
+                "column_name":
+                    row["column_name"],
+
+                "issue_type":
+                    issue_type,
+
+                "issue_count":
+                    issue_count,
+
+                "example":
+                    (
+                        "unique_non_missing="
+                        + str(
+                            row.get(
+                                "unique_non_missing_count",
+                                "",
+                            )
+                        )
+                    ),
+            }
+        )
+
+    # -----------------------------------------------------
+    # 7. Datatype issues
+    # -----------------------------------------------------
+    for row in results["datatype_issues"]:
+
+        issue_count = int(
+            row.get(
                 "invalid_value_count",
-                "invalid_examples",
-            ],
+                0,
+            )
+        )
+
+        if issue_count == 0:
+            continue
+
+        issue_rows.append(
+            {
+                "table_name":
+                    row["table_name"],
+
+                "column_name":
+                    row["column_name"],
+
+                "issue_type":
+                    "DATATYPE",
+
+                "issue_count":
+                    issue_count,
+
+                "example":
+                    row.get(
+                        "invalid_examples",
+                        "",
+                    ),
+            }
+        )
+
+    # -----------------------------------------------------
+    # Build the final compact report.
+    # -----------------------------------------------------
+    report_df = pd.DataFrame(
+        issue_rows,
+        columns=[
+            "table_name",
+            "column_name",
+            "issue_type",
+            "issue_count",
+            "example",
+        ],
+    )
+
+    if not report_df.empty:
+
+        report_df = (
+            report_df
+            .sort_values(
+                by=[
+                    "table_name",
+                    "column_name",
+                    "issue_type",
+                ],
+                na_position="last",
+            )
+            .reset_index(
+                drop=True
+            )
+        )
+
+    return report_df
+def save_compact_reports(
+    results,
+):
+    """
+    Save the two concise Review Phase reports.
+
+    Outputs:
+    - reports/bronze_profile.csv
+    - reports/data_quality_report.csv
+
+    Existing detailed reports are intentionally left untouched during
+    this migration step so the new outputs can be compared safely.
+    """
+
+    bronze_profile = (
+        build_bronze_profile_report(
+            results
         )
     )
 
-    return report_paths
+    data_quality_report = (
+        build_data_quality_report(
+            results
+        )
+    )
+
+    bronze_profile_path = (
+        REPORT_DIR
+        / "bronze_profile.csv"
+    )
+
+    data_quality_path = (
+        REPORT_DIR
+        / "data_quality_report.csv"
+    )
+
+    bronze_profile.to_csv(
+        bronze_profile_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    data_quality_report.to_csv(
+        data_quality_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
+
+    return [
+        bronze_profile_path,
+        data_quality_path,
+    ]
+
 
 
 # =========================================================
@@ -608,25 +922,26 @@ def run_schema_proposal(
     all_tables,
 ):
     """
-    Build the proposed Silver schema and export analyst review files.
+    Build the proposed Silver schema and export the two files
+    required for Data Analyst review.
 
-    The function creates both the nested JSON schema proposal and a
-    flattened CSV containing schema information plus Bronze row and
-    duplicate counts.
+    The machine-generated proposal is converted into:
+    - silver_schema_review.csv
+    - silver_schema_review.json
 
-    It only generates review artifacts and does not clean data.
+    No Bronze data is cleaned or modified.
     """
 
     (
         master_json,
-        column_report,
-        key_report,
+        _column_report,
+        _key_report,
     ) = build_schema_proposal(
         all_tables
     )
 
-    # Build the simplified review CSV that the Data Analyst can
-    # inspect alongside the editable JSON.
+    # Convert the nested JSON proposal into a simple
+    # column-level Review CSV.
     review_report = (
         build_review_dataframe(
             master_json=master_json,
@@ -636,10 +951,7 @@ def run_schema_proposal(
 
     paths = export_schema_proposal(
         master_json=master_json,
-        column_report=column_report,
-        key_report=key_report,
         review_report=review_report,
-        report_dir=REPORT_DIR,
         review_dir=REVIEW_DIR,
     )
 
@@ -651,56 +963,58 @@ def run_schema_proposal(
 # =========================================================
 
 def print_output_summary(
-    dq_report_paths,
+    compact_report_paths,
     proposal_paths,
 ):
     """
-    Show completion status and point the operator to the review artifacts and
-    the manual checkpoint that must happen before any cleaning work.
+    Print a concise summary of Review Phase outputs.
+
+    The function points the Data Analyst to the generated
+    reports and the schema JSON that must be reviewed before
+    any Silver data is built.
     """
-    print()
-    print("=" * 60)
-    print(
-        "PHASE 1 COMPLETED - "
-        "NO DATA CLEANING APPLIED"
-    )
-    print("=" * 60)
 
     print()
+
     print(
-        "DATA QUALITY REPORTS:"
+        "=" * 60
     )
 
-    for path in dq_report_paths:
+    print(
+        "REVIEW PHASE COMPLETED"
+    )
+
+    print(
+        "NO SILVER DATA WAS CREATED"
+    )
+
+    print(
+        "=" * 60
+    )
+
+    print()
+
+    print(
+        "REPORTS:"
+    )
+
+    for path in compact_report_paths:
         print(
-            f"- {path.name}"
+            f"- reports/{path.name}"
         )
 
     print()
+
     print(
-        "SILVER PROPOSAL OUTPUT:"
+        "SCHEMA REVIEW:"
     )
 
     print(
-        "- "
+        "- review/"
         + proposal_paths[
-            "column_report"
+            "review_csv"
         ].name
     )
-
-    print(
-        "- "
-        + proposal_paths[
-            "key_report"
-        ].name
-    )
-
-    print(
-    "- review/"
-    + proposal_paths[
-        "review_csv"
-    ].name
-)
 
     print(
         "- review/"
@@ -710,10 +1024,19 @@ def print_output_summary(
     )
 
     print()
+
     print(
-        "Next step: review/edit "
-        "silver_schema_review.json. "
-        "Do NOT clean yet."
+        "NEXT STEP:"
+    )
+
+    print(
+        "Review and edit "
+        "review/silver_schema_review.json"
+    )
+
+    print(
+        "Do not build Silver until "
+        "the JSON review is complete."
     )
 
 
@@ -742,9 +1065,10 @@ def main():
         )
     )
 
-    # Step 5
-    dq_report_paths = (
-        save_data_quality_reports(
+
+    # Step 5.1
+    compact_report_paths = (
+        save_compact_reports(
             dq_results
         )
     )
@@ -758,7 +1082,7 @@ def main():
 
     # Step 7
     print_output_summary(
-        dq_report_paths,
+        compact_report_paths,
         proposal_paths,
     )
 

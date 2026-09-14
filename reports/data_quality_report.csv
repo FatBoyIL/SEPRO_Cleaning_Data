@@ -1,0 +1,99 @@
+﻿table_name,column_name,issue_type,issue_count,example
+customers_raw,company_name,TEXT_VARIANT,2,Clean Scientific Factory | Clean Scientific Factory 
+customers_raw,company_name,TEXT_VARIANT,2,Industrial Med Factory | Industrial Med Factory 
+customers_raw,company_name,TEXT_VARIANT,2,Tech Tech JSC | Tech Tech JSC 
+customers_raw,company_name,WHITESPACE,10,trim=10; repeated_space=6; tab_newline=0
+customers_raw,default_payment_term,TEXT_VARIANT,2,Net30 | NET30
+customers_raw,industry,TEXT_VARIANT,10,Cleanroom Contractor | Cleanroom contractor
+customers_raw,industry,TEXT_VARIANT,29,Electronics | electronics
+customers_raw,industry,TEXT_VARIANT,9,Laboratory | laboratory
+customers_raw,industry,TEXT_VARIANT,50,Pharmaceutical | PHARMACEUTICAL
+customers_raw,province,TEXT_VARIANT,29,Binh Duong | BINH DUONG
+customers_raw,province,TEXT_VARIANT,21,Ha Noi | HA NOI
+customers_raw,tax_id,MISSING_VALUE,5,
+employees,termination_date,ALL_MISSING,10,unique_non_missing=0
+employees,termination_date,MISSING_VALUE,10,
+inventory_daily_snapshot_raw,warehouse_id,CONSTANT_COLUMN,19456,unique_non_missing=1
+inventory_movements_raw,batch_no,MISSING_VALUE,447,
+inventory_movements_raw,expiry_date,MISSING_VALUE,458,
+inventory_movements_raw,reference_line,MISSING_VALUE,41,
+inventory_movements_raw,warehouse_id,CONSTANT_COLUMN,683,unique_non_missing=1
+inventory_policy_history,annual_holding_rate_pct,CONSTANT_COLUMN,38,unique_non_missing=1
+inventory_policy_history,effective_to,CONSTANT_COLUMN,6,unique_non_missing=1
+inventory_policy_history,effective_to,MISSING_VALUE,32,
+invoices_raw,invoice_date,DATATYPE,1,06-01-2026
+leads_raw,,EXACT_DUPLICATE,10,duplicate_groups=5
+leads_raw,company_name_raw,TEXT_VARIANT,12,Asia Vietnam JSC |  Asia Vietnam JSC  
+leads_raw,company_name_raw,TEXT_VARIANT,4,Bio Advanced Vietnam |  Bio Advanced Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,9,Bio Industrial Vietnam |  Bio Industrial Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,7,Bio Precision JSC |  Bio Precision JSC  
+leads_raw,company_name_raw,TEXT_VARIANT,14,Clean Health Vietnam |  Clean Health Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,53,Green Asia Vietnam |  Green Asia Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,4,Health Pharma JSC |  Health Pharma JSC  
+leads_raw,company_name_raw,TEXT_VARIANT,2, Industrial Bio Co Ltd   | Industrial Bio Co Ltd
+leads_raw,company_name_raw,TEXT_VARIANT,21,Lab Industrial JSC |  Lab Industrial JSC  
+leads_raw,company_name_raw,TEXT_VARIANT,28,Med Asia Vietnam |  Med Asia Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,52,Scientific Advanced Vietnam |  Scientific Advanced Vietnam  
+leads_raw,company_name_raw,TEXT_VARIANT,8,Solutions Industrial Factory |  Solutions Industrial Factory  
+leads_raw,company_name_raw,TEXT_VARIANT,2,Vietnam Bio JSC |  Vietnam Bio JSC  
+leads_raw,company_name_raw,WHITESPACE,15,trim=15; repeated_space=15; tab_newline=0
+leads_raw,created_at,DATATYPE,13,10/02/2025 09:06 | 19/08/2025 10:49 | 2025/03/29 14:55 | 2026/05/20 16:34 | 2026/07/29 12:49 | 11/04/2026 14:49 | 2026/03/17 15:41 | 2025/06/22 13:39 | 2026/02/09 09:49 | 2025/12/28 08:24
+leads_raw,customer_id,MISSING_VALUE,29,
+leads_raw,email,MISSING_VALUE,73,
+leads_raw,industry_raw,TEXT_VARIANT,40,Cleanroom Contractor | Cleanroom contractor
+leads_raw,industry_raw,TEXT_VARIANT,87,Electronics | electronics
+leads_raw,industry_raw,TEXT_VARIANT,32,Laboratory | laboratory
+leads_raw,industry_raw,TEXT_VARIANT,185,Pharmaceutical | pharmaceutical | PHARMACEUTICAL
+leads_raw,lost_reason_raw,MISSING_VALUE,140,
+leads_raw,phone,MISSING_VALUE,59,
+leads_raw,province_raw,TEXT_VARIANT,98,Binh Duong | BINH DUONG
+leads_raw,province_raw,TEXT_VARIANT,140,Dong Nai | dong nai
+leads_raw,province_raw,TEXT_VARIANT,137,Ha Noi | HA NOI
+leads_raw,source_channel_raw,TEXT_VARIANT,70,Direct | direct |  direct  
+leads_raw,source_channel_raw,TEXT_VARIANT,46,Email | email
+leads_raw,source_channel_raw,TEXT_VARIANT,96,Facebook Ads |  Facebook Ads  
+leads_raw,source_channel_raw,TEXT_VARIANT,304,Google Ads | Google ads
+leads_raw,source_channel_raw,TEXT_VARIANT,178,Organic Search | Organic search |  Organic Search  
+leads_raw,source_channel_raw,TEXT_VARIANT,14,Paid Search |  Paid Search  
+leads_raw,source_channel_raw,TEXT_VARIANT,62,Referral | referral |  Referral  
+leads_raw,source_channel_raw,WHITESPACE,5,trim=5; repeated_space=5; tab_newline=0
+marketing_daily_raw,,EXACT_DUPLICATE,60,duplicate_groups=30
+marketing_daily_raw,channel,TEXT_VARIANT,1054,Direct | direct
+marketing_daily_raw,channel,TEXT_VARIANT,1055,Email | email
+marketing_daily_raw,channel,TEXT_VARIANT,1452,Google Ads | Google ads
+marketing_daily_raw,channel,TEXT_VARIANT,1511,Organic Search | Organic search
+marketing_daily_raw,channel,TEXT_VARIANT,921,Referral | referral
+marketing_daily_raw,date,DATATYPE,86,06-20-2025 | 14/07/2025 | 08/10/2025 | 10-29-2025 | 04/02/2026 | 05/04/2026 | 05-12-2025 | 03/06/2025 | 10-22-2025 | 12-25-2025
+payments_raw,,EXACT_DUPLICATE,10,duplicate_groups=5
+payments_raw,payment_date,DATATYPE,6,10-11-2025 | 05-13-2026 | 25/02/2026 | 02/05/2026 | 17/10/2025 | 14/04/2026
+payments_raw,payment_method,TEXT_VARIANT,215,Bank Transfer | Bank transfer
+process_events_raw,duration_from_previous_hours,MISSING_VALUE,1256,
+product_supplier_map_raw,effective_to,ALL_MISSING,222,unique_non_missing=0
+product_supplier_map_raw,effective_to,MISSING_VALUE,222,
+products_raw,product_category,TEXT_VARIANT,5,Cleanroom Wipers | cleanroom wipers
+products_raw,product_category,TEXT_VARIANT,6,Disinfectants | DISINFECTANTS
+products_raw,product_name,WHITESPACE,1,trim=1; repeated_space=1; tab_newline=0
+products_raw,shelf_life_days,MISSING_VALUE,16,
+purchase_orders_raw,actual_receipt_date,MISSING_VALUE,9,
+purchase_orders_raw,buyer_id,CONSTANT_COLUMN,234,unique_non_missing=1
+purchase_orders_raw,expected_receipt_date,DATATYPE,3,08-21-2025 | 01-30-2026 | 17/05/2026
+purchase_orders_raw,po_date,DATATYPE,2,07-19-2025 | 10-07-2025
+quotations_raw,customer_id,MISSING_VALUE,16,
+quotations_raw,quote_date_raw,DATATYPE,9,23/04/2025 | 04/01/2026 | 21/05/2026 | 03-27-2025 | 07-10-2025 | 28/09/2025 | 23/05/2026 | 23/08/2026 | 15/03/2026
+sales_activities_raw,,EXACT_DUPLICATE,24,duplicate_groups=12
+sales_activities_raw,activity_datetime,DATATYPE,28,2025/10/18 10:31 | 2025/08/23 16:43 | 20/10/2025 14:05 | 10/01/2026 03:56 | 2025/08/12 23:44 | 05/11/2025 14:21 | 2025/11/21 04:50 | 16/01/2026 06:33 | 20/05/2026 21:07 | 10/08/2026 22:16
+sales_activities_raw,next_followup_date,MISSING_VALUE,182,
+sales_activities_raw,outcome_raw,MISSING_VALUE,54,
+sales_orders_raw,lead_id,MISSING_VALUE,35,
+sales_orders_raw,order_date_raw,DATATYPE,8,08-17-2026 | 02-24-2026 | 07-26-2025 | 06-09-2025 | 03/11/2025 | 02/12/2025 | 02-05-2026 | 04-16-2026
+sales_orders_raw,quotation_id,MISSING_VALUE,9,
+shipments_raw,actual_delivery_date,DATATYPE,2,12/10/2025 | 01-20-2026
+shipments_raw,ship_date,DATATYPE,3,25/12/2025 | 09/03/2026 | 05-03-2026
+shipments_raw,shipment_status,CONSTANT_COLUMN,348,unique_non_missing=1
+shipments_raw,shipping_method_raw,TEXT_VARIANT,52,Dedicated Van | Dedicated van
+shipments_raw,shipping_method_raw,TEXT_VARIANT,191,Local Truck | local truck
+shipments_raw,warehouse_id,CONSTANT_COLUMN,348,unique_non_missing=1
+supplier_payments_raw,payment_method,CONSTANT_COLUMN,225,unique_non_missing=1
+suppliers_raw,country,TEXT_VARIANT,5,Malaysia | MALAYSIA
+suppliers_raw,country,TEXT_VARIANT,4,Vietnam | vietnam
+suppliers_raw,supplier_name,WHITESPACE,1,trim=1; repeated_space=1; tab_newline=0

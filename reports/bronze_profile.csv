@@ -1,4 +1,4 @@
-﻿table_name,row_count,column_count,real_null_cells,exact_duplicate_rows
+﻿table_name,row_count,column_count,real_null_cells,duplicate_row_count
 after_sales_cases_raw,19,11,0,0
 business_interventions,5,7,0,0
 customers_raw,188,10,5,0

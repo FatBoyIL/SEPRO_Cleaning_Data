@@ -790,77 +790,50 @@ def build_review_dataframe(
 
 def export_schema_proposal(
     master_json: Dict,
-    column_report: pd.DataFrame,
-    key_report: pd.DataFrame,
     review_report: pd.DataFrame,
-    report_dir: Path,
     review_dir: Path,
 ) -> Dict[str, Path]:
     """
-    Export schema proposal artifacts for analyst review.
+    Export the two schema review files used by the Data Analyst.
 
-    The function writes technical proposal reports to the reports
-    folder and writes the editable JSON plus human-readable CSV to
-    the review folder.
+    Outputs:
+    - silver_schema_review.csv
+      Human-readable flattened schema review.
 
-    No Bronze or Silver data is modified.
+    - silver_schema_review.json
+      Editable schema contract that will later control the
+      Silver standardization process.
+
+    This function only writes review metadata and never
+    modifies Bronze data.
     """
-
-    proposal_dir = (
-        report_dir
-        / "03_schema_proposal"
-    )
-
-    proposal_dir.mkdir(
-        parents=True,
-        exist_ok=True
-    )
 
     review_dir.mkdir(
         parents=True,
-        exist_ok=True
-    )
-
-    column_path = (
-        proposal_dir
-        / "silver_column_proposals.csv"
-    )
-
-    key_path = (
-        proposal_dir
-        / "silver_key_proposals.csv"
+        exist_ok=True,
     )
 
     review_csv_path = (
-    review_dir
-    / "silver_schema_review.csv"
-)
+        review_dir
+        / "silver_schema_review.csv"
+    )
 
-    json_path = (
+    review_json_path = (
         review_dir
         / "silver_schema_review.json"
     )
 
-    column_report.to_csv(
-        column_path,
-        index=False,
-        encoding="utf-8-sig",
-    )
-
-    key_report.to_csv(
-        key_path,
-        index=False,
-        encoding="utf-8-sig",
-    )
-
+    # CSV is used for quick human inspection.
     review_report.to_csv(
-    review_csv_path,
-    index=False,
-    encoding="utf-8-sig",
-)
+        review_csv_path,
+        index=False,
+        encoding="utf-8-sig",
+    )
 
+    # JSON is the editable schema contract that will be used
+    # later by build_silver.py.
     with open(
-        json_path,
+        review_json_path,
         "w",
         encoding="utf-8",
     ) as file:
@@ -872,8 +845,10 @@ def export_schema_proposal(
         )
 
     return {
-    "column_report": column_path,
-    "key_report": key_path,
-    "review_csv": review_csv_path,
-    "review_json": json_path,
-}
+        "review_csv": (
+            review_csv_path
+        ),
+        "review_json": (
+            review_json_path
+        ),
+    }
