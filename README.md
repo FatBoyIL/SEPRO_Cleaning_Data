@@ -4,7 +4,7 @@
 
 Real-world data can contain missing values, inconsistent text, duplicates, incorrect datatypes, and unclear relationships.
 
-This project shows how I handle those issues as a **Data Analyst**:
+This project shows how I handle those issues as a **Data Analyst** for Silver Layer belong to Medallion architecture [Bronze Layer (Raw Data) -> Silver Layer (Validated Data) -> Gold Layer (Enriched Data)]:
 
 > **Machine detects → Analyst decides → Pipeline executes → Validation proves.**
 
