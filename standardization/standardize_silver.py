@@ -28,7 +28,81 @@ from standardization.landing_data.currency_standardization import (
 from standardization.landing_data.duplicate_handling import (
     handle_duplicates,
 )
+# =========================================================
+# TRACK CHANGED ROWS
+# =========================================================
 
+def _find_changed_row_indices(
+    before_df: pd.DataFrame,
+    after_df: pd.DataFrame,
+) -> set:
+    """
+    Find source row indexes whose visible values changed.
+
+    Only columns existing in both DataFrames are compared.
+    Missing values are treated as equal to other missing values.
+
+    The helper is used only for audit metrics such as changed_rows.
+    """
+
+    common_columns = [
+        column
+        for column in before_df.columns
+        if column in after_df.columns
+    ]
+
+    common_index = (
+        before_df.index
+        .intersection(
+            after_df.index
+        )
+    )
+
+    if (
+        not common_columns
+        or common_index.empty
+    ):
+        return set()
+
+    changed_mask = pd.Series(
+        False,
+        index=common_index,
+    )
+
+    for column_name in common_columns:
+
+        before_values = (
+            before_df
+            .loc[
+                common_index,
+                column_name,
+            ]
+            .astype("string")
+            .fillna("<__NULL__>")
+        )
+
+        after_values = (
+            after_df
+            .loc[
+                common_index,
+                column_name,
+            ]
+            .astype("string")
+            .fillna("<__NULL__>")
+        )
+
+        changed_mask = (
+            changed_mask
+            | before_values.ne(
+                after_values
+            )
+        )
+
+    return set(
+        changed_mask[
+            changed_mask
+        ].index
+    )
 
 # =========================================================
 # 1. LOAD JSON FILE
@@ -222,7 +296,7 @@ def standardize_base_table(
     rules: Dict,
 ) -> Tuple[pd.DataFrame, Dict]:
     """
-    Apply all table transformations that do not depend on another table.
+    Apply all independent standardization steps to one Bronze table.
 
     Order:
         1. NULL
@@ -231,29 +305,54 @@ def standardize_base_table(
         4. Business value mapping
         5. Datatype
 
-    Currency is intentionally performed later because it may depend
-    on the standardized FX-rate table.
+    Changed source-row indexes are tracked for the final
+    changed_rows audit metric.
+
+    Currency is performed later because it may depend on the FX table.
     """
+
+    working_df = (
+        df.copy()
+    )
 
     audit = {}
 
-    # -----------------------------------------------------
+    changed_row_indices = set()
+
+    # =====================================================
     # 1. NULL
-    # -----------------------------------------------------
+    # =====================================================
+
+    before_step = (
+        working_df.copy()
+    )
+
     (
         working_df,
         null_report,
     ) = standardize_null_markers(
-        df
+        working_df
+    )
+
+    changed_row_indices.update(
+        _find_changed_row_indices(
+            before_step,
+            working_df,
+        )
     )
 
     audit[
         "null"
     ] = null_report
 
-    # -----------------------------------------------------
+    # =====================================================
     # 2. TEXT
-    # -----------------------------------------------------
+    # =====================================================
+
+    before_step = (
+        working_df.copy()
+    )
+
     (
         working_df,
         text_report,
@@ -261,13 +360,26 @@ def standardize_base_table(
         working_df
     )
 
+    changed_row_indices.update(
+        _find_changed_row_indices(
+            before_step,
+            working_df,
+        )
+    )
+
     audit[
         "text"
     ] = text_report
 
-    # -----------------------------------------------------
-    # 3. COLUMN NAMES
-    # -----------------------------------------------------
+    # =====================================================
+    # 3. COLUMN RENAME
+    # =====================================================
+    #
+    # Rename is considered schema standardization rather than
+    # a data-value change, so it is intentionally excluded from
+    # changed_rows.
+    # =====================================================
+
     (
         working_df,
         rename_report,
@@ -280,9 +392,14 @@ def standardize_base_table(
         "rename"
     ] = rename_report
 
-    # -----------------------------------------------------
-    # 4. BUSINESS VALUES
-    # -----------------------------------------------------
+    # =====================================================
+    # 4. BUSINESS VALUE MAPPING
+    # =====================================================
+
+    before_step = (
+        working_df.copy()
+    )
+
     (
         working_df,
         value_report,
@@ -292,13 +409,25 @@ def standardize_base_table(
         rules=rules,
     )
 
+    changed_row_indices.update(
+        _find_changed_row_indices(
+            before_step,
+            working_df,
+        )
+    )
+
     audit[
         "value"
     ] = value_report
 
-    # -----------------------------------------------------
-    # 5. DATATYPES
-    # -----------------------------------------------------
+    # =====================================================
+    # 5. DATATYPE
+    # =====================================================
+
+    before_step = (
+        working_df.copy()
+    )
+
     (
         working_df,
         datatype_report,
@@ -307,15 +436,32 @@ def standardize_base_table(
         table_schema=table_schema,
     )
 
+    changed_row_indices.update(
+        _find_changed_row_indices(
+            before_step,
+            working_df,
+        )
+    )
+
     audit[
         "datatype"
     ] = datatype_report
+
+    audit[
+        "changed_row_indices"
+    ] = sorted(
+        changed_row_indices
+    )
 
     return (
         working_df,
         audit,
     )
 
+
+# =========================================================
+# 5. STANDARDIZE ALL TABLES
+# =========================================================
 
 # =========================================================
 # 5. STANDARDIZE ALL TABLES
@@ -333,26 +479,37 @@ def standardize_all_tables(
     Standardize every reviewed Bronze table into an in-memory
     Silver-ready DataFrame.
 
-    No SQL tables are written here.
+    No SQL table is written by this function.
 
-    High-level order:
-        Phase A:
-            NULL
-            Text
-            Rename
-            Value
-            Datatype
+    Processing order:
 
-        Phase B:
-            Currency
+    Phase A:
+        1. NULL standardization
+        2. Text standardization
+        3. Column rename
+        4. Business value mapping
+        5. Datatype standardization
 
-        Phase C:
-            Duplicate handling
+    Phase B:
+        6. Currency standardization
+
+    Phase C:
+        7. Exact duplicate removal
+        8. PK duplicate detection
 
     Returns:
-        standardized_tables
-        audit_reports
+        standardized_tables:
+            Dictionary containing the standardized DataFrame
+            for each Bronze table.
+
+        audit_reports:
+            Dictionary containing standardization audit results
+            for each table.
     """
+
+    # =====================================================
+    # INITIAL CONTAINERS
+    # =====================================================
 
     base_tables = {}
 
@@ -360,13 +517,15 @@ def standardize_all_tables(
 
     # =====================================================
     # PHASE A
-    # Independent table transformations
+    # STANDARDIZE EACH TABLE INDEPENDENTLY
     # =====================================================
 
     for table_name, source_df in (
         all_tables.items()
     ):
 
+        # Every Bronze table must exist in the reviewed
+        # Silver schema contract.
         if table_name not in schema_contract:
 
             raise KeyError(
@@ -408,6 +567,8 @@ def standardize_all_tables(
 
     prepared_fx = None
 
+    # Only prepare FX data when at least one table has
+    # currency-conversion rules.
     if currency_rules:
 
         fx_table_name = (
@@ -425,10 +586,15 @@ def standardize_all_tables(
             )
         )
 
-        if (
-            fx_table_name
-            not in base_tables
-        ):
+        if not fx_table_name:
+
+            raise ValueError(
+                "Currency rules exist but "
+                "_global.fx.rate_table "
+                "is not configured."
+            )
+
+        if fx_table_name not in base_tables:
 
             raise KeyError(
                 f"Configured FX table "
@@ -447,7 +613,7 @@ def standardize_all_tables(
 
     # =====================================================
     # PHASE B + C
-    # Currency then duplicate handling
+    # CURRENCY + DUPLICATE HANDLING
     # =====================================================
 
     standardized_tables = {}
@@ -456,9 +622,10 @@ def standardize_all_tables(
         base_tables.items()
     ):
 
-        # -------------------------------------------------
-        # Currency
-        # -------------------------------------------------
+        # =================================================
+        # B1. CURRENCY STANDARDIZATION
+        # =================================================
+
         (
             working_df,
             currency_report,
@@ -475,9 +642,87 @@ def standardize_all_tables(
             "currency"
         ] = currency_report
 
-        # -------------------------------------------------
-        # Reviewed PK
-        # -------------------------------------------------
+        # =================================================
+        # B2. UPDATE CHANGED ROW TRACKING
+        # =================================================
+        #
+        # Currency processing can add new fields such as:
+        #
+        # currency_code
+        # fx_rate_to_vnd
+        # amount_vnd
+        #
+        # Any source row receiving generated currency values
+        # is counted as a changed row.
+        # =================================================
+
+        changed_row_indices = set(
+            audit_reports[
+                table_name
+            ].get(
+                "changed_row_indices",
+                [],
+            )
+        )
+
+        table_currency_rule = (
+            currency_rules.get(
+                table_name,
+                {},
+            )
+        )
+
+        if table_currency_rule:
+
+            generated_columns = [
+                table_currency_rule.get(
+                    "currency_code_column",
+                    "currency_code",
+                ),
+
+                table_currency_rule.get(
+                    "fx_rate_column",
+                    "fx_rate_to_vnd",
+                ),
+            ]
+
+            generated_columns.extend(
+                table_currency_rule
+                .get(
+                    "amount_columns",
+                    {},
+                )
+                .values()
+            )
+
+            for column_name in (
+                generated_columns
+            ):
+
+                if column_name not in working_df.columns:
+                    continue
+
+                changed_row_indices.update(
+                    working_df.index[
+                        working_df[
+                            column_name
+                        ].notna()
+                    ]
+                    .tolist()
+                )
+
+        audit_reports[
+            table_name
+        ][
+            "changed_row_indices"
+        ] = sorted(
+            changed_row_indices
+        )
+
+        # =================================================
+        # C1. RESOLVE REVIEWED PRIMARY KEY
+        # =================================================
+
         pk_columns = (
             resolve_primary_key_columns(
                 schema_contract[
@@ -486,9 +731,18 @@ def standardize_all_tables(
             )
         )
 
-        # -------------------------------------------------
-        # Duplicates
-        # -------------------------------------------------
+        # =================================================
+        # C2. DUPLICATE HANDLING
+        # =================================================
+        #
+        # Exact duplicate:
+        #     remove duplicate copies.
+        #
+        # PK duplicate with different data:
+        #     keep the records.
+        #     Validation Layer will fail the table later.
+        # =================================================
+
         (
             working_df,
             duplicate_report,
@@ -503,9 +757,17 @@ def standardize_all_tables(
             "duplicate"
         ] = duplicate_report
 
+        # =================================================
+        # STORE FINAL STANDARDIZED DATAFRAME
+        # =================================================
+
         standardized_tables[
             table_name
         ] = working_df
+
+    # =====================================================
+    # RETURN ALL IN-MEMORY SILVER DATA
+    # =====================================================
 
     return (
         standardized_tables,
