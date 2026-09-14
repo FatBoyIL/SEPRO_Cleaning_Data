@@ -2,24 +2,7 @@ import re
 from typing import Dict, List, Tuple
 
 import pandas as pd
-
-
-# =========================================================
-# MISSING VALUE SETTINGS
-# =========================================================
-
-NULL_MARKERS = {
-    "",
-    "na",
-    "n/a",
-    "n.a.",
-    "null",
-    "none",
-    "unknown",
-    "-",
-    "--",
-    "not available",
-}
+from config.table_config import NULL_MARKERS
 
 
 # =========================================================

@@ -722,7 +722,7 @@
       "budget_status": {
         "name": "budget_status",
         "datatype": "string",
-        "nullable": true
+        "nullable": false
       },
       "purchase_timeline_days": {
         "name": "purchase_timeline_days",

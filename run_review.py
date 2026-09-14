@@ -26,6 +26,7 @@ from profiling.data_quality import (
 
 from profiling.schema_proposal import (
     build_schema_proposal,
+    build_review_dataframe,
     export_schema_proposal,
 )
 
@@ -607,10 +608,15 @@ def run_schema_proposal(
     all_tables,
 ):
     """
-    Bridge Data Quality evidence to the proposed Silver schema outputs. The
-    generated CSV and editable JSON are review material, not the final approved
-    Silver schema.
+    Build the proposed Silver schema and export analyst review files.
+
+    The function creates both the nested JSON schema proposal and a
+    flattened CSV containing schema information plus Bronze row and
+    duplicate counts.
+
+    It only generates review artifacts and does not clean data.
     """
+
     (
         master_json,
         column_report,
@@ -619,10 +625,20 @@ def run_schema_proposal(
         all_tables
     )
 
+    # Build the simplified review CSV that the Data Analyst can
+    # inspect alongside the editable JSON.
+    review_report = (
+        build_review_dataframe(
+            master_json=master_json,
+            all_tables=all_tables,
+        )
+    )
+
     paths = export_schema_proposal(
         master_json=master_json,
         column_report=column_report,
         key_report=key_report,
+        review_report=review_report,
         report_dir=REPORT_DIR,
         review_dir=REVIEW_DIR,
     )
@@ -678,6 +694,13 @@ def print_output_summary(
             "key_report"
         ].name
     )
+
+    print(
+    "- review/"
+    + proposal_paths[
+        "review_csv"
+    ].name
+)
 
     print(
         "- review/"

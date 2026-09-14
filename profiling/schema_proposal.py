@@ -9,6 +9,7 @@ from .data_quality import (
     infer_silver_datatype,
     normalize_column_name,
     suggest_primary_key,
+    profile_table,
 )
 
 
@@ -656,15 +657,154 @@ def build_schema_proposal(
 # =========================================================
 # 10. EXPORT
 # =========================================================
+def build_review_dataframe(
+    master_json: Dict,
+    all_tables: Dict[str, pd.DataFrame],
+) -> pd.DataFrame:
+    """
+    Build the human-readable Silver schema review table.
+
+    The function converts the nested Silver schema proposal JSON into
+    one row per column and adds table-level context from Bronze data:
+    row count and exact duplicate row count.
+
+    The function does not modify Bronze data or the schema proposal.
+    """
+
+    review_rows = []
+
+    # Loop through every proposed Silver table.
+    for table_name, table_info in master_json.items():
+
+        table_metadata = table_info["table"]
+        columns = table_info["columns"]
+
+        # Get the original Bronze DataFrame for table-level profiling.
+        df = all_tables[table_name]
+
+        # Reuse the existing profiling logic instead of calculating
+        # row count and duplicate count in a second way.
+        table_profile = profile_table(
+            table_name=table_name,
+            df=df,
+        )
+
+        row_count = table_profile["row_count"]
+
+        # exact_duplicate_rows counts every row that belongs to an
+        # exact duplicate group.
+        duplicate_row_count = table_profile[
+            "exact_duplicate_rows"
+        ]
+
+        # Convert the proposed PK list to a set for quick lookup.
+        primary_keys = set(
+            table_metadata.get(
+                "primary_key",
+                [],
+            )
+        )
+
+        # Build a lookup:
+        #
+        # child_column -> parent_table.parent_column
+        #
+        # Example:
+        # customer_id -> customers_raw.customer_id
+        foreign_keys = {}
+
+        for fk in table_metadata.get(
+            "foreign_keys",
+            [],
+        ):
+            foreign_keys[
+                fk["column"]
+            ] = fk["references"]
+
+        # Create one review row per column.
+        for source_column, column_info in columns.items():
+
+            silver_column_name = column_info["name"]
+
+            # PK/FK proposals are generally based on the Bronze/source
+            # column name. We also check the normalized Silver name so
+            # the review remains safe if the name was standardized.
+            is_pk = (
+                source_column in primary_keys
+                or silver_column_name in primary_keys
+            )
+
+            fk_reference = (
+                foreign_keys.get(source_column)
+                or foreign_keys.get(
+                    silver_column_name
+                )
+            )
+
+            review_rows.append(
+                {
+                    "table_name": table_name,
+                    "column_name": (
+                        silver_column_name
+                    ),
+                    "datatype": column_info[
+                        "datatype"
+                    ],
+                    "nullable": column_info[
+                        "nullable"
+                    ],
+                    "is_pk": is_pk,
+                    "is_fk": (
+                        fk_reference
+                        is not None
+                    ),
+                    "fk_reference": (
+                        fk_reference
+                        if fk_reference
+                        is not None
+                        else ""
+                    ),
+                    "row_count": row_count,
+                    "duplicate_row_count": (
+                        duplicate_row_count
+                    ),
+                }
+            )
+
+    # Define the column order explicitly so the Review CSV remains
+    # stable even if dictionary order changes later.
+    return pd.DataFrame(
+        review_rows,
+        columns=[
+            "table_name",
+            "column_name",
+            "datatype",
+            "nullable",
+            "is_pk",
+            "is_fk",
+            "fk_reference",
+            "row_count",
+            "duplicate_row_count",
+        ],
+    )
 
 def export_schema_proposal(
     master_json: Dict,
     column_report: pd.DataFrame,
     key_report: pd.DataFrame,
+    review_report: pd.DataFrame,
     report_dir: Path,
     review_dir: Path,
 ) -> Dict[str, Path]:
-    """Persist proposal CSVs and editable review JSON before Silver implementation."""
+    """
+    Export schema proposal artifacts for analyst review.
+
+    The function writes technical proposal reports to the reports
+    folder and writes the editable JSON plus human-readable CSV to
+    the review folder.
+
+    No Bronze or Silver data is modified.
+    """
 
     proposal_dir = (
         report_dir
@@ -691,6 +831,11 @@ def export_schema_proposal(
         / "silver_key_proposals.csv"
     )
 
+    review_csv_path = (
+    review_dir
+    / "silver_schema_review.csv"
+)
+
     json_path = (
         review_dir
         / "silver_schema_review.json"
@@ -708,6 +853,12 @@ def export_schema_proposal(
         encoding="utf-8-sig",
     )
 
+    review_report.to_csv(
+    review_csv_path,
+    index=False,
+    encoding="utf-8-sig",
+)
+
     with open(
         json_path,
         "w",
@@ -721,13 +872,8 @@ def export_schema_proposal(
         )
 
     return {
-        "column_report": (
-            column_path
-        ),
-        "key_report": (
-            key_path
-        ),
-        "review_json": (
-            json_path
-        ),
-    }
+    "column_report": column_path,
+    "key_report": key_path,
+    "review_csv": review_csv_path,
+    "review_json": json_path,
+}

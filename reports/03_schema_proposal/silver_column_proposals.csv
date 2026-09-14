@@ -102,7 +102,7 @@ leads_raw,pages_viewed_30d,pages_viewed_30d,integer,False
 leads_raw,form_completeness_pct,form_completeness_pct,integer,False
 leads_raw,requested_quote_flag,requested_quote_flag,boolean,False
 leads_raw,requested_sample_flag,requested_sample_flag,boolean,False
-leads_raw,budget_status,budget_status,string,True
+leads_raw,budget_status,budget_status,string,False
 leads_raw,purchase_timeline_days,purchase_timeline_days,integer,False
 leads_raw,assigned_sales_id,assigned_sales_id,string,False
 leads_raw,lifecycle_status_raw,lifecycle_status,string,False

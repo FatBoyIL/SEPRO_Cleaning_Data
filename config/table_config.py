@@ -48,20 +48,37 @@ BRONZE_TABLES = [
     "warehouses",
 ]
 
-
 # =========================================================
 # MISSING VALUE RULES
+# =========================================================
 #
-# Sau khi:
-# strip()
-# lowercase()
+# Các giá trị text dưới đây được xem là "fake NULL".
 #
-# Các value này được xem là Missing Value.
+# Trước khi so sánh, profiling/data_quality.py sẽ:
+#   1. strip()      -> bỏ khoảng trắng đầu/cuối
+#   2. lowercase()  -> chuyển về chữ thường
+#
+# Ví dụ:
+#   " N/A "   -> "n/a"  -> Missing
+#   "NULL"    -> "null" -> Missing
+#
+# Lưu ý:
+#   - "unknown" KHÔNG được xem là NULL toàn cục.
+#   - "not available" KHÔNG được xem là NULL toàn cục.
+#
+# Hai giá trị trên có thể mang business meaning riêng,
+# nên nếu cần xử lý sẽ thực hiện theo từng column ở bước
+# Standardization sau này.
 # =========================================================
 
 NULL_MARKERS = {
     "",
+    "na",
     "n/a",
+    "n.a.",
     "null",
+    "none",
     "empty",
+    "-",
+    "--",
 }

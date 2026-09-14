@@ -102,7 +102,7 @@ leads_raw,pages_viewed_30d,855,0,0,0,0.0,
 leads_raw,form_completeness_pct,855,0,0,0,0.0,
 leads_raw,requested_quote_flag,855,0,0,0,0.0,
 leads_raw,requested_sample_flag,855,0,0,0,0.0,
-leads_raw,budget_status,855,0,245,245,28.655,Unknown
+leads_raw,budget_status,855,0,0,0,0.0,
 leads_raw,purchase_timeline_days,855,0,0,0,0.0,
 leads_raw,assigned_sales_id,855,0,0,0,0.0,
 leads_raw,lifecycle_status_raw,855,0,0,0,0.0,
