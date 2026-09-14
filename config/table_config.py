@@ -4,6 +4,9 @@
 # SQL Server instance and database read by the profiling pipeline.
 SERVER = r"DESKTOP-4F2KL18\MSSQLSERVER1"
 DATABASE = "SEPRO_Master_Prod"
+ODBC_DRIVER = "ODBC Driver 18 for SQL Server"
+BRONZE_SCHEMA = "bronze"
+SILVER_SCHEMA = "silver"
 
 # =========================================================
 # BRONZE TABLE CONFIG

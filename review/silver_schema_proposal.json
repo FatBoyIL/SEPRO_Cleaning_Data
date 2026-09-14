@@ -1,0 +1,2086 @@
+{
+  "after_sales_cases_raw": {
+    "table": {
+      "name": "after_sales_cases_raw",
+      "silver_name": "after_sales_cases",
+      "primary_key": [
+        "case_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "sales_order_id",
+          "references": "sales_orders_raw.sales_order_id"
+        },
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        }
+      ],
+      "proposal": "Proposed PK: case_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "case_id": {
+        "name": "case_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_id": {
+        "name": "sales_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "opened_date": {
+        "name": "opened_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "closed_date": {
+        "name": "closed_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "issue_type": {
+        "name": "issue_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "severity": {
+        "name": "severity",
+        "datatype": "string",
+        "nullable": false
+      },
+      "resolution_days": {
+        "name": "resolution_days",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "csat_score": {
+        "name": "csat_score",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "repeat_order_within_90d_flag": {
+        "name": "repeat_order_within_90d_flag",
+        "datatype": "boolean",
+        "nullable": false
+      },
+      "case_status": {
+        "name": "case_status",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "business_interventions": {
+    "table": {
+      "name": "business_interventions",
+      "silver_name": "business_interventions",
+      "primary_key": [
+        "intervention_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: intervention_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "intervention_id": {
+        "name": "intervention_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "effective_date": {
+        "name": "effective_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "project": {
+        "name": "project",
+        "datatype": "string",
+        "nullable": false
+      },
+      "intervention_name": {
+        "name": "intervention_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "description": {
+        "name": "description",
+        "datatype": "string",
+        "nullable": false
+      },
+      "target_kpis": {
+        "name": "target_kpis",
+        "datatype": "string",
+        "nullable": false
+      },
+      "measurement_note": {
+        "name": "measurement_note",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "customers_raw": {
+    "table": {
+      "name": "customers_raw",
+      "silver_name": "customers",
+      "primary_key": [
+        "customer_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: customer_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "company_name": {
+        "name": "company_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "tax_id": {
+        "name": "tax_id",
+        "datatype": "string",
+        "nullable": true
+      },
+      "industry": {
+        "name": "industry",
+        "datatype": "string",
+        "nullable": false
+      },
+      "province": {
+        "name": "province",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_segment": {
+        "name": "customer_segment",
+        "datatype": "string",
+        "nullable": false
+      },
+      "company_size_band": {
+        "name": "company_size_band",
+        "datatype": "string",
+        "nullable": false
+      },
+      "credit_risk": {
+        "name": "credit_risk",
+        "datatype": "string",
+        "nullable": false
+      },
+      "default_payment_term": {
+        "name": "default_payment_term",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_since": {
+        "name": "customer_since",
+        "datatype": "date",
+        "nullable": false
+      }
+    }
+  },
+  "departments": {
+    "table": {
+      "name": "departments",
+      "silver_name": "departments",
+      "primary_key": [
+        "department_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: department_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "department_id": {
+        "name": "department_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "department_name": {
+        "name": "department_name",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "employees": {
+    "table": {
+      "name": "employees",
+      "silver_name": "employees",
+      "primary_key": [
+        "employee_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "department_id",
+          "references": "departments.department_id"
+        }
+      ],
+      "proposal": "Proposed PK: employee_id. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "employee_id": {
+        "name": "employee_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "employee_name": {
+        "name": "employee_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "department_id": {
+        "name": "department_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "job_title": {
+        "name": "job_title",
+        "datatype": "string",
+        "nullable": false
+      },
+      "hire_date": {
+        "name": "hire_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "termination_date": {
+        "name": "termination_date",
+        "datatype": "string",
+        "nullable": true
+      }
+    }
+  },
+  "fx_rates_daily": {
+    "table": {
+      "name": "fx_rates_daily",
+      "silver_name": "fx_rates_daily",
+      "primary_key": [],
+      "foreign_keys": [],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "date": {
+        "name": "date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "vnd_per_currency": {
+        "name": "vnd_per_currency",
+        "datatype": "decimal",
+        "nullable": false
+      }
+    }
+  },
+  "inventory_daily_snapshot_raw": {
+    "table": {
+      "name": "inventory_daily_snapshot_raw",
+      "silver_name": "inventory_daily_snapshot",
+      "primary_key": [
+        "snapshot_date",
+        "product_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "warehouse_id",
+          "references": "warehouses.warehouse_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: snapshot_date + product_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "snapshot_date": {
+        "name": "snapshot_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "warehouse_id": {
+        "name": "warehouse_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "on_hand_qty": {
+        "name": "on_hand_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "on_order_qty": {
+        "name": "on_order_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "backlog_qty": {
+        "name": "backlog_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "available_qty": {
+        "name": "available_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_cost_vnd": {
+        "name": "unit_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "inventory_value_vnd": {
+        "name": "inventory_value_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "stockout_flag": {
+        "name": "stockout_flag",
+        "datatype": "boolean",
+        "nullable": false
+      },
+      "reorder_point_qty": {
+        "name": "reorder_point_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "safety_stock_qty": {
+        "name": "safety_stock_qty",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "inventory_movements_raw": {
+    "table": {
+      "name": "inventory_movements_raw",
+      "silver_name": "inventory_movements",
+      "primary_key": [
+        "inventory_move_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "warehouse_id",
+          "references": "warehouses.warehouse_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: inventory_move_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "inventory_move_id": {
+        "name": "inventory_move_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "movement_date": {
+        "name": "movement_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "warehouse_id": {
+        "name": "warehouse_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "movement_type": {
+        "name": "movement_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_signed": {
+        "name": "quantity_signed",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_cost_vnd": {
+        "name": "unit_cost_vnd",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "reference_document": {
+        "name": "reference_document",
+        "datatype": "string",
+        "nullable": false
+      },
+      "reference_line": {
+        "name": "reference_line",
+        "datatype": "string",
+        "nullable": true
+      },
+      "batch_no": {
+        "name": "batch_no",
+        "datatype": "string",
+        "nullable": true
+      },
+      "expiry_date": {
+        "name": "expiry_date",
+        "datatype": "date",
+        "nullable": true
+      }
+    }
+  },
+  "inventory_policy_history": {
+    "table": {
+      "name": "inventory_policy_history",
+      "silver_name": "inventory_policy_history",
+      "primary_key": [],
+      "foreign_keys": [
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "effective_from": {
+        "name": "effective_from",
+        "datatype": "date",
+        "nullable": false
+      },
+      "effective_to": {
+        "name": "effective_to",
+        "datatype": "date",
+        "nullable": true
+      },
+      "reorder_point_qty": {
+        "name": "reorder_point_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "safety_stock_qty": {
+        "name": "safety_stock_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "target_service_level": {
+        "name": "target_service_level",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "annual_holding_rate_pct": {
+        "name": "annual_holding_rate_pct",
+        "datatype": "decimal",
+        "nullable": false
+      }
+    }
+  },
+  "invoice_lines_raw": {
+    "table": {
+      "name": "invoice_lines_raw",
+      "silver_name": "invoice_lines",
+      "primary_key": [
+        "invoice_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "invoice_id",
+          "references": "invoices_raw.invoice_id"
+        },
+        {
+          "column": "sales_order_line_id",
+          "references": "sales_order_lines_raw.sales_order_line_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: invoice_line_id. Proposed FK count: 3. Review this JSON before cleaning."
+    },
+    "columns": {
+      "invoice_line_id": {
+        "name": "invoice_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "invoice_id": {
+        "name": "invoice_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_line_id": {
+        "name": "sales_order_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_invoiced": {
+        "name": "quantity_invoiced",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_price_vnd": {
+        "name": "unit_price_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "discount_pct": {
+        "name": "discount_pct",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "net_amount_vnd": {
+        "name": "net_amount_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "tax_amount_vnd": {
+        "name": "tax_amount_vnd",
+        "datatype": "string",
+        "nullable": false
+      },
+      "line_total_vnd": {
+        "name": "line_total_vnd",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "invoices_raw": {
+    "table": {
+      "name": "invoices_raw",
+      "silver_name": "invoices",
+      "primary_key": [
+        "invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "sales_order_id",
+          "references": "sales_orders_raw.sales_order_id"
+        },
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        }
+      ],
+      "proposal": "Proposed PK: invoice_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "invoice_id": {
+        "name": "invoice_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_id": {
+        "name": "sales_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "invoice_date": {
+        "name": "invoice_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "due_date": {
+        "name": "due_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "payment_term": {
+        "name": "payment_term",
+        "datatype": "string",
+        "nullable": false
+      },
+      "invoice_amount_vnd": {
+        "name": "invoice_amount_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "payment_status": {
+        "name": "payment_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "source_system": {
+        "name": "source_system",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "leads_raw": {
+    "table": {
+      "name": "leads_raw",
+      "silver_name": "leads",
+      "primary_key": [],
+      "foreign_keys": [
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        },
+        {
+          "column": "campaign_id",
+          "references": "marketing_campaigns.campaign_id"
+        }
+      ],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "lead_id": {
+        "name": "lead_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "created_at": {
+        "name": "created_at",
+        "datatype": "datetime",
+        "nullable": false
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": true
+      },
+      "company_name_raw": {
+        "name": "company_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "industry_raw": {
+        "name": "industry",
+        "datatype": "string",
+        "nullable": false
+      },
+      "province_raw": {
+        "name": "province",
+        "datatype": "string",
+        "nullable": false
+      },
+      "source_channel_raw": {
+        "name": "source_channel",
+        "datatype": "string",
+        "nullable": false
+      },
+      "campaign_id": {
+        "name": "campaign_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_interest_id": {
+        "name": "product_interest_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "inquiry_type": {
+        "name": "inquiry_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "company_size_band": {
+        "name": "company_size_band",
+        "datatype": "string",
+        "nullable": false
+      },
+      "pages_viewed_30d": {
+        "name": "pages_viewed_30d",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "form_completeness_pct": {
+        "name": "form_completeness_pct",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "requested_quote_flag": {
+        "name": "requested_quote_flag",
+        "datatype": "boolean",
+        "nullable": false
+      },
+      "requested_sample_flag": {
+        "name": "requested_sample_flag",
+        "datatype": "boolean",
+        "nullable": false
+      },
+      "budget_status": {
+        "name": "budget_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "purchase_timeline_days": {
+        "name": "purchase_timeline_days",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "assigned_sales_id": {
+        "name": "assigned_sales_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "lifecycle_status_raw": {
+        "name": "lifecycle_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "lost_reason_raw": {
+        "name": "lost_reason",
+        "datatype": "string",
+        "nullable": true
+      },
+      "expected_value_vnd": {
+        "name": "expected_value_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "email": {
+        "name": "email",
+        "datatype": "string",
+        "nullable": true
+      },
+      "phone": {
+        "name": "phone",
+        "datatype": "string",
+        "nullable": true
+      }
+    }
+  },
+  "marketing_campaigns": {
+    "table": {
+      "name": "marketing_campaigns",
+      "silver_name": "marketing_campaigns",
+      "primary_key": [
+        "campaign_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: campaign_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "campaign_id": {
+        "name": "campaign_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "campaign_name": {
+        "name": "campaign_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "channel": {
+        "name": "channel",
+        "datatype": "string",
+        "nullable": false
+      },
+      "start_date": {
+        "name": "start_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "end_date": {
+        "name": "end_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "objective": {
+        "name": "objective",
+        "datatype": "string",
+        "nullable": false
+      },
+      "planned_daily_budget_vnd": {
+        "name": "planned_daily_budget_vnd",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "marketing_daily_raw": {
+    "table": {
+      "name": "marketing_daily_raw",
+      "silver_name": "marketing_daily",
+      "primary_key": [],
+      "foreign_keys": [
+        {
+          "column": "campaign_id",
+          "references": "marketing_campaigns.campaign_id"
+        }
+      ],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "date": {
+        "name": "date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "campaign_id": {
+        "name": "campaign_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "channel": {
+        "name": "channel",
+        "datatype": "string",
+        "nullable": false
+      },
+      "impressions": {
+        "name": "impressions",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "clicks": {
+        "name": "clicks",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "sessions": {
+        "name": "sessions",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "spend_vnd": {
+        "name": "spend_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "leads_reported": {
+        "name": "leads_reported",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "source_platform": {
+        "name": "source_platform",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "payments_raw": {
+    "table": {
+      "name": "payments_raw",
+      "silver_name": "payments",
+      "primary_key": [],
+      "foreign_keys": [
+        {
+          "column": "invoice_id",
+          "references": "invoices_raw.invoice_id"
+        },
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        }
+      ],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "payment_id": {
+        "name": "payment_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "invoice_id": {
+        "name": "invoice_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "payment_date": {
+        "name": "payment_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "paid_amount_vnd": {
+        "name": "paid_amount_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "payment_method": {
+        "name": "payment_method",
+        "datatype": "string",
+        "nullable": false
+      },
+      "payment_stage": {
+        "name": "payment_stage",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "process_events_raw": {
+    "table": {
+      "name": "process_events_raw",
+      "silver_name": "process_events",
+      "primary_key": [
+        "process_event_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: process_event_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "process_event_id": {
+        "name": "process_event_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "case_type": {
+        "name": "case_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "case_id": {
+        "name": "case_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "event_timestamp": {
+        "name": "event_timestamp",
+        "datatype": "datetime",
+        "nullable": false
+      },
+      "department": {
+        "name": "department",
+        "datatype": "string",
+        "nullable": false
+      },
+      "event_stage": {
+        "name": "event_stage",
+        "datatype": "string",
+        "nullable": false
+      },
+      "event_description": {
+        "name": "event_description",
+        "datatype": "string",
+        "nullable": false
+      },
+      "duration_from_previous_hours": {
+        "name": "duration_from_previous_hours",
+        "datatype": "decimal",
+        "nullable": true
+      }
+    }
+  },
+  "product_supplier_map_raw": {
+    "table": {
+      "name": "product_supplier_map_raw",
+      "silver_name": "product_supplier_map",
+      "primary_key": [
+        "map_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        },
+        {
+          "column": "supplier_id",
+          "references": "suppliers_raw.supplier_id"
+        }
+      ],
+      "proposal": "Proposed PK: map_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "map_id": {
+        "name": "map_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_role": {
+        "name": "supplier_role",
+        "datatype": "string",
+        "nullable": false
+      },
+      "effective_from": {
+        "name": "effective_from",
+        "datatype": "date",
+        "nullable": false
+      },
+      "effective_to": {
+        "name": "effective_to",
+        "datatype": "string",
+        "nullable": true
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "unit_cost_local": {
+        "name": "unit_cost_local",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "moq_qty": {
+        "name": "moq_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "contract_lead_time_days": {
+        "name": "contract_lead_time_days",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "expected_defect_rate": {
+        "name": "expected_defect_rate",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "freight_mode": {
+        "name": "freight_mode",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "products_raw": {
+    "table": {
+      "name": "products_raw",
+      "silver_name": "products",
+      "primary_key": [
+        "product_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: product_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sku": {
+        "name": "sku",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_name": {
+        "name": "product_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_category": {
+        "name": "product_category",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_family": {
+        "name": "product_family",
+        "datatype": "string",
+        "nullable": false
+      },
+      "brand": {
+        "name": "brand",
+        "datatype": "string",
+        "nullable": false
+      },
+      "source_country": {
+        "name": "source_country",
+        "datatype": "string",
+        "nullable": false
+      },
+      "standard_cost_vnd": {
+        "name": "standard_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "list_price_vnd": {
+        "name": "list_price_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "shelf_life_days": {
+        "name": "shelf_life_days",
+        "datatype": "integer",
+        "nullable": true
+      },
+      "criticality": {
+        "name": "criticality",
+        "datatype": "string",
+        "nullable": false
+      },
+      "base_reorder_point_qty": {
+        "name": "base_reorder_point_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "base_safety_stock_qty": {
+        "name": "base_safety_stock_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "popularity_rank": {
+        "name": "popularity_rank",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "purchase_order_lines_raw": {
+    "table": {
+      "name": "purchase_order_lines_raw",
+      "silver_name": "purchase_order_lines",
+      "primary_key": [
+        "purchase_order_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "purchase_order_id",
+          "references": "purchase_orders_raw.purchase_order_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: purchase_order_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "purchase_order_line_id": {
+        "name": "purchase_order_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "purchase_order_id": {
+        "name": "purchase_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_ordered": {
+        "name": "quantity_ordered",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_price_local": {
+        "name": "unit_price_local",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "fx_rate_to_vnd": {
+        "name": "fx_rate_to_vnd",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "merchandise_value_vnd": {
+        "name": "merchandise_value_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "freight_cost_vnd": {
+        "name": "freight_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "customs_cost_vnd": {
+        "name": "customs_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "expedite_cost_vnd": {
+        "name": "expedite_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "supplier_role": {
+        "name": "supplier_role",
+        "datatype": "string",
+        "nullable": false
+      },
+      "contract_lead_time_days": {
+        "name": "contract_lead_time_days",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "purchase_orders_raw": {
+    "table": {
+      "name": "purchase_orders_raw",
+      "silver_name": "purchase_orders",
+      "primary_key": [
+        "purchase_order_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "supplier_id",
+          "references": "suppliers_raw.supplier_id"
+        }
+      ],
+      "proposal": "Proposed PK: purchase_order_id. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "purchase_order_id": {
+        "name": "purchase_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "po_date": {
+        "name": "po_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "buyer_id": {
+        "name": "buyer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "expected_receipt_date": {
+        "name": "expected_receipt_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "actual_receipt_date": {
+        "name": "actual_receipt_date",
+        "datatype": "date",
+        "nullable": true
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "fx_rate_to_vnd": {
+        "name": "fx_rate_to_vnd",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "payment_term": {
+        "name": "payment_term",
+        "datatype": "string",
+        "nullable": false
+      },
+      "incoterm": {
+        "name": "incoterm",
+        "datatype": "string",
+        "nullable": false
+      },
+      "po_status": {
+        "name": "po_status",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "qa_events_raw": {
+    "table": {
+      "name": "qa_events_raw",
+      "silver_name": "qa_events",
+      "primary_key": [
+        "purchase_order_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "purchase_order_id",
+          "references": "purchase_orders_raw.purchase_order_id"
+        },
+        {
+          "column": "purchase_order_line_id",
+          "references": "purchase_order_lines_raw.purchase_order_line_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        },
+        {
+          "column": "supplier_id",
+          "references": "suppliers_raw.supplier_id"
+        }
+      ],
+      "proposal": "Proposed PK: purchase_order_line_id. Proposed FK count: 4. Review this JSON before cleaning."
+    },
+    "columns": {
+      "qa_event_id": {
+        "name": "qa_event_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "event_date": {
+        "name": "event_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "purchase_order_id": {
+        "name": "purchase_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "purchase_order_line_id": {
+        "name": "purchase_order_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "qa_type": {
+        "name": "qa_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "severity": {
+        "name": "severity",
+        "datatype": "string",
+        "nullable": false
+      },
+      "defect_qty": {
+        "name": "defect_qty",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "estimated_quality_cost_vnd": {
+        "name": "estimated_quality_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "disposition": {
+        "name": "disposition",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "quotation_lines_raw": {
+    "table": {
+      "name": "quotation_lines_raw",
+      "silver_name": "quotation_lines",
+      "primary_key": [
+        "quotation_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "quotation_id",
+          "references": "quotations_raw.quotation_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: quotation_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "quotation_line_id": {
+        "name": "quotation_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quotation_id": {
+        "name": "quotation_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity": {
+        "name": "quantity",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_price_local": {
+        "name": "unit_price_local",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "discount_pct": {
+        "name": "discount_pct",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "line_net_vnd": {
+        "name": "line_net_vnd",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "quotations_raw": {
+    "table": {
+      "name": "quotations_raw",
+      "silver_name": "quotations",
+      "primary_key": [
+        "quotation_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        }
+      ],
+      "proposal": "Proposed PK: quotation_id. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "quotation_id": {
+        "name": "quotation_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "lead_id": {
+        "name": "lead_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": true
+      },
+      "quote_date_raw": {
+        "name": "quote_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "version_no": {
+        "name": "version_no",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "quote_date_clean_reference": {
+        "name": "quote_date_clean_reference",
+        "datatype": "date",
+        "nullable": false
+      },
+      "valid_until": {
+        "name": "valid_until",
+        "datatype": "date",
+        "nullable": false
+      },
+      "salesperson_id": {
+        "name": "salesperson_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "fx_rate_to_vnd": {
+        "name": "fx_rate_to_vnd",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "quotation_status": {
+        "name": "quotation_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "header_total_vnd": {
+        "name": "header_total_vnd",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "sales_activities_raw": {
+    "table": {
+      "name": "sales_activities_raw",
+      "silver_name": "sales_activities",
+      "primary_key": [],
+      "foreign_keys": [
+        {
+          "column": "employee_id",
+          "references": "employees.employee_id"
+        }
+      ],
+      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+    },
+    "columns": {
+      "activity_id": {
+        "name": "activity_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "lead_id": {
+        "name": "lead_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "employee_id": {
+        "name": "employee_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "activity_datetime": {
+        "name": "activity_datetime",
+        "datatype": "datetime",
+        "nullable": false
+      },
+      "activity_type_raw": {
+        "name": "activity_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "outcome_raw": {
+        "name": "outcome",
+        "datatype": "string",
+        "nullable": true
+      },
+      "next_followup_date": {
+        "name": "next_followup_date",
+        "datatype": "date",
+        "nullable": true
+      },
+      "data_entry_source": {
+        "name": "data_entry_source",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "sales_order_lines_raw": {
+    "table": {
+      "name": "sales_order_lines_raw",
+      "silver_name": "sales_order_lines",
+      "primary_key": [
+        "sales_order_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "sales_order_id",
+          "references": "sales_orders_raw.sales_order_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: sales_order_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "sales_order_line_id": {
+        "name": "sales_order_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_id": {
+        "name": "sales_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_ordered": {
+        "name": "quantity_ordered",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_price_vnd": {
+        "name": "unit_price_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "unit_cost_vnd": {
+        "name": "unit_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "discount_pct": {
+        "name": "discount_pct",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "promised_delivery_date": {
+        "name": "promised_delivery_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "line_status": {
+        "name": "line_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_shipped_to_date": {
+        "name": "quantity_shipped_to_date",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "sales_orders_raw": {
+    "table": {
+      "name": "sales_orders_raw",
+      "silver_name": "sales_orders",
+      "primary_key": [
+        "sales_order_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "quotation_id",
+          "references": "quotations_raw.quotation_id"
+        },
+        {
+          "column": "customer_id",
+          "references": "customers_raw.customer_id"
+        }
+      ],
+      "proposal": "Proposed PK: sales_order_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "sales_order_id": {
+        "name": "sales_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quotation_id": {
+        "name": "quotation_id",
+        "datatype": "string",
+        "nullable": true
+      },
+      "lead_id": {
+        "name": "lead_id",
+        "datatype": "string",
+        "nullable": true
+      },
+      "customer_id": {
+        "name": "customer_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "order_date_raw": {
+        "name": "order_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "requested_delivery_date": {
+        "name": "requested_delivery_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "salesperson_id": {
+        "name": "salesperson_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "payment_term": {
+        "name": "payment_term",
+        "datatype": "string",
+        "nullable": false
+      },
+      "order_status": {
+        "name": "order_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "order_type": {
+        "name": "order_type",
+        "datatype": "string",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "fx_rate_to_vnd": {
+        "name": "fx_rate_to_vnd",
+        "datatype": "decimal",
+        "nullable": false
+      }
+    }
+  },
+  "shipment_lines_raw": {
+    "table": {
+      "name": "shipment_lines_raw",
+      "silver_name": "shipment_lines",
+      "primary_key": [
+        "shipment_line_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "shipment_id",
+          "references": "shipments_raw.shipment_id"
+        },
+        {
+          "column": "sales_order_line_id",
+          "references": "sales_order_lines_raw.sales_order_line_id"
+        },
+        {
+          "column": "product_id",
+          "references": "products_raw.product_id"
+        }
+      ],
+      "proposal": "Proposed PK: shipment_line_id. Proposed FK count: 3. Review this JSON before cleaning."
+    },
+    "columns": {
+      "shipment_line_id": {
+        "name": "shipment_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "shipment_id": {
+        "name": "shipment_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_line_id": {
+        "name": "sales_order_line_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "product_id": {
+        "name": "product_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "quantity_shipped": {
+        "name": "quantity_shipped",
+        "datatype": "integer",
+        "nullable": false
+      }
+    }
+  },
+  "shipments_raw": {
+    "table": {
+      "name": "shipments_raw",
+      "silver_name": "shipments",
+      "primary_key": [
+        "shipment_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "sales_order_id",
+          "references": "sales_orders_raw.sales_order_id"
+        },
+        {
+          "column": "warehouse_id",
+          "references": "warehouses.warehouse_id"
+        }
+      ],
+      "proposal": "Proposed PK: shipment_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "shipment_id": {
+        "name": "shipment_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "sales_order_id": {
+        "name": "sales_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "ship_date": {
+        "name": "ship_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "actual_delivery_date": {
+        "name": "actual_delivery_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "shipping_method_raw": {
+        "name": "shipping_method",
+        "datatype": "string",
+        "nullable": false
+      },
+      "warehouse_id": {
+        "name": "warehouse_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "freight_cost_vnd": {
+        "name": "freight_cost_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "shipment_status": {
+        "name": "shipment_status",
+        "datatype": "string",
+        "nullable": false
+      },
+      "partial_shipment_flag": {
+        "name": "partial_shipment_flag",
+        "datatype": "boolean",
+        "nullable": false
+      },
+      "tracking_no": {
+        "name": "tracking_no",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "supplier_invoices_raw": {
+    "table": {
+      "name": "supplier_invoices_raw",
+      "silver_name": "supplier_invoices",
+      "primary_key": [
+        "supplier_invoice_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "purchase_order_id",
+          "references": "purchase_orders_raw.purchase_order_id"
+        },
+        {
+          "column": "supplier_id",
+          "references": "suppliers_raw.supplier_id"
+        }
+      ],
+      "proposal": "Proposed PK: supplier_invoice_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "supplier_invoice_id": {
+        "name": "supplier_invoice_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "purchase_order_id": {
+        "name": "purchase_order_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "invoice_date": {
+        "name": "invoice_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "due_date": {
+        "name": "due_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "invoice_amount_vnd": {
+        "name": "invoice_amount_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "payment_status": {
+        "name": "payment_status",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "supplier_payments_raw": {
+    "table": {
+      "name": "supplier_payments_raw",
+      "silver_name": "supplier_payments",
+      "primary_key": [
+        "supplier_payment_id"
+      ],
+      "foreign_keys": [
+        {
+          "column": "supplier_invoice_id",
+          "references": "supplier_invoices_raw.supplier_invoice_id"
+        },
+        {
+          "column": "supplier_id",
+          "references": "suppliers_raw.supplier_id"
+        }
+      ],
+      "proposal": "Proposed PK: supplier_payment_id. Proposed FK count: 2. Review this JSON before cleaning."
+    },
+    "columns": {
+      "supplier_payment_id": {
+        "name": "supplier_payment_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_invoice_id": {
+        "name": "supplier_invoice_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "payment_date": {
+        "name": "payment_date",
+        "datatype": "date",
+        "nullable": false
+      },
+      "paid_amount_vnd": {
+        "name": "paid_amount_vnd",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "payment_method": {
+        "name": "payment_method",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "suppliers_raw": {
+    "table": {
+      "name": "suppliers_raw",
+      "silver_name": "suppliers",
+      "primary_key": [
+        "supplier_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: supplier_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "supplier_id": {
+        "name": "supplier_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "supplier_name": {
+        "name": "supplier_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "country": {
+        "name": "country",
+        "datatype": "string",
+        "nullable": false
+      },
+      "currency": {
+        "name": "currency",
+        "datatype": "string",
+        "nullable": false
+      },
+      "payment_term": {
+        "name": "payment_term",
+        "datatype": "string",
+        "nullable": false
+      },
+      "incoterm": {
+        "name": "incoterm",
+        "datatype": "string",
+        "nullable": false
+      },
+      "planned_lead_time_days": {
+        "name": "planned_lead_time_days",
+        "datatype": "integer",
+        "nullable": false
+      },
+      "baseline_otif": {
+        "name": "baseline_otif",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "baseline_defect_rate": {
+        "name": "baseline_defect_rate",
+        "datatype": "decimal",
+        "nullable": false
+      },
+      "default_freight_mode": {
+        "name": "default_freight_mode",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  },
+  "warehouses": {
+    "table": {
+      "name": "warehouses",
+      "silver_name": "warehouses",
+      "primary_key": [
+        "warehouse_id"
+      ],
+      "foreign_keys": [],
+      "proposal": "Proposed PK: warehouse_id. Proposed FK count: 0. Review this JSON before cleaning."
+    },
+    "columns": {
+      "warehouse_id": {
+        "name": "warehouse_id",
+        "datatype": "string",
+        "nullable": false
+      },
+      "warehouse_name": {
+        "name": "warehouse_name",
+        "datatype": "string",
+        "nullable": false
+      },
+      "city": {
+        "name": "city",
+        "datatype": "string",
+        "nullable": false
+      },
+      "province": {
+        "name": "province",
+        "datatype": "string",
+        "nullable": false
+      },
+      "warehouse_type": {
+        "name": "warehouse_type",
+        "datatype": "string",
+        "nullable": false
+      }
+    }
+  }
+}

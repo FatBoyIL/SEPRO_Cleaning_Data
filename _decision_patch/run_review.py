@@ -13,7 +13,6 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 import pandas as pd
-import profiling.data_quality as dq
 from sqlalchemy import create_engine, text
 
 from config.table_config import (
@@ -32,7 +31,6 @@ from profiling.data_quality import (
     check_text_variants,
     check_whitespace_issues,
     profile_table,
-    suggest_datatypes,
 )
 from profiling.schema_proposal import (
     build_review_dataframe,
@@ -128,33 +126,8 @@ def run_data_quality_scan(
         issues.extend(check_exact_duplicates(table_name, df))
         issues.extend(check_text_variants(table_name, df))
         issues.extend(check_whitespace_issues(table_name, df))
-        # Generate datatype suggestions first.
-        # check_datatype_issues uses these suggestions to detect
-        # values that do not match the proposed datatype.
-    datatype_suggestions = suggest_datatypes(
-    table_name,
-    df,
-)
-
-    issues.extend(
-    check_datatype_issues(
-        table_name,
-        df,
-        datatype_suggestions,
-    )
-)
-    datatype_suggestions = dq.suggest_datatypes(
-            table_name,
-            df,
-        )
-
-    issues.extend(
-            check_datatype_issues(
-                table_name,
-                df,
-                datatype_suggestions,
-            )
-        )
+        issues.extend(check_column_structure(table_name, df))
+        issues.extend(check_datatype_issues(table_name, df))
 
     profile_df = pd.DataFrame(
         table_profiles,
