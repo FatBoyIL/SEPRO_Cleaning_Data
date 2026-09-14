@@ -7,6 +7,45 @@ DATABASE = "SEPRO_Master_Prod"
 ODBC_DRIVER = "ODBC Driver 18 for SQL Server"
 BRONZE_SCHEMA = "bronze"
 SILVER_SCHEMA = "silver"
+# =========================================================
+# CURRENCY CONFIG
+# =========================================================
+
+# Đồng tiền chuẩn của Silver Layer
+BASE_CURRENCY = "VND"
+
+# Bảng tỷ giá trong Bronze
+FX_TABLE = "fx_rates_daily"
+
+# Các cột trong bảng tỷ giá
+FX_DATE_COLUMN = "date"
+FX_CURRENCY_COLUMN = "currency"
+FX_RATE_COLUMN = "vnd_per_currency"
+
+# Chuẩn hóa cách viết currency code
+CURRENCY_ALIASES = {
+    "VND": "VND",
+    "VNĐ": "VND",
+    "VND.": "VND",
+    "Đ": "VND",
+
+    "USD": "USD",
+    "US$": "USD",
+    "$": "USD",
+
+    "EUR": "EUR",
+    "€": "EUR",
+
+    "JPY": "JPY",
+
+    "CNY": "CNY",
+    "RMB": "CNY",
+
+    "GBP": "GBP",
+    "SGD": "SGD",
+    "MYR": "MYR",
+    "THB": "THB",
+}
 
 # =========================================================
 # BRONZE TABLE CONFIG
