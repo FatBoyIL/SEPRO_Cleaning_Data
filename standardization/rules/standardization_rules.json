@@ -1,0 +1,28 @@
+{
+  "_global": {
+    "base_currency": "VND",
+    "currency_aliases": {
+      "VND": "VND",
+      "VNĐ": "VND",
+      "Đ": "VND",
+      "USD": "USD",
+      "US$": "USD",
+      "$": "USD",
+      "EUR": "EUR",
+      "JPY": "JPY",
+      "CNY": "CNY",
+      "RMB": "CNY"
+    },
+    "fx": {
+      "rate_table": "fx_rates_daily",
+      "date_column": "date",
+      "currency_column": "currency",
+      "rate_column": "vnd_per_currency",
+      "missing_rate_rule": "previous_available_rate"
+    }
+  },
+
+  "value_mappings": {},
+
+  "currency": {}
+}
