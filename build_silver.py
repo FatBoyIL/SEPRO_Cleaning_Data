@@ -49,6 +49,10 @@ LOGICAL_TO_SQL = {
     "boolean": "BIT",
 }
 
+# SQL Server clustered index keys are limited to 900 bytes.
+# Keep reviewed PK/FK string columns compact while preserving wide text columns.
+STRING_KEY_LENGTH = 100
+
 
 # =========================================================
 # LOAD CONTRACT / RULES
@@ -418,6 +422,55 @@ def numeric_clean_sql(expr: str) -> str:
     )
 
 
+def datetime_parse_sql(expr: str) -> str:
+    """Compile mixed Bronze date/datetime text to DATETIME2 deterministically.
+
+    The Bronze data contains multiple date families.  Do not simply COALESCE
+    all SQL Server date styles because SQL Server can accept some separators
+    under more than one style, which can reinterpret ambiguous values such as
+    02-05-2026.  Route by shape first, then apply the matching style.
+
+    Supported source families:
+      - yyyy-mm-dd [hh:mm:ss] / ISO-8601
+      - yyyy/mm/dd [hh:mm]
+      - dd/mm/yyyy [hh:mm]
+      - mm-dd-yyyy [hh:mm]
+      - yyyymmdd
+
+    This makes the parser independent from the SSMS session DATEFORMAT.
+    """
+
+    text_expr = f"LTRIM(RTRIM(CONVERT(NVARCHAR(100), {expr})))"
+
+    iso_dash = (
+        "COALESCE("
+        f"TRY_CONVERT(DATETIME2, {text_expr}, 126), "
+        f"TRY_CONVERT(DATETIME2, {text_expr}, 121), "
+        f"TRY_CONVERT(DATETIME2, {text_expr}, 120), "
+        f"TRY_CONVERT(DATETIME2, {text_expr}, 23)"
+        ")"
+    )
+
+    return (
+        "CASE "
+        # yyyy-mm-dd / yyyy-mm-dd hh:mm:ss / ISO with T
+        f"WHEN {text_expr} LIKE N'[12][0-9][0-9][0-9]-%' THEN {iso_dash} "
+        # yyyy/mm/dd [hh:mm]
+        f"WHEN {text_expr} LIKE N'[12][0-9][0-9][0-9]/%' "
+        f"THEN TRY_CONVERT(DATETIME2, {text_expr}, 111) "
+        # dd/mm/yyyy [hh:mm]
+        f"WHEN {text_expr} LIKE N'%/%' "
+        f"THEN TRY_CONVERT(DATETIME2, {text_expr}, 103) "
+        # mm-dd-yyyy [hh:mm]
+        f"WHEN {text_expr} LIKE N'%-%' "
+        f"THEN TRY_CONVERT(DATETIME2, {text_expr}, 110) "
+        # yyyymmdd
+        f"WHEN {text_expr} LIKE N'[12][0-9][0-9][0-9][01][0-9][0-3][0-9]' "
+        f"THEN TRY_CONVERT(DATETIME2, {text_expr}, 112) "
+        "ELSE NULL END"
+    )
+
+
 def cast_sql(expr: str, datatype: str) -> str:
     """Compile one reviewed logical datatype to a safe SQL Server conversion."""
 
@@ -436,9 +489,10 @@ def cast_sql(expr: str, datatype: str) -> str:
             "ELSE NULL END"
         )
     if datatype == "date":
-        return f"TRY_CONVERT(DATE, {expr})"
+        parsed = datetime_parse_sql(expr)
+        return f"TRY_CONVERT(DATE, ({parsed}))"
     if datatype == "datetime":
-        return f"TRY_CONVERT(DATETIME2, {expr})"
+        return datetime_parse_sql(expr)
     if datatype == "boolean":
         normalized = f"LOWER(LTRIM(RTRIM(CONVERT(NVARCHAR(50), {expr}))))"
         return (
@@ -699,6 +753,34 @@ def transformed_select_sql(
     return sql, expressions, derived
 
 
+def key_string_targets(table_schema: dict) -> set[str]:
+    """Return reviewed Silver string columns that participate in PK/FK relationships."""
+
+    targets: set[str] = set()
+
+    # Primary-key columns.
+    for identifier in table_schema.get("table", {}).get("primary_key", []):
+        targets.add(resolve_target_column(table_schema, str(identifier)))
+
+    # Child-side foreign-key columns. Parent referenced columns are reviewed PKs
+    # under the current contract, so they are already covered above.
+    for fk in table_schema.get("table", {}).get("foreign_keys", []):
+        identifier = str(fk.get("column", "")).strip()
+        if identifier:
+            targets.add(resolve_target_column(table_schema, identifier))
+
+    return targets
+
+
+def reviewed_column_sql_type(table_schema: dict, target: str, config: dict) -> str:
+    """Resolve physical SQL type, using bounded NVARCHAR for PK/FK string columns."""
+
+    datatype = str(config["datatype"]).lower()
+    if datatype == "string" and target in key_string_targets(table_schema):
+        return f"NVARCHAR({STRING_KEY_LENGTH})"
+    return LOGICAL_TO_SQL[datatype]
+
+
 def create_table_sql(
     source_table: str,
     table_schema: dict,
@@ -710,7 +792,7 @@ def create_table_sql(
     definitions: list[str] = []
     for _, config in table_schema.get("columns", {}).items():
         target = str(config["name"])
-        sql_type = LOGICAL_TO_SQL[str(config["datatype"]).lower()]
+        sql_type = reviewed_column_sql_type(table_schema, target, config)
         nullability = "NULL" if bool(config["nullable"]) else "NOT NULL"
         definitions.append(f"    {q(target)} {sql_type} {nullability}")
 
@@ -789,6 +871,31 @@ def schema_runtime_guards_sql(
             f"      AND ({rate_expr}) IS NULL\n"
             ")\n"
             f"    THROW 51002, {sql_nvarchar(message)}, 1;"
+        )
+
+    # SQL Server clustered PKs have a 900-byte key limit. The physical schema
+    # therefore bounds reviewed string PK/FK columns to STRING_KEY_LENGTH.
+    # Guard before CREATE/INSERT so no key value can be silently truncated.
+    string_key_targets = {
+        target
+        for target in key_string_targets(table_schema)
+        if target in expressions and expressions[target].get("datatype") == "string"
+    }
+    for target in sorted(string_key_targets):
+        message = (
+            f"Key/FK value exceeds NVARCHAR({STRING_KEY_LENGTH}): "
+            f"{source_table}.{target}"
+        )
+        checks.append(
+            "IF EXISTS (\n"
+            "    SELECT 1\n"
+            "    FROM (\n"
+            + indent_sql(transformed_select, 8)
+            + "\n    ) AS transformed\n"
+            f"    WHERE DATALENGTH(CONVERT(NVARCHAR(4000), transformed.{q(target)})) "
+            f"> {STRING_KEY_LENGTH * 2}\n"
+            ")\n"
+            f"    THROW 51006, {sql_nvarchar(message)}, 1;"
         )
 
     # NOT NULL checks use the fully transformed dataset.
@@ -973,50 +1080,81 @@ def analyst_decision_comments(source_table: str, table_schema: dict) -> str:
 
 
 def final_validation_queries(review_schema: dict) -> str:
-    """Generate read-only post-build checks that the analyst can inspect in SSMS."""
+    """Generate guarded, read-only post-build checks for SSMS.
+
+    SSMS can continue to the next GO batch after the build batch throws an error.
+    Every validation query therefore checks object existence first, preventing
+    misleading "Invalid object name" errors after a transaction rollback.
+    """
 
     chunks: list[str] = [
         "/* ================================================================",
         "   POST-BUILD VALIDATION QUERIES",
-        "   These statements are read-only and are intentionally left visible",
-        "   so the analyst can inspect the result after execution.",
+        "   Read-only checks. If the build rolled back, missing tables are",
+        "   skipped instead of raising secondary Invalid object errors.",
         "   ================================================================ */",
     ]
 
     for source_table, table_schema in review_schema.items():
         silver_name = get_silver_table_name(source_table, table_schema)
         obj = qualified(SILVER_SCHEMA, silver_name)
-        chunks.append(f"\n-- Row count: {SILVER_SCHEMA}.{silver_name}")
-        chunks.append(f"SELECT COUNT_BIG(*) AS row_count FROM {obj};")
+        object_name = f"{SILVER_SCHEMA}.{silver_name}"
 
         pk_targets = [
             resolve_target_column(table_schema, identifier)
             for identifier in table_schema.get("table", {}).get("primary_key", [])
         ]
+
+        body = [
+            f"    -- Row count: {object_name}",
+            f"    SELECT COUNT_BIG(*) AS row_count FROM {obj};",
+        ]
         if pk_targets:
             columns = ", ".join(q(column) for column in pk_targets)
-            chunks.append(f"-- PK duplicate check: {SILVER_SCHEMA}.{silver_name}")
-            chunks.append(
-                f"SELECT {columns}, COUNT_BIG(*) AS duplicate_count\n"
-                f"FROM {obj}\n"
-                f"GROUP BY {columns}\n"
-                "HAVING COUNT_BIG(*) > 1;"
+            body.extend(
+                [
+                    f"    -- PK duplicate check: {object_name}",
+                    f"    SELECT {columns}, COUNT_BIG(*) AS duplicate_count",
+                    f"    FROM {obj}",
+                    f"    GROUP BY {columns}",
+                    "    HAVING COUNT_BIG(*) > 1;",
+                ]
             )
+
+        chunks.extend(
+            [
+                "",
+                f"IF OBJECT_ID({sql_nvarchar(object_name)}, N'U') IS NOT NULL",
+                "BEGIN",
+                *body,
+                "END",
+                "ELSE",
+                f"    PRINT {sql_nvarchar('SKIP validation: ' + object_name + ' does not exist (build may have rolled back).')};",
+            ]
+        )
 
     for record in foreign_key_records(review_schema):
         child = qualified(SILVER_SCHEMA, record["child_table"])
         parent = qualified(SILVER_SCHEMA, record["parent_table"])
+        child_name = f"{SILVER_SCHEMA}.{record['child_table']}"
+        parent_name = f"{SILVER_SCHEMA}.{record['parent_table']}"
         ccol = q(record["child_column"])
         pcol = q(record["parent_column"])
-        chunks.append(
-            f"\n-- FK orphan check: {record['child_table']}.{record['child_column']} "
-            f"-> {record['parent_table']}.{record['parent_column']}"
-        )
-        chunks.append(
-            "SELECT COUNT_BIG(*) AS orphan_count\n"
-            f"FROM {child} AS c\n"
-            f"LEFT JOIN {parent} AS p ON c.{ccol} = p.{pcol}\n"
-            f"WHERE c.{ccol} IS NOT NULL AND p.{pcol} IS NULL;"
+        chunks.extend(
+            [
+                "",
+                f"-- FK orphan check: {record['child_table']}.{record['child_column']} -> {record['parent_table']}.{record['parent_column']}",
+                f"IF OBJECT_ID({sql_nvarchar(child_name)}, N'U') IS NOT NULL",
+                f"   AND OBJECT_ID({sql_nvarchar(parent_name)}, N'U') IS NOT NULL",
+                "BEGIN",
+                "    SELECT COUNT_BIG(*) AS orphan_count",
+                f"    FROM {child} AS c",
+                f"    LEFT JOIN {parent} AS p ON c.{ccol} = p.{pcol}",
+                f"    WHERE c.{ccol} IS NOT NULL AND p.{pcol} IS NULL;",
+                "END",
+                "ELSE",
+                f"    PRINT {sql_nvarchar('SKIP FK validation: ' + child_name + ' or ' + parent_name + ' does not exist.')};",
+            ]
         )
 
     chunks.append(

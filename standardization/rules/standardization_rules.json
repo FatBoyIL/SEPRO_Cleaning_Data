@@ -1,28 +1,186 @@
 {
   "_global": {
     "base_currency": "VND",
+    "missing_fx_rate_rule": "previous_available_rate",
     "currency_aliases": {
       "VND": "VND",
       "VNĐ": "VND",
+      "VND.": "VND",
       "Đ": "VND",
       "USD": "USD",
       "US$": "USD",
       "$": "USD",
       "EUR": "EUR",
+      "€": "EUR",
       "JPY": "JPY",
       "CNY": "CNY",
-      "RMB": "CNY"
-    },
-    "fx": {
-      "rate_table": "fx_rates_daily",
-      "date_column": "date",
-      "currency_column": "currency",
-      "rate_column": "vnd_per_currency",
-      "missing_rate_rule": "previous_available_rate"
+      "RMB": "CNY",
+      "GBP": "GBP",
+      "SGD": "SGD",
+      "MYR": "MYR",
+      "THB": "THB"
     }
   },
-
-  "value_mappings": {},
-
-  "currency": {}
+  "tables": {
+    "customers_raw": {
+      "value_mappings": {
+        "industry": {
+          "pharma": "Pharmaceutical",
+          "pharmaceutical": "Pharmaceutical",
+          "medical device": "Medical Device",
+          "medical devices": "Medical Device",
+          "med device": "Medical Device",
+          "electronics": "Electronics",
+          "electronic": "Electronics",
+          "food & beverage": "Food & Beverage",
+          "food and beverage": "Food & Beverage",
+          "f&b": "Food & Beverage",
+          "cleanroom contractor": "Cleanroom Contractor",
+          "laboratory": "Laboratory",
+          "lab": "Laboratory",
+          "industrial manufacturing": "Industrial Manufacturing",
+          "industrial mfg": "Industrial Manufacturing",
+          "trading company": "Trading Company",
+          "trading": "Trading Company"
+        },
+        "province": {
+          "ho chi minh city": "Ho Chi Minh City",
+          "hochiminh city": "Ho Chi Minh City",
+          "ho chi minh": "Ho Chi Minh City",
+          "tp.hcm": "Ho Chi Minh City",
+          "hcmc": "Ho Chi Minh City",
+          "ha noi": "Ha Noi",
+          "hanoi": "Ha Noi",
+          "binh duong": "Binh Duong",
+          "binhduong": "Binh Duong",
+          "dong nai": "Dong Nai",
+          "dongnai": "Dong Nai",
+          "bac ninh": "Bac Ninh",
+          "bacninh": "Bac Ninh"
+        },
+        "default_payment_term": {
+          "net30": "Net 30",
+          "net 30": "Net 30",
+          "30 days": "Net 30"
+        }
+      }
+    },
+    "leads_raw": {
+      "value_mappings": {
+        "industry": {
+          "pharma": "Pharmaceutical",
+          "pharmaceutical": "Pharmaceutical",
+          "medical device": "Medical Device",
+          "medical devices": "Medical Device",
+          "med device": "Medical Device",
+          "electronics": "Electronics",
+          "electronic": "Electronics",
+          "food & beverage": "Food & Beverage",
+          "food and beverage": "Food & Beverage",
+          "f&b": "Food & Beverage",
+          "cleanroom contractor": "Cleanroom Contractor",
+          "laboratory": "Laboratory",
+          "lab": "Laboratory",
+          "industrial manufacturing": "Industrial Manufacturing",
+          "industrial mfg": "Industrial Manufacturing",
+          "trading company": "Trading Company",
+          "trading": "Trading Company"
+        },
+        "province": {
+          "ho chi minh city": "Ho Chi Minh City",
+          "hochiminh city": "Ho Chi Minh City",
+          "ho chi minh": "Ho Chi Minh City",
+          "tp.hcm": "Ho Chi Minh City",
+          "hcmc": "Ho Chi Minh City",
+          "ha noi": "Ha Noi",
+          "hanoi": "Ha Noi",
+          "binh duong": "Binh Duong",
+          "binhduong": "Binh Duong",
+          "dong nai": "Dong Nai",
+          "dongnai": "Dong Nai",
+          "bac ninh": "Bac Ninh",
+          "bacninh": "Bac Ninh"
+        },
+        "source_channel": {
+          "google ads": "Google Ads",
+          "google ppc": "Google Ads",
+          "gads": "Google Ads",
+          "paid search": "Google Ads",
+          "facebook ads": "Facebook Ads",
+          "fb ads": "Facebook Ads",
+          "meta ads": "Facebook Ads",
+          "facebook": "Facebook Ads",
+          "organic search": "Organic Search",
+          "organic": "Organic Search",
+          "seo": "Organic Search",
+          "direct": "Direct",
+          "direct traffic": "Direct",
+          "referral": "Referral",
+          "partner referral": "Referral",
+          "email": "Email",
+          "edm": "Email"
+        }
+      }
+    },
+    "marketing_daily_raw": {
+      "value_mappings": {
+        "channel": {
+          "google ads": "Google Ads",
+          "google ppc": "Google Ads",
+          "gads": "Google Ads",
+          "paid search": "Google Ads",
+          "facebook ads": "Facebook Ads",
+          "fb ads": "Facebook Ads",
+          "meta ads": "Facebook Ads",
+          "facebook": "Facebook Ads",
+          "organic search": "Organic Search",
+          "organic": "Organic Search",
+          "seo": "Organic Search",
+          "direct": "Direct",
+          "direct traffic": "Direct",
+          "referral": "Referral",
+          "partner referral": "Referral",
+          "email": "Email",
+          "edm": "Email"
+        }
+      }
+    },
+    "payments_raw": {
+      "value_mappings": {
+        "payment_method": {
+          "bank transfer": "Bank Transfer",
+          "wire transfer": "Bank Transfer",
+          "bank": "Bank Transfer",
+          "cash": "Cash",
+          "offset": "Offset"
+        }
+      }
+    },
+    "products_raw": {
+      "value_mappings": {
+        "product_category": {
+          "cleanroom wipers": "Cleanroom Wipers",
+          "disinfectants": "Disinfectants"
+        }
+      }
+    },
+    "shipments_raw": {
+      "value_mappings": {
+        "shipping_method": {
+          "dedicated van": "Dedicated Van",
+          "local truck": "Local Truck"
+        }
+      }
+    },
+    "suppliers_raw": {
+      "value_mappings": {
+        "country": {
+          "malaysia": "Malaysia",
+          "vietnam": "Vietnam",
+          "korea": "South Korea",
+          "south korea": "South Korea"
+        }
+      }
+    }
+  }
 }

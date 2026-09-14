@@ -39,8 +39,8 @@ fx_rates_daily,fx_rates_daily,False,date,date,date,False,True,1,False,,3040,0
 fx_rates_daily,fx_rates_daily,False,currency,currency,string,False,True,2,False,,3040,0
 fx_rates_daily,fx_rates_daily,False,vnd_per_currency,vnd_per_currency,decimal,False,False,,False,,3040,0
 inventory_daily_snapshot_raw,inventory_daily_snapshot,False,snapshot_date,snapshot_date,date,False,True,1,False,,19456,0
-inventory_daily_snapshot_raw,inventory_daily_snapshot,False,warehouse_id,warehouse_id,string,False,False,,True,warehouses.warehouse_id,19456,0
-inventory_daily_snapshot_raw,inventory_daily_snapshot,False,product_id,product_id,string,False,True,2,True,products_raw.product_id,19456,0
+inventory_daily_snapshot_raw,inventory_daily_snapshot,False,warehouse_id,warehouse_id,string,False,True,2,True,warehouses.warehouse_id,19456,0
+inventory_daily_snapshot_raw,inventory_daily_snapshot,False,product_id,product_id,string,False,True,3,True,products_raw.product_id,19456,0
 inventory_daily_snapshot_raw,inventory_daily_snapshot,False,on_hand_qty,on_hand_qty,integer,False,False,,False,,19456,0
 inventory_daily_snapshot_raw,inventory_daily_snapshot,False,on_order_qty,on_order_qty,integer,False,False,,False,,19456,0
 inventory_daily_snapshot_raw,inventory_daily_snapshot,False,backlog_qty,backlog_qty,integer,False,False,,False,,19456,0
@@ -76,7 +76,7 @@ invoice_lines_raw,invoice_lines,False,quantity_invoiced,quantity_invoiced,intege
 invoice_lines_raw,invoice_lines,False,unit_price_vnd,unit_price_vnd,integer,False,False,,False,,330,0
 invoice_lines_raw,invoice_lines,False,discount_pct,discount_pct,decimal,False,False,,False,,330,0
 invoice_lines_raw,invoice_lines,False,net_amount_vnd,net_amount_vnd,integer,False,False,,False,,330,0
-invoice_lines_raw,invoice_lines,False,tax_amount_vnd,tax_amount_vnd,string,False,False,,False,,330,0
+invoice_lines_raw,invoice_lines,False,tax_amount_vnd,tax_amount_vnd,integer,False,False,,False,,330,0
 invoice_lines_raw,invoice_lines,False,line_total_vnd,line_total_vnd,integer,False,False,,False,,330,0
 invoices_raw,invoices,False,invoice_id,invoice_id,string,False,True,1,False,,224,0
 invoices_raw,invoices,False,sales_order_id,sales_order_id,string,False,False,,True,sales_orders_raw.sales_order_id,224,0
@@ -119,13 +119,13 @@ marketing_campaigns,marketing_campaigns,False,objective,objective,string,False,F
 marketing_campaigns,marketing_campaigns,False,planned_daily_budget_vnd,planned_daily_budget_vnd,integer,False,False,,False,,15,0
 marketing_daily_raw,marketing_daily,False,date,date,date,False,True,1,False,,7686,60
 marketing_daily_raw,marketing_daily,False,campaign_id,campaign_id,string,False,True,2,True,marketing_campaigns.campaign_id,7686,60
-marketing_daily_raw,marketing_daily,False,channel,channel,string,False,True,3,False,,7686,60
+marketing_daily_raw,marketing_daily,False,channel,channel,string,False,False,,False,,7686,60
 marketing_daily_raw,marketing_daily,False,impressions,impressions,integer,False,False,,False,,7686,60
 marketing_daily_raw,marketing_daily,False,clicks,clicks,integer,False,False,,False,,7686,60
 marketing_daily_raw,marketing_daily,False,sessions,sessions,integer,False,False,,False,,7686,60
 marketing_daily_raw,marketing_daily,False,spend_vnd,spend_vnd,integer,False,False,,False,,7686,60
 marketing_daily_raw,marketing_daily,False,leads_reported,leads_reported,integer,False,False,,False,,7686,60
-marketing_daily_raw,marketing_daily,False,source_platform,source_platform,string,False,True,4,False,,7686,60
+marketing_daily_raw,marketing_daily,False,source_platform,source_platform,string,False,False,,False,,7686,60
 payments_raw,payments,False,payment_id,payment_id,string,False,True,1,False,,234,10
 payments_raw,payments,False,invoice_id,invoice_id,string,False,False,,True,invoices_raw.invoice_id,234,10
 payments_raw,payments,False,customer_id,customer_id,string,False,False,,True,customers_raw.customer_id,234,10

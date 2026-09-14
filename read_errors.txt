@@ -1,0 +1,18 @@
+Ngắn gọn thì lúc đầu SSMS không chạy được vì 3 vấn đề chính nối tiếp nhau:
+
+Ngày giờ trong Bronze không đồng nhất format
+Có cả yyyy-mm-dd, dd/mm/yyyy, yyyy/mm/dd, mm-dd-yyyy… nhưng SQL generator ban đầu chỉ dùng TRY_CONVERT() đơn giản, nên gặp leads_raw.created_at thì fail.
+PK của marketing_daily bị trùng sau khi chuẩn hóa ngày
+Bản parser ngày đầu chưa đủ chặt, có thể hiểu sai các ngày mơ hồ và làm nhiều record rơi vào cùng (date, campaign_id), nên bị Primary key duplicate after transformation.
+Các cột ID dùng làm PK/FK bị tạo thành NVARCHAR(4000)
+SQL Server cảnh báo vì clustered PK có giới hạn key length ~900 bytes, trong khi NVARCHAR(4000) có thể tới 8000 bytes.
+
+Tóm lại:
+
+Bronze data chưa sạch
+→ generator ban đầu xử lý datatype/date chưa đủ chuẩn
+→ PK validation fail
+→ transaction rollback
+→ Silver không được tạo
+
+Sau các lần sửa, generator đã được bổ sung multi-format date parsing, PK-safe parsing và datatype ngắn hơn cho PK/FK.

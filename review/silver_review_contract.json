@@ -75,129 +75,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "b45a4aee42b8",
-        "column_name": "case_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ced7e8b73265",
-        "column_name": "sales_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "e3e50d8b0f67",
-        "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "20da18fb7099",
-        "column_name": "opened_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "66ab4cd3cefb",
-        "column_name": "closed_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8f5276e8dc2f",
-        "column_name": "issue_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2d2d2630e002",
-        "column_name": "severity",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a89affa3b5bc",
-        "column_name": "resolution_days",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9949597ab21c",
-        "column_name": "csat_score",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f406609d55ab",
-        "column_name": "repeat_order_within_90d_flag",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a1a891ca036d",
-        "column_name": "case_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "business_interventions": {
     "table": {
@@ -246,85 +124,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "685a3aa02976",
-        "column_name": "intervention_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7bdb5f9c0290",
-        "column_name": "effective_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5854859b8c73",
-        "column_name": "project",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ed62641519f7",
-        "column_name": "intervention_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "290a96c30353",
-        "column_name": "description",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "283165452c7a",
-        "column_name": "target_kpis",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4dd30754491b",
-        "column_name": "measurement_note",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "customers_raw": {
     "table": {
@@ -390,158 +190,136 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "4ea2f246bf34",
-        "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6140faa9c1f3",
-        "column_name": "company_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "91a5e3f82bad",
+        "issue_id": "ae5eed14207a",
         "column_name": "tax_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 5,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=5; marker_null=0"
       },
       {
-        "issue_id": "b1d3cb09aaea",
-        "column_name": "industry",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1b5b2591ff19",
-        "column_name": "province",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1a5b795a2e07",
-        "column_name": "customer_segment",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "efafa5758108",
-        "column_name": "company_size_band",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "12f8e70dc172",
-        "column_name": "credit_risk",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "172f1c5704ab",
-        "column_name": "default_payment_term",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5cf7874e37bb",
-        "column_name": "customer_since",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "455c316fab99",
+        "issue_id": "3d4efcaf109b",
         "column_name": "company_name",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
-        "decision": "FIX",
-        "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Clean Scientific Factory | Clean Scientific Factory",
+        "detail": "Normalized value: clean scientific factory"
       },
       {
-        "issue_id": "283a149bcac2",
+        "issue_id": "d3e9ae6c2490",
+        "column_name": "company_name",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Industrial Med Factory | Industrial Med Factory",
+        "detail": "Normalized value: industrial med factory"
+      },
+      {
+        "issue_id": "a7cad63138d8",
+        "column_name": "company_name",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Tech Tech JSC | Tech Tech JSC",
+        "detail": "Normalized value: tech tech jsc"
+      },
+      {
+        "issue_id": "cbc9d97b979a",
         "column_name": "industry",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Contractor | Cleanroom contractor",
+        "detail": "Normalized value: cleanroom contractor"
       },
       {
-        "issue_id": "e77f91c91027",
+        "issue_id": "a0303445f6b4",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Electronics | electronics",
+        "detail": "Normalized value: electronics"
+      },
+      {
+        "issue_id": "733bee91f076",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Laboratory | laboratory",
+        "detail": "Normalized value: laboratory"
+      },
+      {
+        "issue_id": "348b61397d37",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "PHARMACEUTICAL | Pharmaceutical",
+        "detail": "Normalized value: pharmaceutical"
+      },
+      {
+        "issue_id": "c8b2dc389fde",
         "column_name": "province",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "BINH DUONG | Binh Duong",
+        "detail": "Normalized value: binh duong"
       },
       {
-        "issue_id": "a376bbdf4ab7",
-        "column_name": "default_payment_term",
+        "issue_id": "d86e3483b0a1",
+        "column_name": "province",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "HA NOI | Ha Noi",
+        "detail": "Normalized value: ha noi"
+      },
+      {
+        "issue_id": "c122f77cba47",
+        "column_name": "default_payment_term",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "NET30 | Net30",
+        "detail": "Normalized value: net30"
+      },
+      {
+        "issue_id": "0a16bfd4ad79",
+        "column_name": "company_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Clean Health Vietnam   |  Bio Industrial Vietnam   |  Scientific Industrial Factory   |  Nova Industrial Factory   |  Solutions Lab JSC",
+        "detail": "Whitespace changes after trim/collapse."
       }
     ]
   },
@@ -567,30 +345,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "3029a585dcf2",
-        "column_name": "department_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "28029c112c26",
-        "column_name": "department_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "employees": {
     "table": {
@@ -641,70 +396,26 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "ad80f8de2705",
-        "column_name": "employee_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0527a191e67f",
-        "column_name": "employee_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "dba283ae9e89",
-        "column_name": "department_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "af0804e7156e",
-        "column_name": "job_title",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9a82abd13416",
-        "column_name": "hire_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1a313158a97f",
+        "issue_id": "08d78fea0035",
         "column_name": "termination_date",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 10,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=10; marker_null=0"
+      },
+      {
+        "issue_id": "b05b45987bff",
+        "column_name": "termination_date",
+        "issue_type": "ALL_MISSING_COLUMN",
+        "issue_count": 10,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Column is currently all NULL; preserve it for schema continuity and future data.",
+        "example": "",
+        "detail": "No effective non-missing value observed."
       }
     ]
   },
@@ -736,41 +447,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "bedb7772c5d6",
-        "column_name": "date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9614e241c0e2",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "00b0e172815e",
-        "column_name": "vnd_per_currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "inventory_daily_snapshot_raw": {
     "table": {
@@ -779,6 +456,7 @@
       "allow_no_primary_key": false,
       "primary_key": [
         "snapshot_date",
+        "warehouse_id",
         "product_id"
       ],
       "foreign_keys": [
@@ -856,136 +534,15 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "2407050e6b54",
-        "column_name": "snapshot_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6d9c85f57b73",
+        "issue_id": "0ca303487072",
         "column_name": "warehouse_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 19456,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b25d24aeca90",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "11a0d0a8c680",
-        "column_name": "on_hand_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "51f94d751ca3",
-        "column_name": "on_order_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "341c2a02bb73",
-        "column_name": "backlog_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9c7914880c53",
-        "column_name": "available_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9d3ec7818490",
-        "column_name": "unit_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9b59f7b9ca5e",
-        "column_name": "inventory_value_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1b14ff3ad05d",
-        "column_name": "stockout_flag",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5bd39fd863ee",
-        "column_name": "reorder_point_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "098b61b5c657",
-        "column_name": "safety_stock_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -1067,125 +624,48 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "042383d5e3f5",
-        "column_name": "inventory_move_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5ab7f6fd1eac",
-        "column_name": "movement_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5dacfc5551d1",
-        "column_name": "warehouse_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "68813050efa3",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b61048dae487",
-        "column_name": "movement_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "915f75127ec1",
-        "column_name": "quantity_signed",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4e4b498278f4",
-        "column_name": "unit_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f8027f0250e3",
-        "column_name": "reference_document",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0e847f668798",
+        "issue_id": "0e5aeaf4ce63",
         "column_name": "reference_line",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 41,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=41; marker_null=0"
       },
       {
-        "issue_id": "51c61da1687f",
+        "issue_id": "7e8807e5c833",
         "column_name": "batch_no",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 447,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=447; marker_null=0"
       },
       {
-        "issue_id": "95c3dd4ce697",
+        "issue_id": "984eed8e945f",
         "column_name": "expiry_date",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 458,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=458; marker_null=0"
+      },
+      {
+        "issue_id": "3e5fbe5bbcbe",
+        "column_name": "warehouse_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 683,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -1244,81 +724,37 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "7b8d50f84e99",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1fc9a0dfc3ba",
-        "column_name": "effective_from",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7c2bbac81682",
+        "issue_id": "bde820ef6a5c",
         "column_name": "effective_to",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 32,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=32; marker_null=0"
       },
       {
-        "issue_id": "433f0f755192",
-        "column_name": "reorder_point_qty",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_id": "8ae89f2a4818",
+        "column_name": "effective_to",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 6,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "2026-04-30",
+        "detail": "Only one effective value observed."
       },
       {
-        "issue_id": "4f399c04b323",
-        "column_name": "safety_stock_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2d7d4032a158",
-        "column_name": "target_service_level",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0fd99f1d234d",
+        "issue_id": "3091d718f1b9",
         "column_name": "annual_holding_rate_pct",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 38,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "0.22",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -1388,7 +824,7 @@
       },
       "tax_amount_vnd": {
         "name": "tax_amount_vnd",
-        "datatype": "string",
+        "datatype": "integer",
         "nullable": false
       },
       "line_total_vnd": {
@@ -1397,118 +833,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "ee2dd8ba40b2",
-        "column_name": "invoice_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b501b5a8842b",
-        "column_name": "invoice_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "55375a599c97",
-        "column_name": "sales_order_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "203c31f1df97",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4b2cf3622fee",
-        "column_name": "quantity_invoiced",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "269a2c92f0ec",
-        "column_name": "unit_price_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "268c298b5def",
-        "column_name": "discount_pct",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "51e550f6efdf",
-        "column_name": "net_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8832ac72038b",
-        "column_name": "tax_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "62e101286554",
-        "column_name": "line_total_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "invoices_raw": {
     "table": {
@@ -1576,107 +901,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "f4c675831dee",
-        "column_name": "invoice_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "08c78824ad55",
-        "column_name": "sales_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "64630cf1e10e",
-        "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9535529ba228",
-        "column_name": "invoice_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "282f9edb6984",
-        "column_name": "due_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ded2f55bc3bc",
-        "column_name": "payment_term",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "56f8068ddae9",
-        "column_name": "invoice_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "955c2a3b7a21",
-        "column_name": "payment_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4b7c371253f8",
-        "column_name": "source_system",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "leads_raw": {
     "table": {
@@ -1824,312 +1049,378 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "cd403def9bc4",
-        "column_name": "lead_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5176d6a26777",
-        "column_name": "created_at",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9ca61f8c3b8d",
+        "issue_id": "e8f951dbbac1",
         "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 29,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=29; marker_null=0"
       },
       {
-        "issue_id": "d368c2109762",
-        "column_name": "company_name_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6efbe07d2e88",
-        "column_name": "industry_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "848b18f902d4",
-        "column_name": "province_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "12585b7605de",
-        "column_name": "source_channel_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8323bfb17f54",
-        "column_name": "campaign_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f0768178fdb5",
-        "column_name": "product_interest_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9d984e391893",
-        "column_name": "inquiry_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "24b2b155ee8e",
-        "column_name": "company_size_band",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1c2d856f18d9",
-        "column_name": "pages_viewed_30d",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9c44e953d8ef",
-        "column_name": "form_completeness_pct",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a8310c1db8db",
-        "column_name": "requested_quote_flag",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "3012e8671877",
-        "column_name": "requested_sample_flag",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "98a40c5e35cf",
-        "column_name": "budget_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "37c3ee1882c8",
-        "column_name": "purchase_timeline_days",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "dc11c2391745",
-        "column_name": "assigned_sales_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "81899d9ec78d",
-        "column_name": "lifecycle_status_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8529468ebff6",
+        "issue_id": "71af42b4612c",
         "column_name": "lost_reason_raw",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 140,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=140; marker_null=0"
       },
       {
-        "issue_id": "e68b1980c421",
-        "column_name": "expected_value_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5294c226e21e",
+        "issue_id": "194a1194cd03",
         "column_name": "email",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 73,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=73; marker_null=0"
       },
       {
-        "issue_id": "56423b3006f4",
+        "issue_id": "abccfc2550f7",
         "column_name": "phone",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 59,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=59; marker_null=0"
       },
       {
-        "issue_id": "b81649814b15",
+        "issue_id": "e93cecdb5684",
         "column_name": "",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'lead_id': 'L000017', 'created_at': '2025-03-15 16:23:00', 'customer_id': 'C0002', 'company_name_raw': 'Scientific Advanced Vietnam', 'industry_raw': 'F&B', 'province_raw': 'Ha Noi', 'source_channel_raw': 'Google Ads', 'campaign_id': 'MC001', 'product_interest_id': 'P014', 'inquiry_type': 'Distributor Inquiry', 'company_size_band': '1000+', 'pages_viewed_30d': '3', 'form_completeness_pct': '90', 'requested_quote_flag': '0', 'requested_sample_flag': '0', 'budget_status': 'Under Review', 'purchase_timeline_days': '60', 'assigned_sales_id': 'E102', 'lifecycle_status_raw': 'Quoted', 'lost_reason_raw': 'Specification', 'expected_value_vnd': '8320000.0', 'email': 'scientific17@company.vn', 'phone': '0930698288'}",
+        "detail": "Rows participating in an exact duplicate group."
       },
       {
-        "issue_id": "d10085224fdf",
+        "issue_id": "b164bc880187",
         "column_name": "company_name_raw",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
-        "decision": "FIX",
-        "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Asia Vietnam JSC   | Asia Vietnam JSC",
+        "detail": "Normalized value: asia vietnam jsc"
       },
       {
-        "issue_id": "29b8f96655a4",
+        "issue_id": "388e508f93fd",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Advanced Vietnam   | Bio Advanced Vietnam",
+        "detail": "Normalized value: bio advanced vietnam"
+      },
+      {
+        "issue_id": "4e3abcc547de",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Industrial Vietnam   | Bio Industrial Vietnam",
+        "detail": "Normalized value: bio industrial vietnam"
+      },
+      {
+        "issue_id": "988873b9dcd9",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Precision JSC   | Bio Precision JSC",
+        "detail": "Normalized value: bio precision jsc"
+      },
+      {
+        "issue_id": "cf0a977bb903",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Clean Health Vietnam   | Clean Health Vietnam",
+        "detail": "Normalized value: clean health vietnam"
+      },
+      {
+        "issue_id": "89a52a6a92e6",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Green Asia Vietnam   | Green Asia Vietnam",
+        "detail": "Normalized value: green asia vietnam"
+      },
+      {
+        "issue_id": "aa67aada4470",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Health Pharma JSC   | Health Pharma JSC",
+        "detail": "Normalized value: health pharma jsc"
+      },
+      {
+        "issue_id": "2bbd178750fc",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Industrial Bio Co Ltd   | Industrial Bio Co Ltd",
+        "detail": "Normalized value: industrial bio co ltd"
+      },
+      {
+        "issue_id": "20fc1db9b417",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Lab Industrial JSC   | Lab Industrial JSC",
+        "detail": "Normalized value: lab industrial jsc"
+      },
+      {
+        "issue_id": "aeb789099586",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Med Asia Vietnam   | Med Asia Vietnam",
+        "detail": "Normalized value: med asia vietnam"
+      },
+      {
+        "issue_id": "e1bb72333c91",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Scientific Advanced Vietnam   | Scientific Advanced Vietnam",
+        "detail": "Normalized value: scientific advanced vietnam"
+      },
+      {
+        "issue_id": "f1cf953e14ca",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Solutions Industrial Factory   | Solutions Industrial Factory",
+        "detail": "Normalized value: solutions industrial factory"
+      },
+      {
+        "issue_id": "ce7b822fbd16",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Vietnam Bio JSC   | Vietnam Bio JSC",
+        "detail": "Normalized value: vietnam bio jsc"
+      },
+      {
+        "issue_id": "9dfb5182adc5",
         "column_name": "industry_raw",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Contractor | Cleanroom contractor",
+        "detail": "Normalized value: cleanroom contractor"
       },
       {
-        "issue_id": "8ab53345d094",
+        "issue_id": "81402b2d3776",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Electronics | electronics",
+        "detail": "Normalized value: electronics"
+      },
+      {
+        "issue_id": "1568ea275704",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Laboratory | laboratory",
+        "detail": "Normalized value: laboratory"
+      },
+      {
+        "issue_id": "a7bdcb24d767",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "PHARMACEUTICAL | Pharmaceutical | pharmaceutical",
+        "detail": "Normalized value: pharmaceutical"
+      },
+      {
+        "issue_id": "3690cf9ed93b",
         "column_name": "province_raw",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "BINH DUONG | Binh Duong",
+        "detail": "Normalized value: binh duong"
       },
       {
-        "issue_id": "330293620934",
-        "column_name": "source_channel_raw",
+        "issue_id": "adf01b6bf12e",
+        "column_name": "province_raw",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Dong Nai | dong nai",
+        "detail": "Normalized value: dong nai"
+      },
+      {
+        "issue_id": "2902ace654bc",
+        "column_name": "province_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "HA NOI | Ha Noi",
+        "detail": "Normalized value: ha noi"
+      },
+      {
+        "issue_id": "d48d3de92119",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "direct   | Direct | direct",
+        "detail": "Normalized value: direct"
+      },
+      {
+        "issue_id": "0a5f28440286",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Email | email",
+        "detail": "Normalized value: email"
+      },
+      {
+        "issue_id": "1ddbd9753a3a",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Facebook Ads   | Facebook Ads",
+        "detail": "Normalized value: facebook ads"
+      },
+      {
+        "issue_id": "8abb5379030e",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Google Ads | Google ads",
+        "detail": "Normalized value: google ads"
+      },
+      {
+        "issue_id": "13fa14b5a932",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Organic Search   | Organic Search | Organic search",
+        "detail": "Normalized value: organic search"
+      },
+      {
+        "issue_id": "c86992cadc8f",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Paid Search   | Paid Search",
+        "detail": "Normalized value: paid search"
+      },
+      {
+        "issue_id": "022693b0d324",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Referral   | Referral | referral",
+        "detail": "Normalized value: referral"
+      },
+      {
+        "issue_id": "3766df083b37",
+        "column_name": "company_name_raw",
+        "issue_type": "WHITESPACE",
+        "issue_count": 15,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Vietnam Bio JSC   |  Clean Health Vietnam   |  Bio Precision JSC   |  Green Asia Vietnam   |  Health Pharma JSC",
+        "detail": "Whitespace changes after trim/collapse."
+      },
+      {
+        "issue_id": "f3dae1da6f0c",
+        "column_name": "source_channel_raw",
+        "issue_type": "WHITESPACE",
+        "issue_count": 5,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "direct   |  Facebook Ads   |  Organic Search   |  Paid Search   |  Referral",
+        "detail": "Whitespace changes after trim/collapse."
       }
     ]
   },
@@ -2180,85 +1471,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "31ff8174c337",
-        "column_name": "campaign_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "08d3c5b0069b",
-        "column_name": "campaign_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "de0c7f662c57",
-        "column_name": "channel",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1cfff196cd20",
-        "column_name": "start_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "49741db7b233",
-        "column_name": "end_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "59f061496193",
-        "column_name": "objective",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fa7d89a6569a",
-        "column_name": "planned_daily_budget_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "marketing_daily_raw": {
     "table": {
@@ -2267,9 +1480,7 @@
       "allow_no_primary_key": false,
       "primary_key": [
         "date",
-        "campaign_id",
-        "channel",
-        "source_platform"
+        "campaign_id"
       ],
       "foreign_keys": [
         {
@@ -2327,125 +1538,70 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "b665fafa9c73",
-        "column_name": "date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1a009a784c4d",
-        "column_name": "campaign_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "655dc004d913",
-        "column_name": "channel",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "eaffcb51757d",
-        "column_name": "impressions",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9c88b14cd91e",
-        "column_name": "clicks",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c51f8a3d6008",
-        "column_name": "sessions",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4262045df3d2",
-        "column_name": "spend_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "204596a959d2",
-        "column_name": "leads_reported",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2fd3071774ca",
-        "column_name": "source_platform",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "21c1d3c1cfb3",
+        "issue_id": "7f8cb722d80c",
         "column_name": "",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 60,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'date': '2025-04-10', 'campaign_id': 'MC001', 'channel': 'Google Ads', 'impressions': '654', 'clicks': '32', 'sessions': '32', 'spend_vnd': '457000.0', 'leads_reported': '0', 'source_platform': 'Manual'}",
+        "detail": "Rows participating in an exact duplicate group."
       },
       {
-        "issue_id": "890cb52d0bce",
+        "issue_id": "e0d2a380c057",
         "column_name": "channel",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Direct | direct",
+        "detail": "Normalized value: direct"
+      },
+      {
+        "issue_id": "4c6b11375690",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Email | email",
+        "detail": "Normalized value: email"
+      },
+      {
+        "issue_id": "7195338096c8",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Google Ads | Google ads",
+        "detail": "Normalized value: google ads"
+      },
+      {
+        "issue_id": "7965f50cfbae",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Organic Search | Organic search",
+        "detail": "Normalized value: organic search"
+      },
+      {
+        "issue_id": "23a359ab66a2",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Referral | referral",
+        "detail": "Normalized value: referral"
       }
     ]
   },
@@ -2507,103 +1663,26 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "e7f49b84938c",
-        "column_name": "payment_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "bf34aaddab97",
-        "column_name": "invoice_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "37bb9cafac14",
-        "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a8a7ac40a710",
-        "column_name": "payment_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9fecd2edb2d7",
-        "column_name": "paid_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "89e0643707f5",
-        "column_name": "payment_method",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4ab8cc378fb9",
-        "column_name": "payment_stage",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fcb2e3d3651b",
+        "issue_id": "a74cf0a8aff1",
         "column_name": "",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'payment_id': 'PAY0000015', 'invoice_id': 'INV000013', 'customer_id': 'C0029', 'payment_date': '2026-01-28', 'paid_amount_vnd': '8197000.0', 'payment_method': 'Bank transfer', 'payment_stage': 'Partial'}",
+        "detail": "Rows participating in an exact duplicate group."
       },
       {
-        "issue_id": "1a77a92de87d",
+        "issue_id": "086736848313",
         "column_name": "payment_method",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Bank Transfer | Bank transfer",
+        "detail": "Normalized value: bank transfer"
       }
     ]
   },
@@ -2661,92 +1740,15 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "34e1bbd6acad",
-        "column_name": "process_event_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "15c7e4936906",
-        "column_name": "case_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b9f9369cfc07",
-        "column_name": "case_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "59613c1d6a8d",
-        "column_name": "event_timestamp",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2b5bc8edbf4e",
-        "column_name": "department",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ebedb7368a9c",
-        "column_name": "event_stage",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "459033537e5b",
-        "column_name": "event_description",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "45f9da69d166",
+        "issue_id": "56734a096e9c",
         "column_name": "duration_from_previous_hours",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 1256,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=1256; marker_null=0"
       }
     ]
   },
@@ -2833,136 +1835,26 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "ad31f499e1b0",
-        "column_name": "map_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "464892cfc325",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fb581e04a22e",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9295f5b2f160",
-        "column_name": "supplier_role",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f751999e1e40",
-        "column_name": "effective_from",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "58dc7b50a0fd",
+        "issue_id": "d395bab6962e",
         "column_name": "effective_to",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 222,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=222; marker_null=0"
       },
       {
-        "issue_id": "8d5f67159a4d",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_id": "be7e634aa474",
+        "column_name": "effective_to",
+        "issue_type": "ALL_MISSING_COLUMN",
+        "issue_count": 222,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Column is currently all NULL; preserve it for schema continuity and future data.",
         "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1fd752e44b66",
-        "column_name": "unit_cost_local",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5629e8e1fe01",
-        "column_name": "moq_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "89f03bcbcad9",
-        "column_name": "contract_lead_time_days",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "57ff2c9b07ef",
-        "column_name": "expected_defect_rate",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2daed51d2d8e",
-        "column_name": "freight_mode",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "detail": "No effective non-missing value observed."
       }
     ]
   },
@@ -3050,169 +1942,48 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "16fbd18ed745",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "55bd4a96d6a6",
-        "column_name": "sku",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a4838f543504",
-        "column_name": "product_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "625a60e4633c",
-        "column_name": "product_category",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "746f920f15b2",
-        "column_name": "product_family",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "be42c38c16ed",
-        "column_name": "brand",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a81c38b39b5e",
-        "column_name": "source_country",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2d07996e52dd",
-        "column_name": "standard_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "070c2f5b479e",
-        "column_name": "list_price_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ff3a19062325",
+        "issue_id": "91e8c1e7c0a4",
         "column_name": "shelf_life_days",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 16,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=16; marker_null=0"
       },
       {
-        "issue_id": "6b221ba4236b",
-        "column_name": "criticality",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "260840210f03",
-        "column_name": "base_reorder_point_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7b0ee71074cc",
-        "column_name": "base_safety_stock_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ac3817242f7e",
-        "column_name": "popularity_rank",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "76c914133095",
+        "issue_id": "16049423cce9",
         "column_name": "product_category",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Wipers | cleanroom wipers",
+        "detail": "Normalized value: cleanroom wipers"
+      },
+      {
+        "issue_id": "f552b20ba6e9",
+        "column_name": "product_category",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "DISINFECTANTS | Disinfectants",
+        "detail": "Normalized value: disinfectants"
+      },
+      {
+        "issue_id": "da552ee79798",
+        "column_name": "product_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 1,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "QUAT Disinfectant",
+        "detail": "Whitespace changes after trim/collapse."
       }
     ]
   },
@@ -3302,151 +2073,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "9e88c18d65b7",
-        "column_name": "purchase_order_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2960794d5e98",
-        "column_name": "purchase_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2b79d224fe29",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "52b7b539bcf1",
-        "column_name": "quantity_ordered",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "d54df1078114",
-        "column_name": "unit_price_local",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "499c95ab0373",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2467ec776d4e",
-        "column_name": "fx_rate_to_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "dab27f6ce881",
-        "column_name": "merchandise_value_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4b4a03205dd3",
-        "column_name": "freight_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6f2a090bf94a",
-        "column_name": "customs_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "bf8e04c9b674",
-        "column_name": "expedite_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8dfd792bb559",
-        "column_name": "supplier_role",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b89cc223b69a",
-        "column_name": "contract_lead_time_days",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "purchase_orders_raw": {
     "table": {
@@ -3526,125 +2153,26 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "14a39e9da15f",
-        "column_name": "purchase_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "05be91f43ffb",
-        "column_name": "po_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ff3df356f06f",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8bc7ac802da9",
-        "column_name": "buyer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "16c24b2503ce",
-        "column_name": "expected_receipt_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4b683672577c",
+        "issue_id": "c9905397a5b0",
         "column_name": "actual_receipt_date",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 9,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=9; marker_null=0"
       },
       {
-        "issue_id": "a33f10e94381",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_id": "740adb97544c",
+        "column_name": "buyer_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 234,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0acbdaa9d573",
-        "column_name": "fx_rate_to_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "36f0af8f0cdb",
-        "column_name": "payment_term",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c7ae9ec06834",
-        "column_name": "incoterm",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b99b208c83c0",
-        "column_name": "po_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "E201",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -3732,129 +2260,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "d12690a1dcd0",
-        "column_name": "qa_event_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b2cb4dcb6ecf",
-        "column_name": "event_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c1044bf08537",
-        "column_name": "purchase_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "92136deff9c1",
-        "column_name": "purchase_order_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5ea222494d2c",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "399ae22aa181",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fd84b3884e48",
-        "column_name": "qa_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6d9e227dd212",
-        "column_name": "severity",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f4d32a7789e7",
-        "column_name": "defect_qty",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "e52f146d4960",
-        "column_name": "estimated_quality_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "21ffaaf5f237",
-        "column_name": "disposition",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "quotation_lines_raw": {
     "table": {
@@ -3917,96 +2323,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "e51daa6e45ab",
-        "column_name": "quotation_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "03748dee221b",
-        "column_name": "quotation_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1c385e9e7d81",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8117aea96328",
-        "column_name": "quantity",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "96a4f83f42a0",
-        "column_name": "unit_price_local",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b6a74dc633b2",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "e6bd7c0d4740",
-        "column_name": "discount_pct",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a15f25b099ff",
-        "column_name": "line_net_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "quotations_raw": {
     "table": {
@@ -4095,136 +2412,15 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "549fe6c5e4c6",
-        "column_name": "quotation_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f81ab6aa1ac1",
-        "column_name": "lead_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f5c2a0d2dfaa",
+        "issue_id": "4d163389d77d",
         "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 16,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0701514a7b33",
-        "column_name": "quote_date_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7916f5fcadce",
-        "column_name": "version_no",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "97f8a4067bbd",
-        "column_name": "quote_date_clean_reference",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a157da1b3317",
-        "column_name": "valid_until",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "add3aededefd",
-        "column_name": "salesperson_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9cfc294c4c64",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "bb2ae34fc9b1",
-        "column_name": "fx_rate_to_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "d316d074a9b0",
-        "column_name": "quotation_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7e2d0e973821",
-        "column_name": "header_total_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "detail": "real_null=16; marker_null=0"
       }
     ]
   },
@@ -4291,103 +2487,37 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "5d8e5c7f8c3c",
-        "column_name": "activity_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c9fb782238d9",
-        "column_name": "lead_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "45f6076bd28a",
-        "column_name": "employee_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "52a9ef494e61",
-        "column_name": "activity_datetime",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c2b98b7c4afc",
-        "column_name": "activity_type_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "330ee6144e8f",
+        "issue_id": "b8a8397c14ce",
         "column_name": "outcome_raw",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 54,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=54; marker_null=0"
       },
       {
-        "issue_id": "ddf36cc3f93e",
+        "issue_id": "940166177b24",
         "column_name": "next_followup_date",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 182,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=182; marker_null=0"
       },
       {
-        "issue_id": "1c2d0c8eb9cd",
-        "column_name": "data_entry_source",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "e824c5284c2d",
+        "issue_id": "e12d777428c6",
         "column_name": "",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 24,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'activity_id': 'A0000023', 'lead_id': 'L000010', 'employee_id': 'E102', 'activity_datetime': '2025-10-08 08:31:13', 'activity_type_raw': 'Phone', 'outcome_raw': 'Connected', 'next_followup_date': '2025-10-15', 'data_entry_source': 'Email Sync'}",
+        "detail": "Rows participating in an exact duplicate group."
       }
     ]
   },
@@ -4462,118 +2592,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "a426f3fce34e",
-        "column_name": "sales_order_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2186e97c9649",
-        "column_name": "sales_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "add893e0fe61",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "caa2425b64d1",
-        "column_name": "quantity_ordered",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "685ef2531788",
-        "column_name": "unit_price_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "654865105c76",
-        "column_name": "unit_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a85ddfa30b83",
-        "column_name": "discount_pct",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a57b667aed99",
-        "column_name": "promised_delivery_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1c283f98abc0",
-        "column_name": "line_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2af81727d73a",
-        "column_name": "quantity_shipped_to_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "sales_orders_raw": {
     "table": {
@@ -4666,136 +2685,26 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "26cc3b9f7fd8",
-        "column_name": "sales_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fc0cd0c335d8",
+        "issue_id": "ed2d9989f760",
         "column_name": "quotation_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 9,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
+        "detail": "real_null=9; marker_null=0"
       },
       {
-        "issue_id": "8b7d3687edfb",
+        "issue_id": "12996170db51",
         "column_name": "lead_id",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 35,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
         "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "432aad28b778",
-        "column_name": "customer_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "d4fa7d5147de",
-        "column_name": "order_date_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0bc36728c7ed",
-        "column_name": "requested_delivery_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "72452da4af48",
-        "column_name": "salesperson_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "a8b79dafdd6d",
-        "column_name": "payment_term",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "322631390b97",
-        "column_name": "order_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "4f2e629a3a6a",
-        "column_name": "order_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "8c47a91f793a",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "53e1dee47cb8",
-        "column_name": "fx_rate_to_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "detail": "real_null=35; marker_null=0"
       }
     ]
   },
@@ -4849,63 +2758,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "56ff4d368e23",
-        "column_name": "shipment_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ce01e1e8ea5c",
-        "column_name": "shipment_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5f9c696c8dbd",
-        "column_name": "sales_order_line_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "3e49bf0ae21f",
-        "column_name": "product_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1e0cf6fa0f01",
-        "column_name": "quantity_shipped",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "shipments_raw": {
     "table": {
@@ -4980,125 +2833,48 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "336b6db05d8a",
-        "column_name": "shipment_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "6c625802a6e2",
-        "column_name": "sales_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "77486bf2144e",
-        "column_name": "ship_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f87e17bdc7dd",
-        "column_name": "actual_delivery_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2b549008f277",
-        "column_name": "shipping_method_raw",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "43c34f092189",
-        "column_name": "warehouse_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "cdd9066445fe",
-        "column_name": "freight_cost_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0fd245072ba7",
-        "column_name": "shipment_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "ee5f9cf13783",
-        "column_name": "partial_shipment_flag",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "08a57f025b5a",
-        "column_name": "tracking_no",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "99272696007d",
+        "issue_id": "cabfaabb6252",
         "column_name": "shipping_method_raw",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Dedicated Van | Dedicated van",
+        "detail": "Normalized value: dedicated van"
+      },
+      {
+        "issue_id": "788959a0fe67",
+        "column_name": "shipping_method_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Local Truck | local truck",
+        "detail": "Normalized value: local truck"
+      },
+      {
+        "issue_id": "f95bab7931a3",
+        "column_name": "warehouse_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 348,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
+      },
+      {
+        "issue_id": "17bb3b27d9bf",
+        "column_name": "shipment_status",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 348,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "Delivered",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -5158,85 +2934,7 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "6f28f119e732",
-        "column_name": "supplier_invoice_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5a092190dc89",
-        "column_name": "purchase_order_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "3ca7027db941",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "d92b11d1578d",
-        "column_name": "invoice_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "14baf93c30a1",
-        "column_name": "due_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7418242a8ed7",
-        "column_name": "invoice_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "408ac3e7e614",
-        "column_name": "payment_status",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   },
   "supplier_payments_raw": {
     "table": {
@@ -5291,70 +2989,15 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "54b7879822a1",
-        "column_name": "supplier_payment_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "14b39fdc83ce",
-        "column_name": "supplier_invoice_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "92e5a964f752",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5672078629f1",
-        "column_name": "payment_date",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "11864daa7666",
-        "column_name": "paid_amount_vnd",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9ae5c1b89d23",
+        "issue_id": "38991bb2e207",
         "column_name": "payment_method",
-        "issue_type": "",
-        "issue_count": 0,
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 225,
         "decision": "KEEP",
         "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "Bank Transfer",
+        "detail": "Only one effective value observed."
       }
     ]
   },
@@ -5422,125 +3065,37 @@
     },
     "quality_decisions": [
       {
-        "issue_id": "3964a7220c3f",
-        "column_name": "supplier_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "9cf1f29be2f8",
-        "column_name": "supplier_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "49ace91ef167",
-        "column_name": "country",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "1cae1ef8ae7f",
-        "column_name": "currency",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "5692b95d579d",
-        "column_name": "payment_term",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f438ebf626d3",
-        "column_name": "incoterm",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "fa5ab357114e",
-        "column_name": "planned_lead_time_days",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "aeb1184c77ce",
-        "column_name": "baseline_otif",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "2c99a115e194",
-        "column_name": "baseline_defect_rate",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "be8ab74dcf81",
-        "column_name": "default_freight_mode",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "c9aca3bdd650",
+        "issue_id": "c2c93aca64ab",
         "column_name": "country",
         "issue_type": "TEXT_VARIANT",
-        "issue_count": 0,
+        "issue_count": 2,
         "decision": "FIX",
         "action": "APPLY_VALUE_MAPPING",
-        "reason": "Approved: standardize observed text variants to canonical values during Silver transformation.",
-        "example": "",
-        "detail": ""
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "MALAYSIA | Malaysia",
+        "detail": "Normalized value: malaysia"
+      },
+      {
+        "issue_id": "8a6d21993760",
+        "column_name": "country",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Vietnam | vietnam",
+        "detail": "Normalized value: vietnam"
+      },
+      {
+        "issue_id": "dcdc88d8cae8",
+        "column_name": "supplier_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 1,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Penang Wiper Technologies",
+        "detail": "Whitespace changes after trim/collapse."
       }
     ]
   },
@@ -5581,62 +3136,6 @@
         "nullable": false
       }
     },
-    "quality_decisions": [
-      {
-        "issue_id": "e60b2606286e",
-        "column_name": "warehouse_id",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "f541dc250990",
-        "column_name": "warehouse_name",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "0fae169c6772",
-        "column_name": "city",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "b15ac36874a9",
-        "column_name": "province",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      },
-      {
-        "issue_id": "7b23aec2d591",
-        "column_name": "warehouse_type",
-        "issue_type": "",
-        "issue_count": 0,
-        "decision": "KEEP",
-        "action": "NONE",
-        "reason": "Reviewed: no actionable data-quality issue is specified for this field.",
-        "example": "",
-        "detail": ""
-      }
-    ]
+    "quality_decisions": []
   }
 }
