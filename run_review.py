@@ -11,8 +11,7 @@ from config.table_config import (
     SERVER,
     DATABASE,
 )
-
-from data_quality import (
+from profiling.data_quality import (
     profile_table,
     profile_columns,
     check_missing_values,
@@ -25,11 +24,10 @@ from data_quality import (
     check_datatype_issues,
 )
 
-from schema_proposal import (
+from profiling.schema_proposal import (
     build_schema_proposal,
     export_schema_proposal,
 )
-
 
 # =========================================================
 # 1. PROJECT PATH
@@ -701,16 +699,7 @@ def print_output_summary(
 # =========================================================
 
 def main():
-    """
-    Execute Phase 1 in order: validate configuration, test the database, load
-    Bronze, run Data Quality, save reports, and build the schema proposal.
-    """
-    print("=" * 60)
-    print(
-        "SILVER PHASE 1 - "
-        "PROFILE + PROPOSAL"
-    )
-    print("=" * 60)
+    print("DONE")
 
     # Step 1
     validate_table_config()

@@ -4,7 +4,7 @@ from typing import Dict, List, Optional, Tuple
 
 import pandas as pd
 
-from data_quality import (
+from .data_quality import (
     has_missing,
     infer_silver_datatype,
     normalize_column_name,

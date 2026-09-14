@@ -2,7 +2,7 @@
 # DATABASE CONFIG
 # =========================================================
 # SQL Server instance and database read by the profiling pipeline.
-SERVER = r"localhost\SQLEXPRESS"
+SERVER = r"DESKTOP-4F2KL18\MSSQLSERVER1"
 DATABASE = "SEPRO_Master_Prod"
 
 # =========================================================

@@ -21,7 +21,7 @@ leads_raw,company_name_raw,TEXT_VARIANT,lab industrial jsc,2,21,Lab Industrial J
 leads_raw,company_name_raw,TEXT_VARIANT,med asia vietnam,2,28,Med Asia Vietnam |  Med Asia Vietnam  
 leads_raw,company_name_raw,TEXT_VARIANT,scientific advanced vietnam,2,52,Scientific Advanced Vietnam |  Scientific Advanced Vietnam  
 leads_raw,company_name_raw,TEXT_VARIANT,solutions industrial factory,2,8,Solutions Industrial Factory |  Solutions Industrial Factory  
-leads_raw,company_name_raw,TEXT_VARIANT,vietnam bio jsc,2,2, Vietnam Bio JSC   | Vietnam Bio JSC
+leads_raw,company_name_raw,TEXT_VARIANT,vietnam bio jsc,2,2,Vietnam Bio JSC |  Vietnam Bio JSC  
 leads_raw,industry_raw,TEXT_VARIANT,cleanroom contractor,2,40,Cleanroom Contractor | Cleanroom contractor
 leads_raw,industry_raw,TEXT_VARIANT,electronics,2,87,Electronics | electronics
 leads_raw,industry_raw,TEXT_VARIANT,laboratory,2,32,Laboratory | laboratory

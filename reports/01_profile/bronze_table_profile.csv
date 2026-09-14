@@ -22,7 +22,7 @@ purchase_orders_raw,234,11,9,0
 qa_events_raw,22,11,0,0
 quotation_lines_raw,919,8,0,0
 quotations_raw,488,12,16,0
-sales_activities_raw,2189,8,236,26
+sales_activities_raw,2188,8,236,24
 sales_order_lines_raw,307,10,0,0
 sales_orders_raw,179,12,44,0
 shipment_lines_raw,406,5,0,0

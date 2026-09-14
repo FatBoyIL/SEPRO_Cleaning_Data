@@ -22,7 +22,7 @@ purchase_orders_raw,purchase_order_id,234,0,0,0,0,OK
 qa_events_raw,purchase_order_line_id,22,0,0,0,0,OK
 quotation_lines_raw,quotation_line_id,919,0,0,0,0,OK
 quotations_raw,quotation_id,488,0,0,0,0,OK
-sales_activities_raw,,2189,,,,,REVIEW_PK
+sales_activities_raw,,2188,,,,,REVIEW_PK
 sales_order_lines_raw,sales_order_line_id,307,0,0,0,0,OK
 sales_orders_raw,sales_order_id,179,0,0,0,0,OK
 shipment_lines_raw,shipment_line_id,406,0,0,0,0,OK
