@@ -1,355 +1,88 @@
 ﻿issue_id,table_name,column_name,issue_type,issue_count,example,detail,suggested_action,decision,action,reason
-b45a4aee42b8,after_sales_cases_raw,case_id,,,,,REVIEW_ONLY,,,
-ced7e8b73265,after_sales_cases_raw,sales_order_id,,,,,REVIEW_ONLY,,,
-e3e50d8b0f67,after_sales_cases_raw,customer_id,,,,,REVIEW_ONLY,,,
-20da18fb7099,after_sales_cases_raw,opened_date,,,,,REVIEW_ONLY,,,
-66ab4cd3cefb,after_sales_cases_raw,closed_date,,,,,REVIEW_ONLY,,,
-8f5276e8dc2f,after_sales_cases_raw,issue_type,,,,,REVIEW_ONLY,,,
-2d2d2630e002,after_sales_cases_raw,severity,,,,,REVIEW_ONLY,,,
-a89affa3b5bc,after_sales_cases_raw,resolution_days,,,,,REVIEW_ONLY,,,
-9949597ab21c,after_sales_cases_raw,csat_score,,,,,REVIEW_ONLY,,,
-f406609d55ab,after_sales_cases_raw,repeat_order_within_90d_flag,,,,,REVIEW_ONLY,,,
-a1a891ca036d,after_sales_cases_raw,case_status,,,,,REVIEW_ONLY,,,
-685a3aa02976,business_interventions,intervention_id,,,,,REVIEW_ONLY,,,
-7bdb5f9c0290,business_interventions,effective_date,,,,,REVIEW_ONLY,,,
-5854859b8c73,business_interventions,project,,,,,REVIEW_ONLY,,,
-ed62641519f7,business_interventions,intervention_name,,,,,REVIEW_ONLY,,,
-290a96c30353,business_interventions,description,,,,,REVIEW_ONLY,,,
-283165452c7a,business_interventions,target_kpis,,,,,REVIEW_ONLY,,,
-4dd30754491b,business_interventions,measurement_note,,,,,REVIEW_ONLY,,,
-4ea2f246bf34,customers_raw,customer_id,,,,,REVIEW_ONLY,,,
-6140faa9c1f3,customers_raw,company_name,,,,,REVIEW_ONLY,,,
-91a5e3f82bad,customers_raw,tax_id,,,,,REVIEW_ONLY,,,
-b1d3cb09aaea,customers_raw,industry,,,,,REVIEW_ONLY,,,
-1b5b2591ff19,customers_raw,province,,,,,REVIEW_ONLY,,,
-1a5b795a2e07,customers_raw,customer_segment,,,,,REVIEW_ONLY,,,
-efafa5758108,customers_raw,company_size_band,,,,,REVIEW_ONLY,,,
-12f8e70dc172,customers_raw,credit_risk,,,,,REVIEW_ONLY,,,
-172f1c5704ab,customers_raw,default_payment_term,,,,,REVIEW_ONLY,,,
-5cf7874e37bb,customers_raw,customer_since,,,,,REVIEW_ONLY,,,
-455c316fab99,customers_raw,company_name,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-455c316fab99,customers_raw,company_name,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-455c316fab99,customers_raw,company_name,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-283a149bcac2,customers_raw,industry,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-283a149bcac2,customers_raw,industry,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-283a149bcac2,customers_raw,industry,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-283a149bcac2,customers_raw,industry,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-e77f91c91027,customers_raw,province,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-e77f91c91027,customers_raw,province,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-a376bbdf4ab7,customers_raw,default_payment_term,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-6140faa9c1f3,customers_raw,company_name,,,,,REVIEW_ONLY,,,
-3029a585dcf2,departments,department_id,,,,,REVIEW_ONLY,,,
-28029c112c26,departments,department_name,,,,,REVIEW_ONLY,,,
-ad80f8de2705,employees,employee_id,,,,,REVIEW_ONLY,,,
-0527a191e67f,employees,employee_name,,,,,REVIEW_ONLY,,,
-dba283ae9e89,employees,department_id,,,,,REVIEW_ONLY,,,
-af0804e7156e,employees,job_title,,,,,REVIEW_ONLY,,,
-9a82abd13416,employees,hire_date,,,,,REVIEW_ONLY,,,
-1a313158a97f,employees,termination_date,,,,,REVIEW_ONLY,,,
-bedb7772c5d6,fx_rates_daily,date,,,,,REVIEW_ONLY,,,
-9614e241c0e2,fx_rates_daily,currency,,,,,REVIEW_ONLY,,,
-00b0e172815e,fx_rates_daily,vnd_per_currency,,,,,REVIEW_ONLY,,,
-2407050e6b54,inventory_daily_snapshot_raw,snapshot_date,,,,,REVIEW_ONLY,,,
-6d9c85f57b73,inventory_daily_snapshot_raw,warehouse_id,,,,,REVIEW_ONLY,,,
-b25d24aeca90,inventory_daily_snapshot_raw,product_id,,,,,REVIEW_ONLY,,,
-11a0d0a8c680,inventory_daily_snapshot_raw,on_hand_qty,,,,,REVIEW_ONLY,,,
-51f94d751ca3,inventory_daily_snapshot_raw,on_order_qty,,,,,REVIEW_ONLY,,,
-341c2a02bb73,inventory_daily_snapshot_raw,backlog_qty,,,,,REVIEW_ONLY,,,
-9c7914880c53,inventory_daily_snapshot_raw,available_qty,,,,,REVIEW_ONLY,,,
-9d3ec7818490,inventory_daily_snapshot_raw,unit_cost_vnd,,,,,REVIEW_ONLY,,,
-9b59f7b9ca5e,inventory_daily_snapshot_raw,inventory_value_vnd,,,,,REVIEW_ONLY,,,
-1b14ff3ad05d,inventory_daily_snapshot_raw,stockout_flag,,,,,REVIEW_ONLY,,,
-5bd39fd863ee,inventory_daily_snapshot_raw,reorder_point_qty,,,,,REVIEW_ONLY,,,
-098b61b5c657,inventory_daily_snapshot_raw,safety_stock_qty,,,,,REVIEW_ONLY,,,
-042383d5e3f5,inventory_movements_raw,inventory_move_id,,,,,REVIEW_ONLY,,,
-5ab7f6fd1eac,inventory_movements_raw,movement_date,,,,,REVIEW_ONLY,,,
-5dacfc5551d1,inventory_movements_raw,warehouse_id,,,,,REVIEW_ONLY,,,
-68813050efa3,inventory_movements_raw,product_id,,,,,REVIEW_ONLY,,,
-b61048dae487,inventory_movements_raw,movement_type,,,,,REVIEW_ONLY,,,
-915f75127ec1,inventory_movements_raw,quantity_signed,,,,,REVIEW_ONLY,,,
-4e4b498278f4,inventory_movements_raw,unit_cost_vnd,,,,,REVIEW_ONLY,,,
-f8027f0250e3,inventory_movements_raw,reference_document,,,,,REVIEW_ONLY,,,
-0e847f668798,inventory_movements_raw,reference_line,,,,,REVIEW_ONLY,,,
-51c61da1687f,inventory_movements_raw,batch_no,,,,,REVIEW_ONLY,,,
-95c3dd4ce697,inventory_movements_raw,expiry_date,,,,,REVIEW_ONLY,,,
-7b8d50f84e99,inventory_policy_history,product_id,,,,,REVIEW_ONLY,,,
-1fc9a0dfc3ba,inventory_policy_history,effective_from,,,,,REVIEW_ONLY,,,
-7c2bbac81682,inventory_policy_history,effective_to,,,,,REVIEW_ONLY,,,
-433f0f755192,inventory_policy_history,reorder_point_qty,,,,,REVIEW_ONLY,,,
-4f399c04b323,inventory_policy_history,safety_stock_qty,,,,,REVIEW_ONLY,,,
-2d7d4032a158,inventory_policy_history,target_service_level,,,,,REVIEW_ONLY,,,
-0fd99f1d234d,inventory_policy_history,annual_holding_rate_pct,,,,,REVIEW_ONLY,,,
-ee2dd8ba40b2,invoice_lines_raw,invoice_line_id,,,,,REVIEW_ONLY,,,
-b501b5a8842b,invoice_lines_raw,invoice_id,,,,,REVIEW_ONLY,,,
-55375a599c97,invoice_lines_raw,sales_order_line_id,,,,,REVIEW_ONLY,,,
-203c31f1df97,invoice_lines_raw,product_id,,,,,REVIEW_ONLY,,,
-4b2cf3622fee,invoice_lines_raw,quantity_invoiced,,,,,REVIEW_ONLY,,,
-269a2c92f0ec,invoice_lines_raw,unit_price_vnd,,,,,REVIEW_ONLY,,,
-268c298b5def,invoice_lines_raw,discount_pct,,,,,REVIEW_ONLY,,,
-51e550f6efdf,invoice_lines_raw,net_amount_vnd,,,,,REVIEW_ONLY,,,
-8832ac72038b,invoice_lines_raw,tax_amount_vnd,,,,,REVIEW_ONLY,,,
-62e101286554,invoice_lines_raw,line_total_vnd,,,,,REVIEW_ONLY,,,
-f4c675831dee,invoices_raw,invoice_id,,,,,REVIEW_ONLY,,,
-08c78824ad55,invoices_raw,sales_order_id,,,,,REVIEW_ONLY,,,
-64630cf1e10e,invoices_raw,customer_id,,,,,REVIEW_ONLY,,,
-9535529ba228,invoices_raw,invoice_date,,,,,REVIEW_ONLY,,,
-282f9edb6984,invoices_raw,due_date,,,,,REVIEW_ONLY,,,
-ded2f55bc3bc,invoices_raw,payment_term,,,,,REVIEW_ONLY,,,
-56f8068ddae9,invoices_raw,invoice_amount_vnd,,,,,REVIEW_ONLY,,,
-955c2a3b7a21,invoices_raw,payment_status,,,,,REVIEW_ONLY,,,
-4b7c371253f8,invoices_raw,source_system,,,,,REVIEW_ONLY,,,
-cd403def9bc4,leads_raw,lead_id,,,,,REVIEW_ONLY,,,
-5176d6a26777,leads_raw,created_at,,,,,REVIEW_ONLY,,,
-9ca61f8c3b8d,leads_raw,customer_id,,,,,REVIEW_ONLY,,,
-d368c2109762,leads_raw,company_name_raw,,,,,REVIEW_ONLY,,,
-6efbe07d2e88,leads_raw,industry_raw,,,,,REVIEW_ONLY,,,
-848b18f902d4,leads_raw,province_raw,,,,,REVIEW_ONLY,,,
-12585b7605de,leads_raw,source_channel_raw,,,,,REVIEW_ONLY,,,
-8323bfb17f54,leads_raw,campaign_id,,,,,REVIEW_ONLY,,,
-f0768178fdb5,leads_raw,product_interest_id,,,,,REVIEW_ONLY,,,
-9d984e391893,leads_raw,inquiry_type,,,,,REVIEW_ONLY,,,
-24b2b155ee8e,leads_raw,company_size_band,,,,,REVIEW_ONLY,,,
-1c2d856f18d9,leads_raw,pages_viewed_30d,,,,,REVIEW_ONLY,,,
-9c44e953d8ef,leads_raw,form_completeness_pct,,,,,REVIEW_ONLY,,,
-a8310c1db8db,leads_raw,requested_quote_flag,,,,,REVIEW_ONLY,,,
-3012e8671877,leads_raw,requested_sample_flag,,,,,REVIEW_ONLY,,,
-98a40c5e35cf,leads_raw,budget_status,,,,,REVIEW_ONLY,,,
-37c3ee1882c8,leads_raw,purchase_timeline_days,,,,,REVIEW_ONLY,,,
-dc11c2391745,leads_raw,assigned_sales_id,,,,,REVIEW_ONLY,,,
-81899d9ec78d,leads_raw,lifecycle_status_raw,,,,,REVIEW_ONLY,,,
-8529468ebff6,leads_raw,lost_reason_raw,,,,,REVIEW_ONLY,,,
-e68b1980c421,leads_raw,expected_value_vnd,,,,,REVIEW_ONLY,,,
-5294c226e21e,leads_raw,email,,,,,REVIEW_ONLY,,,
-56423b3006f4,leads_raw,phone,,,,,REVIEW_ONLY,,,
-b81649814b15,leads_raw,,,,,,REVIEW_ONLY,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d10085224fdf,leads_raw,company_name_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-29b8f96655a4,leads_raw,industry_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-29b8f96655a4,leads_raw,industry_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-29b8f96655a4,leads_raw,industry_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-29b8f96655a4,leads_raw,industry_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-8ab53345d094,leads_raw,province_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-8ab53345d094,leads_raw,province_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-8ab53345d094,leads_raw,province_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-330293620934,leads_raw,source_channel_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-d368c2109762,leads_raw,company_name_raw,,,,,REVIEW_ONLY,,,
-12585b7605de,leads_raw,source_channel_raw,,,,,REVIEW_ONLY,,,
-31ff8174c337,marketing_campaigns,campaign_id,,,,,REVIEW_ONLY,,,
-08d3c5b0069b,marketing_campaigns,campaign_name,,,,,REVIEW_ONLY,,,
-de0c7f662c57,marketing_campaigns,channel,,,,,REVIEW_ONLY,,,
-1cfff196cd20,marketing_campaigns,start_date,,,,,REVIEW_ONLY,,,
-49741db7b233,marketing_campaigns,end_date,,,,,REVIEW_ONLY,,,
-59f061496193,marketing_campaigns,objective,,,,,REVIEW_ONLY,,,
-fa7d89a6569a,marketing_campaigns,planned_daily_budget_vnd,,,,,REVIEW_ONLY,,,
-b665fafa9c73,marketing_daily_raw,date,,,,,REVIEW_ONLY,,,
-1a009a784c4d,marketing_daily_raw,campaign_id,,,,,REVIEW_ONLY,,,
-655dc004d913,marketing_daily_raw,channel,,,,,REVIEW_ONLY,,,
-eaffcb51757d,marketing_daily_raw,impressions,,,,,REVIEW_ONLY,,,
-9c88b14cd91e,marketing_daily_raw,clicks,,,,,REVIEW_ONLY,,,
-c51f8a3d6008,marketing_daily_raw,sessions,,,,,REVIEW_ONLY,,,
-4262045df3d2,marketing_daily_raw,spend_vnd,,,,,REVIEW_ONLY,,,
-204596a959d2,marketing_daily_raw,leads_reported,,,,,REVIEW_ONLY,,,
-2fd3071774ca,marketing_daily_raw,source_platform,,,,,REVIEW_ONLY,,,
-21c1d3c1cfb3,marketing_daily_raw,,,,,,REVIEW_ONLY,,,
-890cb52d0bce,marketing_daily_raw,channel,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-890cb52d0bce,marketing_daily_raw,channel,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-890cb52d0bce,marketing_daily_raw,channel,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-890cb52d0bce,marketing_daily_raw,channel,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-890cb52d0bce,marketing_daily_raw,channel,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-e7f49b84938c,payments_raw,payment_id,,,,,REVIEW_ONLY,,,
-bf34aaddab97,payments_raw,invoice_id,,,,,REVIEW_ONLY,,,
-37bb9cafac14,payments_raw,customer_id,,,,,REVIEW_ONLY,,,
-a8a7ac40a710,payments_raw,payment_date,,,,,REVIEW_ONLY,,,
-9fecd2edb2d7,payments_raw,paid_amount_vnd,,,,,REVIEW_ONLY,,,
-89e0643707f5,payments_raw,payment_method,,,,,REVIEW_ONLY,,,
-4ab8cc378fb9,payments_raw,payment_stage,,,,,REVIEW_ONLY,,,
-fcb2e3d3651b,payments_raw,,,,,,REVIEW_ONLY,,,
-1a77a92de87d,payments_raw,payment_method,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-34e1bbd6acad,process_events_raw,process_event_id,,,,,REVIEW_ONLY,,,
-15c7e4936906,process_events_raw,case_type,,,,,REVIEW_ONLY,,,
-b9f9369cfc07,process_events_raw,case_id,,,,,REVIEW_ONLY,,,
-59613c1d6a8d,process_events_raw,event_timestamp,,,,,REVIEW_ONLY,,,
-2b5bc8edbf4e,process_events_raw,department,,,,,REVIEW_ONLY,,,
-ebedb7368a9c,process_events_raw,event_stage,,,,,REVIEW_ONLY,,,
-459033537e5b,process_events_raw,event_description,,,,,REVIEW_ONLY,,,
-45f9da69d166,process_events_raw,duration_from_previous_hours,,,,,REVIEW_ONLY,,,
-ad31f499e1b0,product_supplier_map_raw,map_id,,,,,REVIEW_ONLY,,,
-464892cfc325,product_supplier_map_raw,product_id,,,,,REVIEW_ONLY,,,
-fb581e04a22e,product_supplier_map_raw,supplier_id,,,,,REVIEW_ONLY,,,
-9295f5b2f160,product_supplier_map_raw,supplier_role,,,,,REVIEW_ONLY,,,
-f751999e1e40,product_supplier_map_raw,effective_from,,,,,REVIEW_ONLY,,,
-58dc7b50a0fd,product_supplier_map_raw,effective_to,,,,,REVIEW_ONLY,,,
-8d5f67159a4d,product_supplier_map_raw,currency,,,,,REVIEW_ONLY,,,
-1fd752e44b66,product_supplier_map_raw,unit_cost_local,,,,,REVIEW_ONLY,,,
-5629e8e1fe01,product_supplier_map_raw,moq_qty,,,,,REVIEW_ONLY,,,
-89f03bcbcad9,product_supplier_map_raw,contract_lead_time_days,,,,,REVIEW_ONLY,,,
-57ff2c9b07ef,product_supplier_map_raw,expected_defect_rate,,,,,REVIEW_ONLY,,,
-2daed51d2d8e,product_supplier_map_raw,freight_mode,,,,,REVIEW_ONLY,,,
-16fbd18ed745,products_raw,product_id,,,,,REVIEW_ONLY,,,
-55bd4a96d6a6,products_raw,sku,,,,,REVIEW_ONLY,,,
-a4838f543504,products_raw,product_name,,,,,REVIEW_ONLY,,,
-625a60e4633c,products_raw,product_category,,,,,REVIEW_ONLY,,,
-746f920f15b2,products_raw,product_family,,,,,REVIEW_ONLY,,,
-be42c38c16ed,products_raw,brand,,,,,REVIEW_ONLY,,,
-a81c38b39b5e,products_raw,source_country,,,,,REVIEW_ONLY,,,
-2d07996e52dd,products_raw,standard_cost_vnd,,,,,REVIEW_ONLY,,,
-070c2f5b479e,products_raw,list_price_vnd,,,,,REVIEW_ONLY,,,
-ff3a19062325,products_raw,shelf_life_days,,,,,REVIEW_ONLY,,,
-6b221ba4236b,products_raw,criticality,,,,,REVIEW_ONLY,,,
-260840210f03,products_raw,base_reorder_point_qty,,,,,REVIEW_ONLY,,,
-7b0ee71074cc,products_raw,base_safety_stock_qty,,,,,REVIEW_ONLY,,,
-ac3817242f7e,products_raw,popularity_rank,,,,,REVIEW_ONLY,,,
-76c914133095,products_raw,product_category,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-76c914133095,products_raw,product_category,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-a4838f543504,products_raw,product_name,,,,,REVIEW_ONLY,,,
-9e88c18d65b7,purchase_order_lines_raw,purchase_order_line_id,,,,,REVIEW_ONLY,,,
-2960794d5e98,purchase_order_lines_raw,purchase_order_id,,,,,REVIEW_ONLY,,,
-2b79d224fe29,purchase_order_lines_raw,product_id,,,,,REVIEW_ONLY,,,
-52b7b539bcf1,purchase_order_lines_raw,quantity_ordered,,,,,REVIEW_ONLY,,,
-d54df1078114,purchase_order_lines_raw,unit_price_local,,,,,REVIEW_ONLY,,,
-499c95ab0373,purchase_order_lines_raw,currency,,,,,REVIEW_ONLY,,,
-2467ec776d4e,purchase_order_lines_raw,fx_rate_to_vnd,,,,,REVIEW_ONLY,,,
-dab27f6ce881,purchase_order_lines_raw,merchandise_value_vnd,,,,,REVIEW_ONLY,,,
-4b4a03205dd3,purchase_order_lines_raw,freight_cost_vnd,,,,,REVIEW_ONLY,,,
-6f2a090bf94a,purchase_order_lines_raw,customs_cost_vnd,,,,,REVIEW_ONLY,,,
-bf8e04c9b674,purchase_order_lines_raw,expedite_cost_vnd,,,,,REVIEW_ONLY,,,
-8dfd792bb559,purchase_order_lines_raw,supplier_role,,,,,REVIEW_ONLY,,,
-b89cc223b69a,purchase_order_lines_raw,contract_lead_time_days,,,,,REVIEW_ONLY,,,
-14a39e9da15f,purchase_orders_raw,purchase_order_id,,,,,REVIEW_ONLY,,,
-05be91f43ffb,purchase_orders_raw,po_date,,,,,REVIEW_ONLY,,,
-ff3df356f06f,purchase_orders_raw,supplier_id,,,,,REVIEW_ONLY,,,
-8bc7ac802da9,purchase_orders_raw,buyer_id,,,,,REVIEW_ONLY,,,
-16c24b2503ce,purchase_orders_raw,expected_receipt_date,,,,,REVIEW_ONLY,,,
-4b683672577c,purchase_orders_raw,actual_receipt_date,,,,,REVIEW_ONLY,,,
-a33f10e94381,purchase_orders_raw,currency,,,,,REVIEW_ONLY,,,
-0acbdaa9d573,purchase_orders_raw,fx_rate_to_vnd,,,,,REVIEW_ONLY,,,
-36f0af8f0cdb,purchase_orders_raw,payment_term,,,,,REVIEW_ONLY,,,
-c7ae9ec06834,purchase_orders_raw,incoterm,,,,,REVIEW_ONLY,,,
-b99b208c83c0,purchase_orders_raw,po_status,,,,,REVIEW_ONLY,,,
-d12690a1dcd0,qa_events_raw,qa_event_id,,,,,REVIEW_ONLY,,,
-b2cb4dcb6ecf,qa_events_raw,event_date,,,,,REVIEW_ONLY,,,
-c1044bf08537,qa_events_raw,purchase_order_id,,,,,REVIEW_ONLY,,,
-92136deff9c1,qa_events_raw,purchase_order_line_id,,,,,REVIEW_ONLY,,,
-5ea222494d2c,qa_events_raw,product_id,,,,,REVIEW_ONLY,,,
-399ae22aa181,qa_events_raw,supplier_id,,,,,REVIEW_ONLY,,,
-fd84b3884e48,qa_events_raw,qa_type,,,,,REVIEW_ONLY,,,
-6d9e227dd212,qa_events_raw,severity,,,,,REVIEW_ONLY,,,
-f4d32a7789e7,qa_events_raw,defect_qty,,,,,REVIEW_ONLY,,,
-e52f146d4960,qa_events_raw,estimated_quality_cost_vnd,,,,,REVIEW_ONLY,,,
-21ffaaf5f237,qa_events_raw,disposition,,,,,REVIEW_ONLY,,,
-e51daa6e45ab,quotation_lines_raw,quotation_line_id,,,,,REVIEW_ONLY,,,
-03748dee221b,quotation_lines_raw,quotation_id,,,,,REVIEW_ONLY,,,
-1c385e9e7d81,quotation_lines_raw,product_id,,,,,REVIEW_ONLY,,,
-8117aea96328,quotation_lines_raw,quantity,,,,,REVIEW_ONLY,,,
-96a4f83f42a0,quotation_lines_raw,unit_price_local,,,,,REVIEW_ONLY,,,
-b6a74dc633b2,quotation_lines_raw,currency,,,,,REVIEW_ONLY,,,
-e6bd7c0d4740,quotation_lines_raw,discount_pct,,,,,REVIEW_ONLY,,,
-a15f25b099ff,quotation_lines_raw,line_net_vnd,,,,,REVIEW_ONLY,,,
-549fe6c5e4c6,quotations_raw,quotation_id,,,,,REVIEW_ONLY,,,
-f81ab6aa1ac1,quotations_raw,lead_id,,,,,REVIEW_ONLY,,,
-f5c2a0d2dfaa,quotations_raw,customer_id,,,,,REVIEW_ONLY,,,
-0701514a7b33,quotations_raw,quote_date_raw,,,,,REVIEW_ONLY,,,
-7916f5fcadce,quotations_raw,version_no,,,,,REVIEW_ONLY,,,
-97f8a4067bbd,quotations_raw,quote_date_clean_reference,,,,,REVIEW_ONLY,,,
-a157da1b3317,quotations_raw,valid_until,,,,,REVIEW_ONLY,,,
-add3aededefd,quotations_raw,salesperson_id,,,,,REVIEW_ONLY,,,
-9cfc294c4c64,quotations_raw,currency,,,,,REVIEW_ONLY,,,
-bb2ae34fc9b1,quotations_raw,fx_rate_to_vnd,,,,,REVIEW_ONLY,,,
-d316d074a9b0,quotations_raw,quotation_status,,,,,REVIEW_ONLY,,,
-7e2d0e973821,quotations_raw,header_total_vnd,,,,,REVIEW_ONLY,,,
-5d8e5c7f8c3c,sales_activities_raw,activity_id,,,,,REVIEW_ONLY,,,
-c9fb782238d9,sales_activities_raw,lead_id,,,,,REVIEW_ONLY,,,
-45f6076bd28a,sales_activities_raw,employee_id,,,,,REVIEW_ONLY,,,
-52a9ef494e61,sales_activities_raw,activity_datetime,,,,,REVIEW_ONLY,,,
-c2b98b7c4afc,sales_activities_raw,activity_type_raw,,,,,REVIEW_ONLY,,,
-330ee6144e8f,sales_activities_raw,outcome_raw,,,,,REVIEW_ONLY,,,
-ddf36cc3f93e,sales_activities_raw,next_followup_date,,,,,REVIEW_ONLY,,,
-1c2d0c8eb9cd,sales_activities_raw,data_entry_source,,,,,REVIEW_ONLY,,,
-e824c5284c2d,sales_activities_raw,,,,,,REVIEW_ONLY,,,
-a426f3fce34e,sales_order_lines_raw,sales_order_line_id,,,,,REVIEW_ONLY,,,
-2186e97c9649,sales_order_lines_raw,sales_order_id,,,,,REVIEW_ONLY,,,
-add893e0fe61,sales_order_lines_raw,product_id,,,,,REVIEW_ONLY,,,
-caa2425b64d1,sales_order_lines_raw,quantity_ordered,,,,,REVIEW_ONLY,,,
-685ef2531788,sales_order_lines_raw,unit_price_vnd,,,,,REVIEW_ONLY,,,
-654865105c76,sales_order_lines_raw,unit_cost_vnd,,,,,REVIEW_ONLY,,,
-a85ddfa30b83,sales_order_lines_raw,discount_pct,,,,,REVIEW_ONLY,,,
-a57b667aed99,sales_order_lines_raw,promised_delivery_date,,,,,REVIEW_ONLY,,,
-1c283f98abc0,sales_order_lines_raw,line_status,,,,,REVIEW_ONLY,,,
-2af81727d73a,sales_order_lines_raw,quantity_shipped_to_date,,,,,REVIEW_ONLY,,,
-26cc3b9f7fd8,sales_orders_raw,sales_order_id,,,,,REVIEW_ONLY,,,
-fc0cd0c335d8,sales_orders_raw,quotation_id,,,,,REVIEW_ONLY,,,
-8b7d3687edfb,sales_orders_raw,lead_id,,,,,REVIEW_ONLY,,,
-432aad28b778,sales_orders_raw,customer_id,,,,,REVIEW_ONLY,,,
-d4fa7d5147de,sales_orders_raw,order_date_raw,,,,,REVIEW_ONLY,,,
-0bc36728c7ed,sales_orders_raw,requested_delivery_date,,,,,REVIEW_ONLY,,,
-72452da4af48,sales_orders_raw,salesperson_id,,,,,REVIEW_ONLY,,,
-a8b79dafdd6d,sales_orders_raw,payment_term,,,,,REVIEW_ONLY,,,
-322631390b97,sales_orders_raw,order_status,,,,,REVIEW_ONLY,,,
-4f2e629a3a6a,sales_orders_raw,order_type,,,,,REVIEW_ONLY,,,
-8c47a91f793a,sales_orders_raw,currency,,,,,REVIEW_ONLY,,,
-53e1dee47cb8,sales_orders_raw,fx_rate_to_vnd,,,,,REVIEW_ONLY,,,
-56ff4d368e23,shipment_lines_raw,shipment_line_id,,,,,REVIEW_ONLY,,,
-ce01e1e8ea5c,shipment_lines_raw,shipment_id,,,,,REVIEW_ONLY,,,
-5f9c696c8dbd,shipment_lines_raw,sales_order_line_id,,,,,REVIEW_ONLY,,,
-3e49bf0ae21f,shipment_lines_raw,product_id,,,,,REVIEW_ONLY,,,
-1e0cf6fa0f01,shipment_lines_raw,quantity_shipped,,,,,REVIEW_ONLY,,,
-336b6db05d8a,shipments_raw,shipment_id,,,,,REVIEW_ONLY,,,
-6c625802a6e2,shipments_raw,sales_order_id,,,,,REVIEW_ONLY,,,
-77486bf2144e,shipments_raw,ship_date,,,,,REVIEW_ONLY,,,
-f87e17bdc7dd,shipments_raw,actual_delivery_date,,,,,REVIEW_ONLY,,,
-2b549008f277,shipments_raw,shipping_method_raw,,,,,REVIEW_ONLY,,,
-43c34f092189,shipments_raw,warehouse_id,,,,,REVIEW_ONLY,,,
-cdd9066445fe,shipments_raw,freight_cost_vnd,,,,,REVIEW_ONLY,,,
-0fd245072ba7,shipments_raw,shipment_status,,,,,REVIEW_ONLY,,,
-ee5f9cf13783,shipments_raw,partial_shipment_flag,,,,,REVIEW_ONLY,,,
-08a57f025b5a,shipments_raw,tracking_no,,,,,REVIEW_ONLY,,,
-99272696007d,shipments_raw,shipping_method_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-99272696007d,shipments_raw,shipping_method_raw,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-6f28f119e732,supplier_invoices_raw,supplier_invoice_id,,,,,REVIEW_ONLY,,,
-5a092190dc89,supplier_invoices_raw,purchase_order_id,,,,,REVIEW_ONLY,,,
-3ca7027db941,supplier_invoices_raw,supplier_id,,,,,REVIEW_ONLY,,,
-d92b11d1578d,supplier_invoices_raw,invoice_date,,,,,REVIEW_ONLY,,,
-14baf93c30a1,supplier_invoices_raw,due_date,,,,,REVIEW_ONLY,,,
-7418242a8ed7,supplier_invoices_raw,invoice_amount_vnd,,,,,REVIEW_ONLY,,,
-408ac3e7e614,supplier_invoices_raw,payment_status,,,,,REVIEW_ONLY,,,
-54b7879822a1,supplier_payments_raw,supplier_payment_id,,,,,REVIEW_ONLY,,,
-14b39fdc83ce,supplier_payments_raw,supplier_invoice_id,,,,,REVIEW_ONLY,,,
-92e5a964f752,supplier_payments_raw,supplier_id,,,,,REVIEW_ONLY,,,
-5672078629f1,supplier_payments_raw,payment_date,,,,,REVIEW_ONLY,,,
-11864daa7666,supplier_payments_raw,paid_amount_vnd,,,,,REVIEW_ONLY,,,
-9ae5c1b89d23,supplier_payments_raw,payment_method,,,,,REVIEW_ONLY,,,
-3964a7220c3f,suppliers_raw,supplier_id,,,,,REVIEW_ONLY,,,
-9cf1f29be2f8,suppliers_raw,supplier_name,,,,,REVIEW_ONLY,,,
-49ace91ef167,suppliers_raw,country,,,,,REVIEW_ONLY,,,
-1cae1ef8ae7f,suppliers_raw,currency,,,,,REVIEW_ONLY,,,
-5692b95d579d,suppliers_raw,payment_term,,,,,REVIEW_ONLY,,,
-f438ebf626d3,suppliers_raw,incoterm,,,,,REVIEW_ONLY,,,
-fa5ab357114e,suppliers_raw,planned_lead_time_days,,,,,REVIEW_ONLY,,,
-aeb1184c77ce,suppliers_raw,baseline_otif,,,,,REVIEW_ONLY,,,
-2c99a115e194,suppliers_raw,baseline_defect_rate,,,,,REVIEW_ONLY,,,
-be8ab74dcf81,suppliers_raw,default_freight_mode,,,,,REVIEW_ONLY,,,
-c9aca3bdd650,suppliers_raw,country,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-c9aca3bdd650,suppliers_raw,country,TEXT_VARIANT,,,,APPLY_VALUE_MAPPING,,,
-9cf1f29be2f8,suppliers_raw,supplier_name,,,,,REVIEW_ONLY,,,
-e60b2606286e,warehouses,warehouse_id,,,,,REVIEW_ONLY,,,
-f541dc250990,warehouses,warehouse_name,,,,,REVIEW_ONLY,,,
-0fae169c6772,warehouses,city,,,,,REVIEW_ONLY,,,
-b15ac36874a9,warehouses,province,,,,,REVIEW_ONLY,,,
-7b23aec2d591,warehouses,warehouse_type,,,,,REVIEW_ONLY,,,
+ae5eed14207a,customers_raw,tax_id,MISSING_VALUE,5,,real_null=5; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+3d4efcaf109b,customers_raw,company_name,TEXT_VARIANT,2,Clean Scientific Factory | Clean Scientific Factory ,Normalized value: clean scientific factory,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+d3e9ae6c2490,customers_raw,company_name,TEXT_VARIANT,2,Industrial Med Factory | Industrial Med Factory ,Normalized value: industrial med factory,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+a7cad63138d8,customers_raw,company_name,TEXT_VARIANT,2,Tech Tech JSC | Tech Tech JSC ,Normalized value: tech tech jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+cbc9d97b979a,customers_raw,industry,TEXT_VARIANT,2,Cleanroom Contractor | Cleanroom contractor,Normalized value: cleanroom contractor,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+a0303445f6b4,customers_raw,industry,TEXT_VARIANT,2,Electronics | electronics,Normalized value: electronics,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+733bee91f076,customers_raw,industry,TEXT_VARIANT,2,Laboratory | laboratory,Normalized value: laboratory,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+348b61397d37,customers_raw,industry,TEXT_VARIANT,2,PHARMACEUTICAL | Pharmaceutical,Normalized value: pharmaceutical,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+c8b2dc389fde,customers_raw,province,TEXT_VARIANT,2,BINH DUONG | Binh Duong,Normalized value: binh duong,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+d86e3483b0a1,customers_raw,province,TEXT_VARIANT,2,HA NOI | Ha Noi,Normalized value: ha noi,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+c122f77cba47,customers_raw,default_payment_term,TEXT_VARIANT,2,NET30 | Net30,Normalized value: net30,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+0a16bfd4ad79,customers_raw,company_name,WHITESPACE,10, Clean Health Vietnam   |  Bio Industrial Vietnam   |  Scientific Industrial Factory   |  Nova Industrial Factory   |  Solutions Lab JSC  ,Whitespace changes after trim/collapse.,STANDARDIZE_TEXT,FIX,STANDARDIZE_TEXT,Trim and collapse accidental whitespace without changing business meaning.
+08d78fea0035,employees,termination_date,MISSING_VALUE,10,,real_null=10; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+b05b45987bff,employees,termination_date,ALL_MISSING_COLUMN,10,,No effective non-missing value observed.,REVIEW_SCHEMA,KEEP,,Column is currently all NULL; preserve it for schema continuity and future data.
+0ca303487072,inventory_daily_snapshot_raw,warehouse_id,CONSTANT_COLUMN,19456,WH01,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+0e5aeaf4ce63,inventory_movements_raw,reference_line,MISSING_VALUE,41,,real_null=41; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+7e8807e5c833,inventory_movements_raw,batch_no,MISSING_VALUE,447,,real_null=447; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+984eed8e945f,inventory_movements_raw,expiry_date,MISSING_VALUE,458,,real_null=458; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+3e5fbe5bbcbe,inventory_movements_raw,warehouse_id,CONSTANT_COLUMN,683,WH01,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+bde820ef6a5c,inventory_policy_history,effective_to,MISSING_VALUE,32,,real_null=32; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+8ae89f2a4818,inventory_policy_history,effective_to,CONSTANT_COLUMN,6,2026-04-30,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+3091d718f1b9,inventory_policy_history,annual_holding_rate_pct,CONSTANT_COLUMN,38,0.22,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+e8f951dbbac1,leads_raw,customer_id,MISSING_VALUE,29,,real_null=29; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+71af42b4612c,leads_raw,lost_reason_raw,MISSING_VALUE,140,,real_null=140; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+194a1194cd03,leads_raw,email,MISSING_VALUE,73,,real_null=73; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+abccfc2550f7,leads_raw,phone,MISSING_VALUE,59,,real_null=59; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+e93cecdb5684,leads_raw,,EXACT_DUPLICATE,10,"{'lead_id': 'L000017', 'created_at': '2025-03-15 16:23:00', 'customer_id': 'C0002', 'company_name_raw': 'Scientific Advanced Vietnam', 'industry_raw': 'F&B', 'province_raw': 'Ha Noi', 'source_channel_raw': 'Google Ads', 'campaign_id': 'MC001', 'product_interest_id': 'P014', 'inquiry_type': 'Distributor Inquiry', 'company_size_band': '1000+', 'pages_viewed_30d': '3', 'form_completeness_pct': '90', 'requested_quote_flag': '0', 'requested_sample_flag': '0', 'budget_status': 'Under Review', 'purchase_timeline_days': '60', 'assigned_sales_id': 'E102', 'lifecycle_status_raw': 'Quoted', 'lost_reason_raw': 'Specification', 'expected_value_vnd': '8320000.0', 'email': 'scientific17@company.vn', 'phone': '0930698288'}",Rows participating in an exact duplicate group.,REMOVE_EXACT_DUPLICATES,FIX,REMOVE_EXACT_DUPLICATES,Remove exact duplicate rows after approved standardization; keep one copy.
+b164bc880187,leads_raw,company_name_raw,TEXT_VARIANT,2, Asia Vietnam JSC   | Asia Vietnam JSC,Normalized value: asia vietnam jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+388e508f93fd,leads_raw,company_name_raw,TEXT_VARIANT,2, Bio Advanced Vietnam   | Bio Advanced Vietnam,Normalized value: bio advanced vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+4e3abcc547de,leads_raw,company_name_raw,TEXT_VARIANT,2, Bio Industrial Vietnam   | Bio Industrial Vietnam,Normalized value: bio industrial vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+988873b9dcd9,leads_raw,company_name_raw,TEXT_VARIANT,2, Bio Precision JSC   | Bio Precision JSC,Normalized value: bio precision jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+cf0a977bb903,leads_raw,company_name_raw,TEXT_VARIANT,2, Clean Health Vietnam   | Clean Health Vietnam,Normalized value: clean health vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+89a52a6a92e6,leads_raw,company_name_raw,TEXT_VARIANT,2, Green Asia Vietnam   | Green Asia Vietnam,Normalized value: green asia vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+aa67aada4470,leads_raw,company_name_raw,TEXT_VARIANT,2, Health Pharma JSC   | Health Pharma JSC,Normalized value: health pharma jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+2bbd178750fc,leads_raw,company_name_raw,TEXT_VARIANT,2, Industrial Bio Co Ltd   | Industrial Bio Co Ltd,Normalized value: industrial bio co ltd,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+20fc1db9b417,leads_raw,company_name_raw,TEXT_VARIANT,2, Lab Industrial JSC   | Lab Industrial JSC,Normalized value: lab industrial jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+aeb789099586,leads_raw,company_name_raw,TEXT_VARIANT,2, Med Asia Vietnam   | Med Asia Vietnam,Normalized value: med asia vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+e1bb72333c91,leads_raw,company_name_raw,TEXT_VARIANT,2, Scientific Advanced Vietnam   | Scientific Advanced Vietnam,Normalized value: scientific advanced vietnam,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+f1cf953e14ca,leads_raw,company_name_raw,TEXT_VARIANT,2, Solutions Industrial Factory   | Solutions Industrial Factory,Normalized value: solutions industrial factory,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+ce7b822fbd16,leads_raw,company_name_raw,TEXT_VARIANT,2, Vietnam Bio JSC   | Vietnam Bio JSC,Normalized value: vietnam bio jsc,APPLY_VALUE_MAPPING,KEEP,,Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.
+9dfb5182adc5,leads_raw,industry_raw,TEXT_VARIANT,2,Cleanroom Contractor | Cleanroom contractor,Normalized value: cleanroom contractor,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+81402b2d3776,leads_raw,industry_raw,TEXT_VARIANT,2,Electronics | electronics,Normalized value: electronics,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+1568ea275704,leads_raw,industry_raw,TEXT_VARIANT,2,Laboratory | laboratory,Normalized value: laboratory,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+a7bdcb24d767,leads_raw,industry_raw,TEXT_VARIANT,3,PHARMACEUTICAL | Pharmaceutical | pharmaceutical,Normalized value: pharmaceutical,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+3690cf9ed93b,leads_raw,province_raw,TEXT_VARIANT,2,BINH DUONG | Binh Duong,Normalized value: binh duong,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+adf01b6bf12e,leads_raw,province_raw,TEXT_VARIANT,2,Dong Nai | dong nai,Normalized value: dong nai,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+2902ace654bc,leads_raw,province_raw,TEXT_VARIANT,2,HA NOI | Ha Noi,Normalized value: ha noi,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+d48d3de92119,leads_raw,source_channel_raw,TEXT_VARIANT,3, direct   | Direct | direct,Normalized value: direct,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+0a5f28440286,leads_raw,source_channel_raw,TEXT_VARIANT,2,Email | email,Normalized value: email,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+1ddbd9753a3a,leads_raw,source_channel_raw,TEXT_VARIANT,2, Facebook Ads   | Facebook Ads,Normalized value: facebook ads,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+8abb5379030e,leads_raw,source_channel_raw,TEXT_VARIANT,2,Google Ads | Google ads,Normalized value: google ads,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+13fa14b5a932,leads_raw,source_channel_raw,TEXT_VARIANT,3, Organic Search   | Organic Search | Organic search,Normalized value: organic search,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+c86992cadc8f,leads_raw,source_channel_raw,TEXT_VARIANT,2, Paid Search   | Paid Search,Normalized value: paid search,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+022693b0d324,leads_raw,source_channel_raw,TEXT_VARIANT,3, Referral   | Referral | referral,Normalized value: referral,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+3766df083b37,leads_raw,company_name_raw,WHITESPACE,15, Vietnam Bio JSC   |  Clean Health Vietnam   |  Bio Precision JSC   |  Green Asia Vietnam   |  Health Pharma JSC  ,Whitespace changes after trim/collapse.,STANDARDIZE_TEXT,FIX,STANDARDIZE_TEXT,Trim and collapse accidental whitespace without changing business meaning.
+f3dae1da6f0c,leads_raw,source_channel_raw,WHITESPACE,5, direct   |  Facebook Ads   |  Organic Search   |  Paid Search   |  Referral  ,Whitespace changes after trim/collapse.,STANDARDIZE_TEXT,FIX,STANDARDIZE_TEXT,Trim and collapse accidental whitespace without changing business meaning.
+7f8cb722d80c,marketing_daily_raw,,EXACT_DUPLICATE,60,"{'date': '2025-04-10', 'campaign_id': 'MC001', 'channel': 'Google Ads', 'impressions': '654', 'clicks': '32', 'sessions': '32', 'spend_vnd': '457000.0', 'leads_reported': '0', 'source_platform': 'Manual'}",Rows participating in an exact duplicate group.,REMOVE_EXACT_DUPLICATES,FIX,REMOVE_EXACT_DUPLICATES,Remove exact duplicate rows after approved standardization; keep one copy.
+e0d2a380c057,marketing_daily_raw,channel,TEXT_VARIANT,2,Direct | direct,Normalized value: direct,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+4c6b11375690,marketing_daily_raw,channel,TEXT_VARIANT,2,Email | email,Normalized value: email,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+7195338096c8,marketing_daily_raw,channel,TEXT_VARIANT,2,Google Ads | Google ads,Normalized value: google ads,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+7965f50cfbae,marketing_daily_raw,channel,TEXT_VARIANT,2,Organic Search | Organic search,Normalized value: organic search,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+23a359ab66a2,marketing_daily_raw,channel,TEXT_VARIANT,2,Referral | referral,Normalized value: referral,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+a74cf0a8aff1,payments_raw,,EXACT_DUPLICATE,10,"{'payment_id': 'PAY0000015', 'invoice_id': 'INV000013', 'customer_id': 'C0029', 'payment_date': '2026-01-28', 'paid_amount_vnd': '8197000.0', 'payment_method': 'Bank transfer', 'payment_stage': 'Partial'}",Rows participating in an exact duplicate group.,REMOVE_EXACT_DUPLICATES,FIX,REMOVE_EXACT_DUPLICATES,Remove exact duplicate rows after approved standardization; keep one copy.
+086736848313,payments_raw,payment_method,TEXT_VARIANT,2,Bank Transfer | Bank transfer,Normalized value: bank transfer,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+56734a096e9c,process_events_raw,duration_from_previous_hours,MISSING_VALUE,1256,,real_null=1256; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+d395bab6962e,product_supplier_map_raw,effective_to,MISSING_VALUE,222,,real_null=222; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+be7e634aa474,product_supplier_map_raw,effective_to,ALL_MISSING_COLUMN,222,,No effective non-missing value observed.,REVIEW_SCHEMA,KEEP,,Column is currently all NULL; preserve it for schema continuity and future data.
+91e8c1e7c0a4,products_raw,shelf_life_days,MISSING_VALUE,16,,real_null=16; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+16049423cce9,products_raw,product_category,TEXT_VARIANT,2,Cleanroom Wipers | cleanroom wipers,Normalized value: cleanroom wipers,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+f552b20ba6e9,products_raw,product_category,TEXT_VARIANT,2,DISINFECTANTS | Disinfectants,Normalized value: disinfectants,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+da552ee79798,products_raw,product_name,WHITESPACE,1, QUAT Disinfectant  ,Whitespace changes after trim/collapse.,STANDARDIZE_TEXT,FIX,STANDARDIZE_TEXT,Trim and collapse accidental whitespace without changing business meaning.
+c9905397a5b0,purchase_orders_raw,actual_receipt_date,MISSING_VALUE,9,,real_null=9; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+740adb97544c,purchase_orders_raw,buyer_id,CONSTANT_COLUMN,234,E201,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+4d163389d77d,quotations_raw,customer_id,MISSING_VALUE,16,,real_null=16; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+b8a8397c14ce,sales_activities_raw,outcome_raw,MISSING_VALUE,54,,real_null=54; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+940166177b24,sales_activities_raw,next_followup_date,MISSING_VALUE,182,,real_null=182; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+e12d777428c6,sales_activities_raw,,EXACT_DUPLICATE,24,"{'activity_id': 'A0000023', 'lead_id': 'L000010', 'employee_id': 'E102', 'activity_datetime': '2025-10-08 08:31:13', 'activity_type_raw': 'Phone', 'outcome_raw': 'Connected', 'next_followup_date': '2025-10-15', 'data_entry_source': 'Email Sync'}",Rows participating in an exact duplicate group.,REMOVE_EXACT_DUPLICATES,FIX,REMOVE_EXACT_DUPLICATES,Remove exact duplicate rows after approved standardization; keep one copy.
+ed2d9989f760,sales_orders_raw,quotation_id,MISSING_VALUE,9,,real_null=9; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+12996170db51,sales_orders_raw,lead_id,MISSING_VALUE,35,,real_null=35; marker_null=0,STANDARDIZE_NULL_MARKERS,KEEP,,Preserve source NULL values as requested; no imputation or NULL-marker standardization.
+cabfaabb6252,shipments_raw,shipping_method_raw,TEXT_VARIANT,2,Dedicated Van | Dedicated van,Normalized value: dedicated van,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+788959a0fe67,shipments_raw,shipping_method_raw,TEXT_VARIANT,2,Local Truck | local truck,Normalized value: local truck,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+f95bab7931a3,shipments_raw,warehouse_id,CONSTANT_COLUMN,348,WH01,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+17bb3b27d9bf,shipments_raw,shipment_status,CONSTANT_COLUMN,348,Delivered,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+38991bb2e207,supplier_payments_raw,payment_method,CONSTANT_COLUMN,225,Bank Transfer,Only one effective value observed.,REVIEW_SCHEMA,KEEP,,Observed constant is a valid business state in this extract; preserve it.
+c2c93aca64ab,suppliers_raw,country,TEXT_VARIANT,2,MALAYSIA | Malaysia,Normalized value: malaysia,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+8a6d21993760,suppliers_raw,country,TEXT_VARIANT,2,Vietnam | vietnam,Normalized value: vietnam,APPLY_VALUE_MAPPING,FIX,APPLY_VALUE_MAPPING,Canonicalize reviewed categorical aliases using standardization_rules.json.
+dcdc88d8cae8,suppliers_raw,supplier_name,WHITESPACE,1, Penang Wiper Technologies  ,Whitespace changes after trim/collapse.,STANDARDIZE_TEXT,FIX,STANDARDIZE_TEXT,Trim and collapse accidental whitespace without changing business meaning.

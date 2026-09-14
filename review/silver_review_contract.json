@@ -3,6 +3,7 @@
     "table": {
       "name": "after_sales_cases_raw",
       "silver_name": "after_sales_cases",
+      "allow_no_primary_key": false,
       "primary_key": [
         "case_id"
       ],
@@ -15,8 +16,7 @@
           "column": "customer_id",
           "references": "customers_raw.customer_id"
         }
-      ],
-      "proposal": "Proposed PK: case_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "case_id": {
@@ -74,17 +74,18 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "business_interventions": {
     "table": {
       "name": "business_interventions",
       "silver_name": "business_interventions",
+      "allow_no_primary_key": false,
       "primary_key": [
         "intervention_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: intervention_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "intervention_id": {
@@ -122,17 +123,18 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "customers_raw": {
     "table": {
       "name": "customers_raw",
       "silver_name": "customers",
+      "allow_no_primary_key": false,
       "primary_key": [
         "customer_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: customer_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "customer_id": {
@@ -185,17 +187,151 @@
         "datatype": "date",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "ae5eed14207a",
+        "column_name": "tax_id",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 5,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=5; marker_null=0"
+      },
+      {
+        "issue_id": "3d4efcaf109b",
+        "column_name": "company_name",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Clean Scientific Factory | Clean Scientific Factory",
+        "detail": "Normalized value: clean scientific factory"
+      },
+      {
+        "issue_id": "d3e9ae6c2490",
+        "column_name": "company_name",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Industrial Med Factory | Industrial Med Factory",
+        "detail": "Normalized value: industrial med factory"
+      },
+      {
+        "issue_id": "a7cad63138d8",
+        "column_name": "company_name",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Tech Tech JSC | Tech Tech JSC",
+        "detail": "Normalized value: tech tech jsc"
+      },
+      {
+        "issue_id": "cbc9d97b979a",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Contractor | Cleanroom contractor",
+        "detail": "Normalized value: cleanroom contractor"
+      },
+      {
+        "issue_id": "a0303445f6b4",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Electronics | electronics",
+        "detail": "Normalized value: electronics"
+      },
+      {
+        "issue_id": "733bee91f076",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Laboratory | laboratory",
+        "detail": "Normalized value: laboratory"
+      },
+      {
+        "issue_id": "348b61397d37",
+        "column_name": "industry",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "PHARMACEUTICAL | Pharmaceutical",
+        "detail": "Normalized value: pharmaceutical"
+      },
+      {
+        "issue_id": "c8b2dc389fde",
+        "column_name": "province",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "BINH DUONG | Binh Duong",
+        "detail": "Normalized value: binh duong"
+      },
+      {
+        "issue_id": "d86e3483b0a1",
+        "column_name": "province",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "HA NOI | Ha Noi",
+        "detail": "Normalized value: ha noi"
+      },
+      {
+        "issue_id": "c122f77cba47",
+        "column_name": "default_payment_term",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "NET30 | Net30",
+        "detail": "Normalized value: net30"
+      },
+      {
+        "issue_id": "0a16bfd4ad79",
+        "column_name": "company_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Clean Health Vietnam   |  Bio Industrial Vietnam   |  Scientific Industrial Factory   |  Nova Industrial Factory   |  Solutions Lab JSC",
+        "detail": "Whitespace changes after trim/collapse."
+      }
+    ]
   },
   "departments": {
     "table": {
       "name": "departments",
       "silver_name": "departments",
+      "allow_no_primary_key": false,
       "primary_key": [
         "department_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: department_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "department_id": {
@@ -208,12 +344,14 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "employees": {
     "table": {
       "name": "employees",
       "silver_name": "employees",
+      "allow_no_primary_key": false,
       "primary_key": [
         "employee_id"
       ],
@@ -222,8 +360,7 @@
           "column": "department_id",
           "references": "departments.department_id"
         }
-      ],
-      "proposal": "Proposed PK: employee_id. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "employee_id": {
@@ -253,18 +390,45 @@
       },
       "termination_date": {
         "name": "termination_date",
-        "datatype": "string",
+        "datatype": "date",
         "nullable": true
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "08d78fea0035",
+        "column_name": "termination_date",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 10,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=10; marker_null=0"
+      },
+      {
+        "issue_id": "b05b45987bff",
+        "column_name": "termination_date",
+        "issue_type": "ALL_MISSING_COLUMN",
+        "issue_count": 10,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Column is currently all NULL; preserve it for schema continuity and future data.",
+        "example": "",
+        "detail": "No effective non-missing value observed."
+      }
+    ]
   },
   "fx_rates_daily": {
     "table": {
       "name": "fx_rates_daily",
       "silver_name": "fx_rates_daily",
-      "primary_key": [],
-      "foreign_keys": [],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 0. Review this JSON before cleaning."
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "date",
+        "currency"
+      ],
+      "foreign_keys": []
     },
     "columns": {
       "date": {
@@ -282,14 +446,17 @@
         "datatype": "decimal",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "inventory_daily_snapshot_raw": {
     "table": {
       "name": "inventory_daily_snapshot_raw",
       "silver_name": "inventory_daily_snapshot",
+      "allow_no_primary_key": false,
       "primary_key": [
         "snapshot_date",
+        "warehouse_id",
         "product_id"
       ],
       "foreign_keys": [
@@ -301,8 +468,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: snapshot_date + product_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "snapshot_date": {
@@ -365,12 +531,26 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "0ca303487072",
+        "column_name": "warehouse_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 19456,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "inventory_movements_raw": {
     "table": {
       "name": "inventory_movements_raw",
       "silver_name": "inventory_movements",
+      "allow_no_primary_key": false,
       "primary_key": [
         "inventory_move_id"
       ],
@@ -383,8 +563,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: inventory_move_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "inventory_move_id": {
@@ -442,20 +621,69 @@
         "datatype": "date",
         "nullable": true
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "0e5aeaf4ce63",
+        "column_name": "reference_line",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 41,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=41; marker_null=0"
+      },
+      {
+        "issue_id": "7e8807e5c833",
+        "column_name": "batch_no",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 447,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=447; marker_null=0"
+      },
+      {
+        "issue_id": "984eed8e945f",
+        "column_name": "expiry_date",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 458,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=458; marker_null=0"
+      },
+      {
+        "issue_id": "3e5fbe5bbcbe",
+        "column_name": "warehouse_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 683,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "inventory_policy_history": {
     "table": {
       "name": "inventory_policy_history",
       "silver_name": "inventory_policy_history",
-      "primary_key": [],
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "product_id",
+        "effective_from"
+      ],
       "foreign_keys": [
         {
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "product_id": {
@@ -493,12 +721,48 @@
         "datatype": "decimal",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "bde820ef6a5c",
+        "column_name": "effective_to",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 32,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=32; marker_null=0"
+      },
+      {
+        "issue_id": "8ae89f2a4818",
+        "column_name": "effective_to",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 6,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "2026-04-30",
+        "detail": "Only one effective value observed."
+      },
+      {
+        "issue_id": "3091d718f1b9",
+        "column_name": "annual_holding_rate_pct",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 38,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "0.22",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "invoice_lines_raw": {
     "table": {
       "name": "invoice_lines_raw",
       "silver_name": "invoice_lines",
+      "allow_no_primary_key": false,
       "primary_key": [
         "invoice_line_id"
       ],
@@ -515,8 +779,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: invoice_line_id. Proposed FK count: 3. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "invoice_line_id": {
@@ -561,7 +824,7 @@
       },
       "tax_amount_vnd": {
         "name": "tax_amount_vnd",
-        "datatype": "string",
+        "datatype": "integer",
         "nullable": false
       },
       "line_total_vnd": {
@@ -569,12 +832,14 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "invoices_raw": {
     "table": {
       "name": "invoices_raw",
       "silver_name": "invoices",
+      "allow_no_primary_key": false,
       "primary_key": [
         "invoice_id"
       ],
@@ -587,8 +852,7 @@
           "column": "customer_id",
           "references": "customers_raw.customer_id"
         }
-      ],
-      "proposal": "Proposed PK: invoice_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "invoice_id": {
@@ -636,13 +900,17 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "leads_raw": {
     "table": {
       "name": "leads_raw",
       "silver_name": "leads",
-      "primary_key": [],
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "lead_id"
+      ],
       "foreign_keys": [
         {
           "column": "customer_id",
@@ -651,9 +919,16 @@
         {
           "column": "campaign_id",
           "references": "marketing_campaigns.campaign_id"
+        },
+        {
+          "column": "product_interest_id",
+          "references": "products_raw.product_id"
+        },
+        {
+          "column": "assigned_sales_id",
+          "references": "employees.employee_id"
         }
-      ],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "lead_id": {
@@ -771,17 +1046,393 @@
         "datatype": "string",
         "nullable": true
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "e8f951dbbac1",
+        "column_name": "customer_id",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 29,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=29; marker_null=0"
+      },
+      {
+        "issue_id": "71af42b4612c",
+        "column_name": "lost_reason_raw",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 140,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=140; marker_null=0"
+      },
+      {
+        "issue_id": "194a1194cd03",
+        "column_name": "email",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 73,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=73; marker_null=0"
+      },
+      {
+        "issue_id": "abccfc2550f7",
+        "column_name": "phone",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 59,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=59; marker_null=0"
+      },
+      {
+        "issue_id": "e93cecdb5684",
+        "column_name": "",
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'lead_id': 'L000017', 'created_at': '2025-03-15 16:23:00', 'customer_id': 'C0002', 'company_name_raw': 'Scientific Advanced Vietnam', 'industry_raw': 'F&B', 'province_raw': 'Ha Noi', 'source_channel_raw': 'Google Ads', 'campaign_id': 'MC001', 'product_interest_id': 'P014', 'inquiry_type': 'Distributor Inquiry', 'company_size_band': '1000+', 'pages_viewed_30d': '3', 'form_completeness_pct': '90', 'requested_quote_flag': '0', 'requested_sample_flag': '0', 'budget_status': 'Under Review', 'purchase_timeline_days': '60', 'assigned_sales_id': 'E102', 'lifecycle_status_raw': 'Quoted', 'lost_reason_raw': 'Specification', 'expected_value_vnd': '8320000.0', 'email': 'scientific17@company.vn', 'phone': '0930698288'}",
+        "detail": "Rows participating in an exact duplicate group."
+      },
+      {
+        "issue_id": "b164bc880187",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Asia Vietnam JSC   | Asia Vietnam JSC",
+        "detail": "Normalized value: asia vietnam jsc"
+      },
+      {
+        "issue_id": "388e508f93fd",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Advanced Vietnam   | Bio Advanced Vietnam",
+        "detail": "Normalized value: bio advanced vietnam"
+      },
+      {
+        "issue_id": "4e3abcc547de",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Industrial Vietnam   | Bio Industrial Vietnam",
+        "detail": "Normalized value: bio industrial vietnam"
+      },
+      {
+        "issue_id": "988873b9dcd9",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Bio Precision JSC   | Bio Precision JSC",
+        "detail": "Normalized value: bio precision jsc"
+      },
+      {
+        "issue_id": "cf0a977bb903",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Clean Health Vietnam   | Clean Health Vietnam",
+        "detail": "Normalized value: clean health vietnam"
+      },
+      {
+        "issue_id": "89a52a6a92e6",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Green Asia Vietnam   | Green Asia Vietnam",
+        "detail": "Normalized value: green asia vietnam"
+      },
+      {
+        "issue_id": "aa67aada4470",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Health Pharma JSC   | Health Pharma JSC",
+        "detail": "Normalized value: health pharma jsc"
+      },
+      {
+        "issue_id": "2bbd178750fc",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Industrial Bio Co Ltd   | Industrial Bio Co Ltd",
+        "detail": "Normalized value: industrial bio co ltd"
+      },
+      {
+        "issue_id": "20fc1db9b417",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Lab Industrial JSC   | Lab Industrial JSC",
+        "detail": "Normalized value: lab industrial jsc"
+      },
+      {
+        "issue_id": "aeb789099586",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Med Asia Vietnam   | Med Asia Vietnam",
+        "detail": "Normalized value: med asia vietnam"
+      },
+      {
+        "issue_id": "e1bb72333c91",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Scientific Advanced Vietnam   | Scientific Advanced Vietnam",
+        "detail": "Normalized value: scientific advanced vietnam"
+      },
+      {
+        "issue_id": "f1cf953e14ca",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Solutions Industrial Factory   | Solutions Industrial Factory",
+        "detail": "Normalized value: solutions industrial factory"
+      },
+      {
+        "issue_id": "ce7b822fbd16",
+        "column_name": "company_name_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Do not semantically remap company names; formatting differences are handled by STANDARDIZE_TEXT.",
+        "example": "Vietnam Bio JSC   | Vietnam Bio JSC",
+        "detail": "Normalized value: vietnam bio jsc"
+      },
+      {
+        "issue_id": "9dfb5182adc5",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Contractor | Cleanroom contractor",
+        "detail": "Normalized value: cleanroom contractor"
+      },
+      {
+        "issue_id": "81402b2d3776",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Electronics | electronics",
+        "detail": "Normalized value: electronics"
+      },
+      {
+        "issue_id": "1568ea275704",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Laboratory | laboratory",
+        "detail": "Normalized value: laboratory"
+      },
+      {
+        "issue_id": "a7bdcb24d767",
+        "column_name": "industry_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "PHARMACEUTICAL | Pharmaceutical | pharmaceutical",
+        "detail": "Normalized value: pharmaceutical"
+      },
+      {
+        "issue_id": "3690cf9ed93b",
+        "column_name": "province_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "BINH DUONG | Binh Duong",
+        "detail": "Normalized value: binh duong"
+      },
+      {
+        "issue_id": "adf01b6bf12e",
+        "column_name": "province_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Dong Nai | dong nai",
+        "detail": "Normalized value: dong nai"
+      },
+      {
+        "issue_id": "2902ace654bc",
+        "column_name": "province_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "HA NOI | Ha Noi",
+        "detail": "Normalized value: ha noi"
+      },
+      {
+        "issue_id": "d48d3de92119",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "direct   | Direct | direct",
+        "detail": "Normalized value: direct"
+      },
+      {
+        "issue_id": "0a5f28440286",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Email | email",
+        "detail": "Normalized value: email"
+      },
+      {
+        "issue_id": "1ddbd9753a3a",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Facebook Ads   | Facebook Ads",
+        "detail": "Normalized value: facebook ads"
+      },
+      {
+        "issue_id": "8abb5379030e",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Google Ads | Google ads",
+        "detail": "Normalized value: google ads"
+      },
+      {
+        "issue_id": "13fa14b5a932",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Organic Search   | Organic Search | Organic search",
+        "detail": "Normalized value: organic search"
+      },
+      {
+        "issue_id": "c86992cadc8f",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Paid Search   | Paid Search",
+        "detail": "Normalized value: paid search"
+      },
+      {
+        "issue_id": "022693b0d324",
+        "column_name": "source_channel_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 3,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Referral   | Referral | referral",
+        "detail": "Normalized value: referral"
+      },
+      {
+        "issue_id": "3766df083b37",
+        "column_name": "company_name_raw",
+        "issue_type": "WHITESPACE",
+        "issue_count": 15,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Vietnam Bio JSC   |  Clean Health Vietnam   |  Bio Precision JSC   |  Green Asia Vietnam   |  Health Pharma JSC",
+        "detail": "Whitespace changes after trim/collapse."
+      },
+      {
+        "issue_id": "f3dae1da6f0c",
+        "column_name": "source_channel_raw",
+        "issue_type": "WHITESPACE",
+        "issue_count": 5,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "direct   |  Facebook Ads   |  Organic Search   |  Paid Search   |  Referral",
+        "detail": "Whitespace changes after trim/collapse."
+      }
+    ]
   },
   "marketing_campaigns": {
     "table": {
       "name": "marketing_campaigns",
       "silver_name": "marketing_campaigns",
+      "allow_no_primary_key": false,
       "primary_key": [
         "campaign_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: campaign_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "campaign_id": {
@@ -819,20 +1470,24 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "marketing_daily_raw": {
     "table": {
       "name": "marketing_daily_raw",
       "silver_name": "marketing_daily",
-      "primary_key": [],
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "date",
+        "campaign_id"
+      ],
       "foreign_keys": [
         {
           "column": "campaign_id",
           "references": "marketing_campaigns.campaign_id"
         }
-      ],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "date": {
@@ -880,13 +1535,84 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "7f8cb722d80c",
+        "column_name": "",
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 60,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'date': '2025-04-10', 'campaign_id': 'MC001', 'channel': 'Google Ads', 'impressions': '654', 'clicks': '32', 'sessions': '32', 'spend_vnd': '457000.0', 'leads_reported': '0', 'source_platform': 'Manual'}",
+        "detail": "Rows participating in an exact duplicate group."
+      },
+      {
+        "issue_id": "e0d2a380c057",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Direct | direct",
+        "detail": "Normalized value: direct"
+      },
+      {
+        "issue_id": "4c6b11375690",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Email | email",
+        "detail": "Normalized value: email"
+      },
+      {
+        "issue_id": "7195338096c8",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Google Ads | Google ads",
+        "detail": "Normalized value: google ads"
+      },
+      {
+        "issue_id": "7965f50cfbae",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Organic Search | Organic search",
+        "detail": "Normalized value: organic search"
+      },
+      {
+        "issue_id": "23a359ab66a2",
+        "column_name": "channel",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Referral | referral",
+        "detail": "Normalized value: referral"
+      }
+    ]
   },
   "payments_raw": {
     "table": {
       "name": "payments_raw",
       "silver_name": "payments",
-      "primary_key": [],
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "payment_id"
+      ],
       "foreign_keys": [
         {
           "column": "invoice_id",
@@ -896,8 +1622,7 @@
           "column": "customer_id",
           "references": "customers_raw.customer_id"
         }
-      ],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "payment_id": {
@@ -935,17 +1660,41 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "a74cf0a8aff1",
+        "column_name": "",
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 10,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'payment_id': 'PAY0000015', 'invoice_id': 'INV000013', 'customer_id': 'C0029', 'payment_date': '2026-01-28', 'paid_amount_vnd': '8197000.0', 'payment_method': 'Bank transfer', 'payment_stage': 'Partial'}",
+        "detail": "Rows participating in an exact duplicate group."
+      },
+      {
+        "issue_id": "086736848313",
+        "column_name": "payment_method",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Bank Transfer | Bank transfer",
+        "detail": "Normalized value: bank transfer"
+      }
+    ]
   },
   "process_events_raw": {
     "table": {
       "name": "process_events_raw",
       "silver_name": "process_events",
+      "allow_no_primary_key": false,
       "primary_key": [
         "process_event_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: process_event_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "process_event_id": {
@@ -988,12 +1737,26 @@
         "datatype": "decimal",
         "nullable": true
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "56734a096e9c",
+        "column_name": "duration_from_previous_hours",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 1256,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=1256; marker_null=0"
+      }
+    ]
   },
   "product_supplier_map_raw": {
     "table": {
       "name": "product_supplier_map_raw",
       "silver_name": "product_supplier_map",
+      "allow_no_primary_key": false,
       "primary_key": [
         "map_id"
       ],
@@ -1006,8 +1769,7 @@
           "column": "supplier_id",
           "references": "suppliers_raw.supplier_id"
         }
-      ],
-      "proposal": "Proposed PK: map_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "map_id": {
@@ -1037,7 +1799,7 @@
       },
       "effective_to": {
         "name": "effective_to",
-        "datatype": "string",
+        "datatype": "date",
         "nullable": true
       },
       "currency": {
@@ -1070,17 +1832,41 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "d395bab6962e",
+        "column_name": "effective_to",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 222,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=222; marker_null=0"
+      },
+      {
+        "issue_id": "be7e634aa474",
+        "column_name": "effective_to",
+        "issue_type": "ALL_MISSING_COLUMN",
+        "issue_count": 222,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Column is currently all NULL; preserve it for schema continuity and future data.",
+        "example": "",
+        "detail": "No effective non-missing value observed."
+      }
+    ]
   },
   "products_raw": {
     "table": {
       "name": "products_raw",
       "silver_name": "products",
+      "allow_no_primary_key": false,
       "primary_key": [
         "product_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: product_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "product_id": {
@@ -1153,12 +1939,59 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "91e8c1e7c0a4",
+        "column_name": "shelf_life_days",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 16,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=16; marker_null=0"
+      },
+      {
+        "issue_id": "16049423cce9",
+        "column_name": "product_category",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Cleanroom Wipers | cleanroom wipers",
+        "detail": "Normalized value: cleanroom wipers"
+      },
+      {
+        "issue_id": "f552b20ba6e9",
+        "column_name": "product_category",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "DISINFECTANTS | Disinfectants",
+        "detail": "Normalized value: disinfectants"
+      },
+      {
+        "issue_id": "da552ee79798",
+        "column_name": "product_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 1,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "QUAT Disinfectant",
+        "detail": "Whitespace changes after trim/collapse."
+      }
+    ]
   },
   "purchase_order_lines_raw": {
     "table": {
       "name": "purchase_order_lines_raw",
       "silver_name": "purchase_order_lines",
+      "allow_no_primary_key": false,
       "primary_key": [
         "purchase_order_line_id"
       ],
@@ -1171,8 +2004,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: purchase_order_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "purchase_order_line_id": {
@@ -1240,12 +2072,14 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "purchase_orders_raw": {
     "table": {
       "name": "purchase_orders_raw",
       "silver_name": "purchase_orders",
+      "allow_no_primary_key": false,
       "primary_key": [
         "purchase_order_id"
       ],
@@ -1253,9 +2087,12 @@
         {
           "column": "supplier_id",
           "references": "suppliers_raw.supplier_id"
+        },
+        {
+          "column": "buyer_id",
+          "references": "employees.employee_id"
         }
-      ],
-      "proposal": "Proposed PK: purchase_order_id. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "purchase_order_id": {
@@ -1313,14 +2150,39 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "c9905397a5b0",
+        "column_name": "actual_receipt_date",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 9,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=9; marker_null=0"
+      },
+      {
+        "issue_id": "740adb97544c",
+        "column_name": "buyer_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 234,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "E201",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "qa_events_raw": {
     "table": {
       "name": "qa_events_raw",
       "silver_name": "qa_events",
+      "allow_no_primary_key": false,
       "primary_key": [
-        "purchase_order_line_id"
+        "qa_event_id"
       ],
       "foreign_keys": [
         {
@@ -1339,8 +2201,7 @@
           "column": "supplier_id",
           "references": "suppliers_raw.supplier_id"
         }
-      ],
-      "proposal": "Proposed PK: purchase_order_line_id. Proposed FK count: 4. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "qa_event_id": {
@@ -1398,12 +2259,14 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "quotation_lines_raw": {
     "table": {
       "name": "quotation_lines_raw",
       "silver_name": "quotation_lines",
+      "allow_no_primary_key": false,
       "primary_key": [
         "quotation_line_id"
       ],
@@ -1416,8 +2279,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: quotation_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "quotation_line_id": {
@@ -1460,22 +2322,31 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "quotations_raw": {
     "table": {
       "name": "quotations_raw",
       "silver_name": "quotations",
+      "allow_no_primary_key": false,
       "primary_key": [
         "quotation_id"
       ],
       "foreign_keys": [
         {
+          "column": "lead_id",
+          "references": "leads_raw.lead_id"
+        },
+        {
           "column": "customer_id",
           "references": "customers_raw.customer_id"
+        },
+        {
+          "column": "salesperson_id",
+          "references": "employees.employee_id"
         }
-      ],
-      "proposal": "Proposed PK: quotation_id. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "quotation_id": {
@@ -1538,20 +2409,39 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "4d163389d77d",
+        "column_name": "customer_id",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 16,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=16; marker_null=0"
+      }
+    ]
   },
   "sales_activities_raw": {
     "table": {
       "name": "sales_activities_raw",
       "silver_name": "sales_activities",
-      "primary_key": [],
+      "allow_no_primary_key": false,
+      "primary_key": [
+        "activity_id"
+      ],
       "foreign_keys": [
+        {
+          "column": "lead_id",
+          "references": "leads_raw.lead_id"
+        },
         {
           "column": "employee_id",
           "references": "employees.employee_id"
         }
-      ],
-      "proposal": "No safe PK found automatically; review table grain/composite key. Proposed FK count: 1. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "activity_id": {
@@ -1594,12 +2484,48 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "b8a8397c14ce",
+        "column_name": "outcome_raw",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 54,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=54; marker_null=0"
+      },
+      {
+        "issue_id": "940166177b24",
+        "column_name": "next_followup_date",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 182,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=182; marker_null=0"
+      },
+      {
+        "issue_id": "e12d777428c6",
+        "column_name": "",
+        "issue_type": "EXACT_DUPLICATE",
+        "issue_count": 24,
+        "decision": "FIX",
+        "action": "REMOVE_EXACT_DUPLICATES",
+        "reason": "Remove exact duplicate rows after approved standardization; keep one copy.",
+        "example": "{'activity_id': 'A0000023', 'lead_id': 'L000010', 'employee_id': 'E102', 'activity_datetime': '2025-10-08 08:31:13', 'activity_type_raw': 'Phone', 'outcome_raw': 'Connected', 'next_followup_date': '2025-10-15', 'data_entry_source': 'Email Sync'}",
+        "detail": "Rows participating in an exact duplicate group."
+      }
+    ]
   },
   "sales_order_lines_raw": {
     "table": {
       "name": "sales_order_lines_raw",
       "silver_name": "sales_order_lines",
+      "allow_no_primary_key": false,
       "primary_key": [
         "sales_order_line_id"
       ],
@@ -1612,8 +2538,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: sales_order_line_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "sales_order_line_id": {
@@ -1666,12 +2591,14 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "sales_orders_raw": {
     "table": {
       "name": "sales_orders_raw",
       "silver_name": "sales_orders",
+      "allow_no_primary_key": false,
       "primary_key": [
         "sales_order_id"
       ],
@@ -1681,11 +2608,18 @@
           "references": "quotations_raw.quotation_id"
         },
         {
+          "column": "lead_id",
+          "references": "leads_raw.lead_id"
+        },
+        {
           "column": "customer_id",
           "references": "customers_raw.customer_id"
+        },
+        {
+          "column": "salesperson_id",
+          "references": "employees.employee_id"
         }
-      ],
-      "proposal": "Proposed PK: sales_order_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "sales_order_id": {
@@ -1748,12 +2682,37 @@
         "datatype": "decimal",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "ed2d9989f760",
+        "column_name": "quotation_id",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 9,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=9; marker_null=0"
+      },
+      {
+        "issue_id": "12996170db51",
+        "column_name": "lead_id",
+        "issue_type": "MISSING_VALUE",
+        "issue_count": 35,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Preserve source NULL values as requested; no imputation or NULL-marker standardization.",
+        "example": "",
+        "detail": "real_null=35; marker_null=0"
+      }
+    ]
   },
   "shipment_lines_raw": {
     "table": {
       "name": "shipment_lines_raw",
       "silver_name": "shipment_lines",
+      "allow_no_primary_key": false,
       "primary_key": [
         "shipment_line_id"
       ],
@@ -1770,8 +2729,7 @@
           "column": "product_id",
           "references": "products_raw.product_id"
         }
-      ],
-      "proposal": "Proposed PK: shipment_line_id. Proposed FK count: 3. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "shipment_line_id": {
@@ -1799,12 +2757,14 @@
         "datatype": "integer",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "shipments_raw": {
     "table": {
       "name": "shipments_raw",
       "silver_name": "shipments",
+      "allow_no_primary_key": false,
       "primary_key": [
         "shipment_id"
       ],
@@ -1817,8 +2777,7 @@
           "column": "warehouse_id",
           "references": "warehouses.warehouse_id"
         }
-      ],
-      "proposal": "Proposed PK: shipment_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "shipment_id": {
@@ -1871,12 +2830,59 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "cabfaabb6252",
+        "column_name": "shipping_method_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Dedicated Van | Dedicated van",
+        "detail": "Normalized value: dedicated van"
+      },
+      {
+        "issue_id": "788959a0fe67",
+        "column_name": "shipping_method_raw",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Local Truck | local truck",
+        "detail": "Normalized value: local truck"
+      },
+      {
+        "issue_id": "f95bab7931a3",
+        "column_name": "warehouse_id",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 348,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "WH01",
+        "detail": "Only one effective value observed."
+      },
+      {
+        "issue_id": "17bb3b27d9bf",
+        "column_name": "shipment_status",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 348,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "Delivered",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "supplier_invoices_raw": {
     "table": {
       "name": "supplier_invoices_raw",
       "silver_name": "supplier_invoices",
+      "allow_no_primary_key": false,
       "primary_key": [
         "supplier_invoice_id"
       ],
@@ -1889,8 +2895,7 @@
           "column": "supplier_id",
           "references": "suppliers_raw.supplier_id"
         }
-      ],
-      "proposal": "Proposed PK: supplier_invoice_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "supplier_invoice_id": {
@@ -1928,12 +2933,14 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   },
   "supplier_payments_raw": {
     "table": {
       "name": "supplier_payments_raw",
       "silver_name": "supplier_payments",
+      "allow_no_primary_key": false,
       "primary_key": [
         "supplier_payment_id"
       ],
@@ -1946,8 +2953,7 @@
           "column": "supplier_id",
           "references": "suppliers_raw.supplier_id"
         }
-      ],
-      "proposal": "Proposed PK: supplier_payment_id. Proposed FK count: 2. Review this JSON before cleaning."
+      ]
     },
     "columns": {
       "supplier_payment_id": {
@@ -1980,17 +2986,30 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "38991bb2e207",
+        "column_name": "payment_method",
+        "issue_type": "CONSTANT_COLUMN",
+        "issue_count": 225,
+        "decision": "KEEP",
+        "action": "NONE",
+        "reason": "Observed constant is a valid business state in this extract; preserve it.",
+        "example": "Bank Transfer",
+        "detail": "Only one effective value observed."
+      }
+    ]
   },
   "suppliers_raw": {
     "table": {
       "name": "suppliers_raw",
       "silver_name": "suppliers",
+      "allow_no_primary_key": false,
       "primary_key": [
         "supplier_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: supplier_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "supplier_id": {
@@ -2043,17 +3062,52 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": [
+      {
+        "issue_id": "c2c93aca64ab",
+        "column_name": "country",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "MALAYSIA | Malaysia",
+        "detail": "Normalized value: malaysia"
+      },
+      {
+        "issue_id": "8a6d21993760",
+        "column_name": "country",
+        "issue_type": "TEXT_VARIANT",
+        "issue_count": 2,
+        "decision": "FIX",
+        "action": "APPLY_VALUE_MAPPING",
+        "reason": "Canonicalize reviewed categorical aliases using standardization_rules.json.",
+        "example": "Vietnam | vietnam",
+        "detail": "Normalized value: vietnam"
+      },
+      {
+        "issue_id": "dcdc88d8cae8",
+        "column_name": "supplier_name",
+        "issue_type": "WHITESPACE",
+        "issue_count": 1,
+        "decision": "FIX",
+        "action": "STANDARDIZE_TEXT",
+        "reason": "Trim and collapse accidental whitespace without changing business meaning.",
+        "example": "Penang Wiper Technologies",
+        "detail": "Whitespace changes after trim/collapse."
+      }
+    ]
   },
   "warehouses": {
     "table": {
       "name": "warehouses",
       "silver_name": "warehouses",
+      "allow_no_primary_key": false,
       "primary_key": [
         "warehouse_id"
       ],
-      "foreign_keys": [],
-      "proposal": "Proposed PK: warehouse_id. Proposed FK count: 0. Review this JSON before cleaning."
+      "foreign_keys": []
     },
     "columns": {
       "warehouse_id": {
@@ -2081,6 +3135,7 @@
         "datatype": "string",
         "nullable": false
       }
-    }
+    },
+    "quality_decisions": []
   }
 }
